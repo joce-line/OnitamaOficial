@@ -11,9 +11,10 @@ public class BoardManager : MonoBehaviour
         return instance;
     }
 
+    // Dimensões do tabuleiro
     public int dimensionX = 5;
     public int dimensionY = 5;
-    public float nodeSize = 1f;
+    public float nodeSize = 10f;
 
     public Transform nodePrefab;
     public Transform gridParent;
