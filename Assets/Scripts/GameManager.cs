@@ -1,30 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public List<PlayerPiece> player1Units = new();
-    public List<PlayerPiece> player2Units = new();
+    public List<UnitS> player1Units = new List<UnitS>();
+    public List<UnitS> player2Units = new List<UnitS>();
     public GameObject playerPawnPrefab;
     public GameObject playerKingPrefab;
-
-    [SerializeField] private GameObject tilePrefab;
-    [SerializeField] private GameObject tileHighlightPrefab;
 
     public bool pturn = true;
     public int turnNum = -1;
     private bool p1KingCaptured = false;
     private bool p2KingCaptured = false;
-    private BoardTile p1GoalNode;
-    private BoardTile p2GoalNode;
+    private GridNodeS p1GoalNode;
+    private GridNodeS p2GoalNode;
     private GameObject goal1Tmp;
 
     public GameObject GoalText;
 
     public int activePlayer = 0;
-
-    public bool aiPlayer = true;
 
     public static GameManager instance;
     public static GameManager GetInstance()
@@ -62,22 +58,22 @@ public class GameManager : MonoBehaviour
         {
             if (i == 2)
             {
-                CreateUnit(1, i, 0, PlayerPiece.UnitType.king);
+                CreateUnit(1, i, 0, UnitS.unitType.king);
             }
             else
             {
-                CreateUnit(1, i, 0, PlayerPiece.UnitType.pawn);
+                CreateUnit(1, i, 0, UnitS.unitType.pawn);
             }
         }
         for (int i = 0; i < 5; i++)
         {
             if (i == 2)
             {
-                CreateUnit(2, i, 4, PlayerPiece.UnitType.king);
+                CreateUnit(2, i, 4, UnitS.unitType.king);
             }
             else
             {
-                CreateUnit(2, i, 4, PlayerPiece.UnitType.pawn);
+                CreateUnit(2, i, 4, UnitS.unitType.pawn);
             }
         }
     }
@@ -85,31 +81,31 @@ public class GameManager : MonoBehaviour
     //para pegar os nós onde ficam os mestres
     public void InitGoalNodes()
     {
-        p1GoalNode = BoardManager.GetNodeS(2, 4);
-        p2GoalNode = BoardManager.GetNodeS(2, 0);
+        p1GoalNode = GridManagerS.GetNodeS(2, 4);
+        p2GoalNode = GridManagerS.GetNodeS(2, 0);
     }
 
     public void RunGame()
     {
         activePlayer = 1;
-        StartCoroutine(SetStartingActivePlayer());
+        StartCoroutine(setStartingActivePlayer());
     }
 
-    IEnumerator SetStartingActivePlayer()
+    IEnumerator setStartingActivePlayer()
     {
         yield return new WaitForSeconds(.5f);
-        ActionParams data = new();
+        ActionParams data = new ActionParams();
         data.Put("activePlayer", activePlayer);
         EventManager.TriggerEvent("ActivePlayer", data);
     }
 
-    public void CreateUnit(int playerId, int x, int y, PlayerPiece.UnitType utype)
+    public void CreateUnit(int playerId, int x, int y, UnitS.unitType utype)
     {
-        PlayerPiece temp;
+        UnitS temp;
         GameObject newGo;
-        BoardTile node;
+        GridNodeS node;
 
-        if (utype == PlayerPiece.UnitType.pawn)
+        if (utype == UnitS.unitType.pawn)
         {
             newGo = Instantiate(playerPawnPrefab, Vector3.zero, Quaternion.identity);
         }
@@ -118,8 +114,8 @@ public class GameManager : MonoBehaviour
             newGo = Instantiate(playerKingPrefab, Vector3.zero, Quaternion.identity);
         }
 
-        temp = newGo.transform.GetComponent<PlayerPiece>();
-        node = BoardManager.GetNodeS(x, y);
+        temp = newGo.transform.GetComponent<UnitS>();
+        node = GridManagerS.GetNodeS(x, y);
         node.occupyingUnit = temp;
         temp.node = node;
 
@@ -128,13 +124,13 @@ public class GameManager : MonoBehaviour
         if (playerId == 1)
         {
             newGo.GetComponent<Renderer>().material.color = Color.red;
-            temp.ptype = PlayerPiece.Player.p1;
+            temp.ptype = UnitS.player.p1;
             player1Units.Add(temp);
         }
         else
         {
             newGo.GetComponent<Renderer>().material.color = Color.blue;
-            temp.ptype = PlayerPiece.Player.p2;
+            temp.ptype = UnitS.player.p2;
             player2Units.Add(temp);
         }
     }
@@ -142,11 +138,11 @@ public class GameManager : MonoBehaviour
     public void OnEndPlayerMovement(string eventName, ActionParams data)
     {
         int receivedPlayer = data.Get<int>("activePlayer");
-        BoardTile receivedNode = data.Get<BoardTile>("lastSelectedNode");
+        GridNodeS receivedNode = data.Get<GridNodeS>("lastSelectedNode");
 
         if (CheckForGameEnd(receivedNode))
         {
-            ActionParams temp = new();
+            ActionParams temp = new ActionParams();
             temp.Put("activePlayer", activePlayer);
             EventManager.TriggerEvent("GameOver", temp);
         }
@@ -154,20 +150,15 @@ public class GameManager : MonoBehaviour
         {
             activePlayer = (receivedPlayer == 1) ? 2 : 1;
 
-            if (aiPlayer && activePlayer == 2)
-            {
-                EventManager.TriggerEvent("AITurn", new ActionParams());
-            }
-            else
-            {
-                ActionParams temp = new();
+            
+                ActionParams temp = new ActionParams();
                 temp.Put("activePlayer", activePlayer);
                 EventManager.TriggerEvent("ActivePlayer", temp);
-            }
+            
         }
     }
 
-    public bool CheckForGameEnd(BoardTile node)
+    public bool CheckForGameEnd(GridNodeS node)
     {
         //verifica se os reis foram capturados
         if (p1KingCaptured || p2KingCaptured)
@@ -178,16 +169,16 @@ public class GameManager : MonoBehaviour
         //Verifica se o rei adversario chegou no campo do outro
         if (node == p1GoalNode)
         {
-            if (p1GoalNode.occupyingUnit.usType == PlayerPiece.UnitType.king &&
-                p1GoalNode.occupyingUnit.ptype == PlayerPiece.Player.p1)
+            if (p1GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
+                p1GoalNode.occupyingUnit.ptype == UnitS.player.p1)
             {
                 return true;
             }
         }
         if (node == p2GoalNode)
         {
-            if (p2GoalNode.occupyingUnit.usType == PlayerPiece.UnitType.king &&
-                p2GoalNode.occupyingUnit.ptype == PlayerPiece.Player.p2)
+            if (p2GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
+                p2GoalNode.occupyingUnit.ptype == UnitS.player.p2)
             {
                 return true;
             }
@@ -196,18 +187,18 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public static void RemoveUnitAtNode(BoardTile node)
+    public static void RemoveUnitAtNode(GridNodeS node)
     {
         if (node.occupyingUnit != null)
         {
-            PlayerPiece temp = node.occupyingUnit;
-            if (temp.usType == PlayerPiece.UnitType.king)
+            UnitS temp = node.occupyingUnit;
+            if (temp.usType == UnitS.unitType.king)
             {
-                if (temp.ptype == PlayerPiece.Player.p1)
+                if (temp.ptype == UnitS.player.p1)
                 {
                     instance.p1KingCaptured = true;
                 }
-                else if (temp.ptype == PlayerPiece.Player.p2)
+                else if (temp.ptype == UnitS.player.p2)
                 {
                     instance.p2KingCaptured = true;
                 }
@@ -219,9 +210,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void RemoveUnitFromPlayerList(PlayerPiece unit)
+    public static void RemoveUnitFromPlayerList(UnitS unit)
     {
-        if (unit.ptype == PlayerPiece.Player.p1)
+        if (unit.ptype == UnitS.player.p1)
         {
             instance.player1Units.Remove(unit);
         }
@@ -231,15 +222,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static List<BoardTile> BuildUnitMoveList(OnitamaCard card, BoardTile node)
+    public static List<GridNodeS> BuildUnitMoveList(OnitamaCard card, GridNodeS node)
     {
         List<CardMove> unitmoves = card.cardinfo.moveset;
         int x = node.x;
-        int y = node.y; 
+        int y = node.y;
 
         if (card.playerId == 1)
         {
-            return instance.LegalUnitMoves(unitmoves, x, y, 1);
+            return instance.LegalUnitMoves(unitmoves, x, y, -1);
         }
         else
         {
@@ -247,13 +238,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private List<BoardTile> LegalUnitMoves(List<CardMove> moves, int x, int y, int mult)
+    private List<GridNodeS> LegalUnitMoves(List<CardMove> moves, int x, int y, int mult)
     {
-        List<BoardTile> rList = new();
+        List<GridNodeS> rList = new List<GridNodeS>();
 
         foreach (CardMove move in moves)
         {
-            BoardTile temp = BoardManager.GetNodeS(move.x * mult + x, move.y * mult + y);
+            GridNodeS temp = GridManagerS.GetNodeS(move.x * mult + x, move.y * mult + y);
             if (temp != null)
             {
                 rList.Add(temp);
@@ -263,18 +254,18 @@ public class GameManager : MonoBehaviour
         return rList;
     }
 
-    public static List<PlayerPiece> GetPlayerUnitList(int playerId)
+    public static List<UnitS> GetPlayerUnitList(int playerId)
     {
         return (playerId == 1) ? instance.player1Units : instance.player2Units;
     }
 
     public void CleanUpPlayerUnits()
     {
-        foreach (PlayerPiece unit in player1Units)
+        foreach (UnitS unit in player1Units)
         {
             unit.Destroy();
         }
-        foreach (PlayerPiece unit in player2Units)
+        foreach (UnitS unit in player2Units)
         {
             unit.Destroy();
         }
@@ -293,7 +284,4 @@ public class GameManager : MonoBehaviour
         instance.p2KingCaptured = false;
         instance.RunGame();
     }
-
-
-
 }

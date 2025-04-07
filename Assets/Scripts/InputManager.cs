@@ -1,21 +1,22 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    private BoardTile lastSelectedNode = null;
+    private GridNodeS lastSelectedNode = null;
     private OnitamaCard lastSelectedCard = null;
     private bool inSelectionMode = false;
 
     private int layerMask = 1 << 9;
 
-    private List<BoardTile> moveList = new();
+    private List<GridNodeS> moveList = new List<GridNodeS>();
 
     private int activePlayer;
 
     void Start()
     {
-        layerMask = ~layerMask;
+        layerMask = ~layerMask; // Inverte para ignorar apenas a layer 9
         EventManager.StartListening("ActivePlayer", OnActivePlayerChange);
     }
 
@@ -32,7 +33,7 @@ public class InputManager : MonoBehaviour
 
                 if (tempHit.CompareTag("GridNode"))
                 {
-                    BoardTile tempNode = BoardManager.GetNodeS(tempHit);
+                    GridNodeS tempNode = GridManagerS.GetNodeS(tempHit);
 
                     if (tempNode.occupyingUnit != null && lastSelectedNode != null)
                     {
@@ -79,7 +80,7 @@ public class InputManager : MonoBehaviour
                     }
                     else
                     {
-                        if (tempNode.occupyingUnit != null && PlayerUnitCheck(tempNode.occupyingUnit.ptype))
+                        if (tempNode.occupyingUnit != null && playerUnitCheck(tempNode.occupyingUnit.ptype))
                         {
                             inSelectionMode = true;
                             lastSelectedNode = tempNode;
@@ -87,14 +88,12 @@ public class InputManager : MonoBehaviour
                             SetupMoveList(tempNode);
                         }
                     }
-
-                    // Debug.Log(tempNode.GetXZ()[0] + "," + tempNode.GetXZ()[1]);
                 }
 
                 if (tempHit.CompareTag("OnitamaCard"))
                 {
                     OnitamaCard selectedCard = tempHit.GetComponentInChildren<OnitamaCard>();
-                    if (PlayerCardCheck(selectedCard))
+                    if (playerCardCheck(selectedCard))
                     {
                         if (inSelectionMode)
                         {
@@ -118,16 +117,16 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private bool CheckIfInMoveList(BoardTile nodeS)
+    private bool CheckIfInMoveList(GridNodeS nodeS)
     {
         return moveList.Contains(nodeS);
     }
 
-    private void SetupMoveList(BoardTile node)
+    private void SetupMoveList(GridNodeS node)
     {
         ResetMoveList();
         moveList = GameManager.BuildUnitMoveList(lastSelectedCard, node);
-        foreach (BoardTile item in moveList)
+        foreach (GridNodeS item in moveList)
         {
             item.TurnOnMoveHighlight();
         }
@@ -135,7 +134,7 @@ public class InputManager : MonoBehaviour
 
     private void ResetMoveList()
     {
-        foreach (BoardTile item in moveList)
+        foreach (GridNodeS item in moveList)
         {
             item.TurnOffHighlight();
         }
@@ -148,12 +147,12 @@ public class InputManager : MonoBehaviour
         lastSelectedCard.TurnOnHighlight();
     }
 
-    private bool PlayerUnitCheck(PlayerPiece.Player id)
+    private bool playerUnitCheck(UnitS.player id)
     {
-        return (id == PlayerPiece.Player.p1 && activePlayer == 1) || (id == PlayerPiece.Player.p2 && activePlayer == 2);
+        return (id == UnitS.player.p1 && activePlayer == 1) || (id == UnitS.player.p2 && activePlayer == 2);
     }
 
-    private bool PlayerCardCheck(OnitamaCard card)
+    private bool playerCardCheck(OnitamaCard card)
     {
         return (card.playerId == activePlayer);
     }
@@ -161,11 +160,10 @@ public class InputManager : MonoBehaviour
     public void EndPlayerMovement()
     {
         lastSelectedCard.TurnOffHighlight();
-        ActionParams data = new();
+        ActionParams data = new ActionParams();
         data.Put("activePlayer", activePlayer);
         data.Put("lastSelectedCard", lastSelectedCard);
         data.Put("lastSelectedNode", lastSelectedNode);
         EventManager.TriggerEvent("EndPlayerMovement", data);
     }
-
 }

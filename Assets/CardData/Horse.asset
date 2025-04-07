@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
+  m_Name: Horse
+  m_EditorClassIdentifier: 
+  name: Horse
+  gridSprite: {fileID: 7672759098259192623, guid: 4bdab9d8471fed54a95ecd5bd90eb538, type: 3}
+  moveset:
+  - {fileID: 11400000, guid: 15f4d6d363218fa408fd1b79f9eb6d61, type: 2}
+  - {fileID: 11400000, guid: e8d0174e3ab228b4e86ff0a8d772a9b0, type: 2}
+  - {fileID: 11400000, guid: e7cf6f0379c2b6d488249da88208ad7d, type: 2}

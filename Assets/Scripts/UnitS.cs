@@ -1,17 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerPiece : MonoBehaviour
+public class UnitS : MonoBehaviour
 {
-    
-    public enum UnitType { pawn, king }; //peças do jogo 
-    public enum Player { p1, p2 }; //jogadores
+    public enum unitType { pawn, king };
+    public enum player { p1, p2 };
 
     public GameObject unitObj;
     public int unitId;
-    public BoardTile node;
-    public UnitType usType;
-    public Player ptype;
+    public GridNodeS node;
+    public unitType usType;
+    public player ptype;
 
     public void MoveToPosition(Vector3 pos)
     {
@@ -28,7 +27,7 @@ public class PlayerPiece : MonoBehaviour
     }
 
     //mover a peça para um quadradinho do tabuleiro, nó especifico
-    public void MoveToGridNode(BoardTile targetNode)
+    public void MoveToGridNode(GridNodeS targetNode)
     {
         if (targetNode.occupyingUnit != null) return;
 

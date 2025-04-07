@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardManager : MonoBehaviour
+public class GridManagerS : MonoBehaviour
 {
-    public static BoardManager instance;
-    public static BoardManager GetInstance()
+    public static GridManagerS instance;
+    public static GridManagerS GetInstance()
     {
         if (instance == null)
-            instance = (BoardManager)FindAnyObjectByType(typeof(BoardManager));
+            instance = (GridManagerS)FindAnyObjectByType(typeof(GridManagerS));
         return instance;
     }
 
@@ -20,9 +20,9 @@ public class BoardManager : MonoBehaviour
     public Transform gridParent;
 
     //lista de tiles
-    public List<List<BoardTile>> grid = new List<List<BoardTile>>();
+    public List<List<GridNodeS>> grid = new List<List<GridNodeS>>();
     //lista com os nós
-    private List<BoardTile> allNodes = new List<BoardTile>();
+    private List<GridNodeS> allNodes = new List<GridNodeS>();
 
     void Awake()
     {
@@ -44,11 +44,11 @@ public class BoardManager : MonoBehaviour
         int count = 0;
         for (int x = 0; x < dimensionX; x++)
         {
-            List<BoardTile> tempList = new List<BoardTile>();
+            List<GridNodeS> tempList = new List<GridNodeS>();
             for (int y = 0; y < dimensionY; y++)
             {
                 Vector3 position = new Vector3(x, y, 0) * nodeSize - new Vector3(offsetX, offsetY, 0);
-                BoardTile node = new BoardTile(count, x, y, position);
+                GridNodeS node = new GridNodeS(count, x, y, position);
                 tempList.Add(node);
                 allNodes.Add(node);
                 count++;
@@ -71,7 +71,7 @@ public class BoardManager : MonoBehaviour
         {
             for (int y = 0; y < dimensionY; y++)
             {
-                BoardTile node = grid[x][y];
+                GridNodeS node = grid[x][y];
                 node.objHolder = Instantiate(nodePrefab, node.GetPosition(), Quaternion.identity);
                 node.objHolder.transform.parent = gridParent;
                 node.objHolder.localScale = Vector3.one * nodeSize;
@@ -82,7 +82,7 @@ public class BoardManager : MonoBehaviour
     }
 
     //busca um tile com base no objeto visual
-    public static BoardTile GetNodeS(GameObject go)
+    public static GridNodeS GetNodeS(GameObject go)
     {
         foreach (var row in instance.grid)
         {
@@ -96,12 +96,11 @@ public class BoardManager : MonoBehaviour
     }
 
     //busca um tile pelo índice da grade
-    public static BoardTile GetNodeS(int x, int y)
+    public static GridNodeS GetNodeS(int x, int y)
     {
         if (x < 0 || x >= instance.dimensionX || y < 0 || y >= instance.dimensionY)
             return null;
 
         return instance.grid[x][y];
     }
-
 }

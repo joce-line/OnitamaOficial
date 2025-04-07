@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardTile
+public class GridNodeS
 {
     public int x, y;
     public int index;
@@ -10,10 +10,10 @@ public class BoardTile
     public Transform objHolder;
     public bool walkable = true;
 
-    public PlayerPiece occupyingUnit = null;
+    public UnitS occupyingUnit = null;
     public GameObject tempUnit;
 
-    public BoardTile(int indexv, int xv, int yv, Vector3 posv)
+    public GridNodeS(int indexv, int xv, int yv, Vector3 posv)
     {
         index = indexv; x = xv; y = yv; position = posv;
     }
@@ -33,12 +33,10 @@ public class BoardTile
         return objHolder;
     }
 
-    #region Interações do tabuleiro
     public void TurnOnHighlight()
     {
         objHolder.GetComponent<SpriteRenderer>().color = Color.yellow;
     }
-
     public void TurnOffHighlight()
     {
         objHolder.GetComponent<SpriteRenderer>().color = Color.clear;
@@ -48,5 +46,4 @@ public class BoardTile
     {
         objHolder.GetComponent<SpriteRenderer>().color = Color.green;
     }
-    #endregion
 }

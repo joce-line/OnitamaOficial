@@ -130,7 +130,7 @@ public class CardManager : MonoBehaviour
         int receivedPlayer = data.Get<int>("activePlayer");
         OnitamaCard receivedCard = data.Get<OnitamaCard>("lastSelectedCard");
         upcomingCard.TurnOffUpcoming();
-        // Debug.Log("Em CardManager, evento recebedor do movimento final do jogador");
+        Debug.Log("Em CardManager, evento recebedor do movimento final do jogador");
         if (receivedPlayer == 1)
         {
             for (int i = 0; i < p1Cards.Count; i++)

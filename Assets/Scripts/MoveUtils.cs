@@ -9,7 +9,6 @@ public class MoveUtils
     {
         float elapsedTime = 0;
 
-        // Para 2D, garantimos que o movimento ocorra no plano XY
         start.z = 0;
         end.z = 0;
 
@@ -24,11 +23,11 @@ public class MoveUtils
             yield return null;
         }
 
-        //Garante que chegue exatamente no final
+        // Garante que chegue exatamente no final
         go.transform.position = end;
     }
 
-    //Rotação suave **talvez mudar apos testes com cartas**
+    // TODO: Rotação suave **talvez mudar apos testes com cartas**
     public static IEnumerator SmoothRotate(float time, Quaternion target, GameObject go)
     {
         float elapsedTime = 0;

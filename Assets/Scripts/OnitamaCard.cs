@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 
-//usado no CardHolder
 public class OnitamaCard : MonoBehaviour
 {
     // TODO: #CartaLayout Atributos que a carta vai ter, revisar o layout da carta após a finalização do design
@@ -35,6 +34,7 @@ public class OnitamaCard : MonoBehaviour
     }
 
     public void TurnOnHighlight() => highlightSprite.enabled = true;
+
     public void TurnOffHighlight() => highlightSprite.enabled = false;
 
     //Upcoming é a proxima carta que vai vir, verificar prefab CardHolder para mudanças se necessario
@@ -51,6 +51,7 @@ public class OnitamaCard : MonoBehaviour
         upcomingText.enabled = false;
         cardCollider.enabled = true;
     }
+
     public void Destroy()
     {
         Destroy(this.cardHolder);

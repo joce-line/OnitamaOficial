@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
+  m_Name: Boar
+  m_EditorClassIdentifier: 
+  name: Boar
+  gridSprite: {fileID: 3232954995629961432, guid: 942e03c8bf7bdb64b8dde67fda83d858, type: 3}
+  moveset:
+  - {fileID: 11400000, guid: e8d0174e3ab228b4e86ff0a8d772a9b0, type: 2}
+  - {fileID: 11400000, guid: 15f4d6d363218fa408fd1b79f9eb6d61, type: 2}
+  - {fileID: 11400000, guid: a48ef2f39b6d74f489764152d6686571, type: 2}

@@ -4,10 +4,11 @@ using System;
 
 public class ActionParams
 {
-    public static readonly ActionParams EmptyParams = new(true);
+    public static readonly ActionParams EmptyParams = new ActionParams(true);
 
     private Dictionary<string, object> keyValuePairs;
 
+    //This is done for optimiziation
     private ActionParams(bool seal) { }
 
     public ActionParams()
