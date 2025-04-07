@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      OnitamaBaseCardGrid_0: -4729510303597989806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
