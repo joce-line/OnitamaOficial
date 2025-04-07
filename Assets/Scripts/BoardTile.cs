@@ -10,7 +10,7 @@ public class BoardTile
     public Transform objHolder;
     public bool walkable = true;
 
-    //public UnitS occupyingUnit = null;
+    public PlayerPiece occupyingUnit = null;
     public GameObject tempUnit;
 
     public BoardTile(int indexv, int xv, int yv, Vector3 posv)

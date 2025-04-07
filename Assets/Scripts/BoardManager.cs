@@ -14,12 +14,14 @@ public class BoardManager : MonoBehaviour
     // Dimensões do tabuleiro
     public int dimensionX = 5;
     public int dimensionY = 5;
-    public float nodeSize = 10f;
+    public float nodeSize = 1f;
 
     public Transform nodePrefab;
     public Transform gridParent;
 
+    //lista de tiles
     public List<List<BoardTile>> grid = new List<List<BoardTile>>();
+    //lista com os nós
     private List<BoardTile> allNodes = new List<BoardTile>();
 
     void Awake()
@@ -35,6 +37,7 @@ public class BoardManager : MonoBehaviour
 
     public void GenerateGridList()
     {
+        //calcula o offset para centralizar a grade no centro
         float offsetX = (dimensionX * nodeSize * 0.5f) - (nodeSize * 0.5f);
         float offsetY = (dimensionY * nodeSize * 0.5f) - (nodeSize * 0.5f);
 
@@ -78,6 +81,7 @@ public class BoardManager : MonoBehaviour
         }
     }
 
+    //busca um tile com base no objeto visual
     public static BoardTile GetNodeS(GameObject go)
     {
         foreach (var row in instance.grid)
@@ -91,6 +95,7 @@ public class BoardManager : MonoBehaviour
         return null;
     }
 
+    //busca um tile pelo índice da grade
     public static BoardTile GetNodeS(int x, int y)
     {
         if (x < 0 || x >= instance.dimensionX || y < 0 || y >= instance.dimensionY)
