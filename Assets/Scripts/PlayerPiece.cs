@@ -4,14 +4,14 @@ using UnityEngine;
 public class PlayerPiece : MonoBehaviour
 {
     
-    public enum unitType { pawn, king }; //peças do jogo 
-    public enum player { p1, p2 }; //jogadores
+    public enum UnitType { pawn, king }; //peças do jogo 
+    public enum Player { p1, p2 }; //jogadores
 
     public GameObject unitObj;
     public int unitId;
     public BoardTile node;
-    public unitType usType;
-    public player ptype;
+    public UnitType usType;
+    public Player ptype;
 
     public void MoveToPosition(Vector3 pos)
     {
@@ -21,10 +21,10 @@ public class PlayerPiece : MonoBehaviour
     //movimentação peça
     private IEnumerator MoveAnimation(Vector3 pos)
     {
-        //    AudioManager.PlayClip("startMove"); //Audio para movimentação inicial, verificar se colocar
+        //    AudioManager.PlayClip("startMove"); // TODO: #Audio para movimentação inicial, verificar se colocar
         yield return StartCoroutine(MoveUtils.SmoothLerp(0.2f, unitObj.transform.position, pos + new Vector3(0, 0.5f, 0), unitObj));
         yield return StartCoroutine(MoveUtils.SmoothLerp(0.2f, unitObj.transform.position, pos, unitObj));
-        //    AudioManager.PlayClip("endMove"); //Audio para movimentação final, verificar se colocar
+        //    AudioManager.PlayClip("endMove"); // TODO: #Audio para movimentação final, verificar se colocar
     }
 
     //mover a peça para um quadradinho do tabuleiro, nó especifico
