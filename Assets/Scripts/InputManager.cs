@@ -40,6 +40,7 @@ public class InputManager : MonoBehaviour
                         if (lastSelectedNode.occupyingUnit != null &&
                             tempNode.occupyingUnit.ptype == lastSelectedNode.occupyingUnit.ptype)
                         {
+
                             inSelectionMode = false;
                             lastSelectedNode.TurnOffHighlight();
                         }
@@ -89,7 +90,6 @@ public class InputManager : MonoBehaviour
                         }
                     }
                 }
-
                 if (tempHit.CompareTag("OnitamaCard"))
                 {
                     OnitamaCard selectedCard = tempHit.GetComponentInChildren<OnitamaCard>();

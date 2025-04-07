@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         node.occupyingUnit = temp;
         temp.node = node;
 
-        temp.unitObj.transform.position = node.GetPosition() + new Vector3(0, 0.1f, 0);
+        temp.unitObj.transform.position = node.GetPosition() + new Vector3(0, 0.1f, -1);
 
         if (playerId == 1)
         {
