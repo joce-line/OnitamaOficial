@@ -150,11 +150,11 @@ public class GameManager : MonoBehaviour
         {
             activePlayer = (receivedPlayer == 1) ? 2 : 1;
 
-            
-                ActionParams temp = new ActionParams();
-                temp.Put("activePlayer", activePlayer);
-                EventManager.TriggerEvent("ActivePlayer", temp);
-            
+
+            ActionParams temp = new ActionParams();
+            temp.Put("activePlayer", activePlayer);
+            EventManager.TriggerEvent("ActivePlayer", temp);
+
         }
     }
 
@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
 
         if (card.playerId == 1)
         {
-            return instance.LegalUnitMoves(unitmoves, x, y, -1);
+            return instance.LegalUnitMoves(unitmoves, x, y, 1);
         }
         else
         {
@@ -244,7 +244,7 @@ public class GameManager : MonoBehaviour
 
         foreach (CardMove move in moves)
         {
-            GridNodeS temp = GridManagerS.GetNodeS(move.x * mult + x, move.y * mult + y);
+            GridNodeS temp = GridManagerS.GetNodeS(move.x + x, move.y * mult + y);
             if (temp != null)
             {
                 rList.Add(temp);

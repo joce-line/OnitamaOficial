@@ -101,10 +101,9 @@ public class CardManager : MonoBehaviour
             p1Cards.Add(temp2);
         }
         else
-        {
-            // Inversão no eixo X para simular "rotação"
+        {            
             Vector3 scale = temp2.cardHolder.transform.localScale;
-            scale.x *= -1;
+            //scale.x *= -1; //não deixa a carta invertida do p2
             temp2.cardHolder.transform.localScale = scale;
             p2Cards.Add(temp2);
         }
@@ -130,17 +129,15 @@ public class CardManager : MonoBehaviour
         int receivedPlayer = data.Get<int>("activePlayer");
         OnitamaCard receivedCard = data.Get<OnitamaCard>("lastSelectedCard");
         upcomingCard.TurnOffUpcoming();
-        Debug.Log("Em CardManager, evento recebedor do movimento final do jogador");
         if (receivedPlayer == 1)
         {
             for (int i = 0; i < p1Cards.Count; i++)
             {
-                // Debug.Log("p1Cards[" + i + "] :" + p1Cards[i].cardinfo.name);
                 if (p1Cards[i] == receivedCard)
                 {
                     p1Cards[i].playerId = 2;
                     p2Cards.Add(p1Cards[i]);
-                    RotateCard(p1Cards[i]);
+                    //RotateCard(p1Cards[i]); //Rotação para mostrar ao outro jogador
                     MoveCardToPosition(p2slot3, p1Cards[i]);
                     p1Cards[i].TurnOnUpcoming();
                     upcomingCard = p1Cards[i];
@@ -151,7 +148,6 @@ public class CardManager : MonoBehaviour
 
             for (int i = 0; i < p1Cards.Count; i++)
             {
-                // Debug.Log("p1Cards[" + i + "] :" + p1Cards[i].cardinfo.name);
                 MoveCardToPosition(p1SlotList[i], p1Cards[i]);
             }
         }
@@ -159,12 +155,11 @@ public class CardManager : MonoBehaviour
         {
             for (int i = 0; i < p2Cards.Count; i++)
             {
-                // Debug.Log("p2Cards[" + i + "] :" + p2Cards[i].cardinfo.name);
                 if (p2Cards[i] == receivedCard)
                 {
                     p2Cards[i].playerId = 1;
                     p1Cards.Add(p2Cards[i]);
-                    RotateCard(p2Cards[i]);
+                    //RotateCard(p2Cards[i]);
                     MoveCardToPosition(p1slot3, p2Cards[i]);
                     p2Cards[i].TurnOnUpcoming();
                     upcomingCard = p2Cards[i];
@@ -174,19 +169,19 @@ public class CardManager : MonoBehaviour
             }
             for (int i = 0; i < p2Cards.Count; i++)
             {
-                // Debug.Log("p2Cards[" + i + "] :" + p2Cards[i].cardinfo.name);
                 MoveCardToPosition(p2SlotList[i], p2Cards[i]);
             }
 
         }
     }
-
-    // TODO: Movimentação das cartas verificar e corrigir apos design pronto
+        
     private void MoveCardToPosition(Vector3 pos, OnitamaCard card)
     {
         StartCoroutine(MoveUtils.SmoothLerp(1f, card.cardHolder.transform.position, pos, card.cardHolder));
 
     }
+
+    // TODO: Movimentação das rotação de cartas, verificar se vai usar apos design pronto
     public void RotateCard(OnitamaCard card)
     {
         Quaternion targetRotation = card.cardHolder.transform.rotation * Quaternion.Euler(0, 0, 180);
