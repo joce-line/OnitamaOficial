@@ -244,10 +244,23 @@ public class GameManager : MonoBehaviour
 
         foreach (CardMove move in moves)
         {
-            GridNodeS temp = GridManagerS.GetNodeS(move.x + x, move.y * mult + y);
+            /*GridNodeS temp = GridManagerS.GetNodeS(move.x + x, move.y * mult + y);
             if (temp != null)
             {
                 rList.Add(temp);
+            }*/
+            int newX = move.x + x;
+            int newY = move.y * mult + y;
+
+            // Verifica se a nova posição está dentro do tabuleiro 5x5
+            if (newX >= 0 && newX < GridManagerS.instance.dimensionX &&
+                newY >= 0 && newY < GridManagerS.instance.dimensionY)
+            {
+                GridNodeS temp = GridManagerS.GetNodeS(newX, newY);
+                if (temp != null) // Mantém a robustez
+                {
+                    rList.Add(temp);
+                }
             }
         }
 

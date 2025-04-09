@@ -28,11 +28,12 @@ public class GridManagerS : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        GenerateGridList();
     }
 
     void Start()
     {
-        GenerateGridList();
+        //GenerateGridList();
     }
 
     public void GenerateGridList()
@@ -99,7 +100,10 @@ public class GridManagerS : MonoBehaviour
     public static GridNodeS GetNodeS(int x, int y)
     {
         if (x < 0 || x >= instance.dimensionX || y < 0 || y >= instance.dimensionY)
+        {
+            Debug.LogError($"Tentativa de acessar nó fora dos limites: x={x}, y={y}, gridSizeX={instance.dimensionX}, gridSizeY={instance.dimensionY}");
             return null;
+        }
 
         return instance.grid[x][y];
     }
