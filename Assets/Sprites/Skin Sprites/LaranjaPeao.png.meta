@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LaranjaPeao_0: -8096584319720181855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

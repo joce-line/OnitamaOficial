@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AzulPeao_0: -6242610517729076325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
