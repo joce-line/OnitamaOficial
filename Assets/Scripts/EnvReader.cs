@@ -1,31 +1,3 @@
-// using UnityEngine;
-// using System;
-// using System.IO;
-// using System.Collections.Generic;
-
-
-// public static class EnvReader
-// {
-//     public static Dictionary<string, string> LoadEnv(string path)
-//     {
-//         var lines = File.ReadAllLines(path);
-//         var dict = new Dictionary<string, string>();
-
-//         foreach (var line in lines)
-//         {
-//             if (line.StartsWith("#") || string.IsNullOrWhiteSpace(line)) continue;
-
-//             var parts = line.Split('=', 2);
-//             if (parts.Length == 2)
-//                 dict[parts[0].Trim()] = parts[1].Trim();
-//         }
-
-//         return dict;
-//     }
-// }
-
-//CODIGO ANTIGO ACIMA
-
 using UnityEngine;
 using System;
 using System.IO;
