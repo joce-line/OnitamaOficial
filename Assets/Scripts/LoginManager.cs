@@ -31,7 +31,7 @@ public class LoginManager : MonoBehaviour
         //Debug.Log("String de conexão configurada: " + connectionString);
     }
 
-     //HashSenha valida = new HashSenha(SHA512.Create());
+     HashSenha valida = new HashSenha(SHA512.Create());
     public void Login()
     {
         string username = usernameInput.text;
@@ -64,7 +64,7 @@ public class LoginManager : MonoBehaviour
 
                 int userExists = Convert.ToInt32(cmd.ExecuteScalar());
 
-                if (userExists > 0) // && valida.VerificarSenha(password, comparaSenhaBanco)
+                if (userExists > 0 && valida.VerificarSenha(password, comparaSenhaBanco))
                 {
                     Debug.Log("Login bem-sucedido!");
                     SceneManager.LoadScene("GameScene");

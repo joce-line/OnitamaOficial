@@ -8,37 +8,42 @@ using System.Security.Cryptography;
 
 public class Register : MonoBehaviour
 {
-    public TMP_InputField nomeInput;
+    public TMP_InputField nicknameInput;
+    public TMP_InputField cpfInput;
     public TMP_InputField emailInput;
-    public TMP_InputField idadeInput;
-    public TMP_InputField nickInput;
     public TMP_InputField senhaInput;
 
-    private string nome;
+    private string cpf;
     private string email;
-    private int idade;
-    private string nick;
+    //private int idade;
+    private string nickname;
     private string senha;
 
-     //private string connectionString = "Server=localhost;Database=jogo;User=root;Password=12345;SslMode=None;";
+  
      private string connectionString;
 
-    // void Start()
-    // {
-    //    connectionString = $"Server={EnvReader.LoadEnv("DB_SERVER")};" +
-    //                       $"Database={EnvReader.LoadEnv("DB_DATABASE")};" +
-    //                       $"Uid={EnvReader.LoadEnv("DB_USER")};" +
-    //                       $"Pwd={EnvReader.LoadEnv("DB_PASSWORD")};" +
-    //                       $"SslMode={EnvReader.LoadEnv("DB_SSLMODE")};";
-    // }
+  void Start()
+    {
+        EnvReader.Load();
 
+        string server = EnvReader.Get("DB_SERVER");
+        string db = EnvReader.Get("DB_DATABASE");
+        string user = EnvReader.Get("DB_USER");
+        string password = EnvReader.Get("DB_PASSWORD");
+        string sslmode = EnvReader.Get("DB_SSLMODE");
+
+        connectionString = $"Server={server};Database={db};Uid={user};Pwd={password};SslMode={sslmode};";
+
+        //Debug.Log("String de conexão configurada: " + connectionString);
+    }
 
     public void Registrar()
     {
-        nome = nomeInput.text;
+        //nome = nomeInput.text;
+        nickname = nicknameInput.text;
+        cpf = cpfInput.text;
         email = emailInput.text;
-        idade = int.Parse(idadeInput.text);
-        nick = nickInput.text;
+        //idade = int.Parse(idadeInput.text);
         senha = senhaInput.text;
 
         HashSenha encriptografar = new HashSenha(SHA512.Create());
@@ -50,7 +55,7 @@ public class Register : MonoBehaviour
                 conn.Open();
 
                 // Consulta para verificar se o email esta disponivel
-                string selectEmailQuery = "SELECT COUNT(*) FROM clientes WHERE email = @email";
+                string selectEmailQuery = "SELECT COUNT(*) FROM usuarios WHERE email = @email";
                 MySqlCommand cmdEmail = new MySqlCommand(selectEmailQuery, conn);
                 cmdEmail.Parameters.AddWithValue("@email", email);
 
@@ -65,33 +70,40 @@ public class Register : MonoBehaviour
                 }
 
                 // Consulta para verificar se o nickname esta disponivel
-                string selectNicknameQuery = "SELECT COUNT(*) FROM clientes WHERE nickname = @nickname";
-                MySqlCommand cmdNick = new MySqlCommand(selectNicknameQuery, conn);
-                cmdNick.Parameters.AddWithValue("@nickname", nick);
+                string selectNicknameQuery = "SELECT COUNT(*) FROM usuarios WHERE nickname = @nickname";
+                MySqlCommand cmdNickname = new MySqlCommand(selectNicknameQuery, conn);
+                cmdNickname.Parameters.AddWithValue("@nickname", nickname);
+                
+                
 
                 //long countNick = (long)cmdNick.ExecuteScalar();
-                long countNick = Convert.ToInt64(cmdNick.ExecuteScalar());
+                long countNickname = Convert.ToInt64(cmdNickname.ExecuteScalar());
 
-                if (countNick > 0)
+                if (countNickname > 0)
                 {
                     Debug.Log("Nickname indisponivel");
                     return;
                 }
 
+                // string selectCpfQuery = "SELECT COUNT(*) FROM usuarios WHERE cpf = @cpf";
+                // MySqlCommand cmdCpf = new MySqlCommand(selectNicknameQuery, conn);
+                // cmdCpf.Parameters.AddWithValue("@cpf", cpf);
+
                 // Inserir valores na tabela
-                string insertQuery = "INSERT INTO clientes (nome, email, idade, nickname, senha) VALUES (@nome, @email, @idade, @nickname, @senha);";
+                string insertQuery = "INSERT INTO usuarios (nickname, cpf, email, senha) VALUES (@nickname, @cpf, @email, @senha);";
                 MySqlCommand cmd = new MySqlCommand(insertQuery, conn);
-                cmd.Parameters.AddWithValue("@nome", nome);
+                //cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@nickname", nickname);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
                 cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@idade", idade);
-                cmd.Parameters.AddWithValue("@nickname", nick);
+                //cmd.Parameters.AddWithValue("@idade", idade);
                 cmd.Parameters.AddWithValue("@senha", encriptografar.CriptografarSenha(senha));
 
                 // ExecuteNonQuery, � usado quando a consulta n�o retorna nada
                 cmd.ExecuteNonQuery();
 
                 Debug.Log("Usu�rio cadastrado!");
-                UnityEngine.SceneManagement.SceneManager.LoadScene("LoginScene");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Login");
             }
             catch (Exception e)
             {
