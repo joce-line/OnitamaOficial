@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AmareloPeao_0: 567675255665654250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

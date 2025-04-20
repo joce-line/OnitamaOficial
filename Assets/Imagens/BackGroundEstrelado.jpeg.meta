@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e444f3275f2881b449fa49f90e87947a
+guid: 41c646b24b6d58b4fb01b4792e3569ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2224998826146691632
-    second: BackGroundBattle_0
+      213: -5483194990996205040
+    second: BackGroundEstrelado_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackGroundBattle_0
+      name: BackGroundEstrelado_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d58ddd2b573f11e0800000000000000
-      internalID: -2224998826146691632
+      spriteID: 0125877f437c7e3b0800000000000000
+      internalID: -5483194990996205040
       vertices: []
       indices: 
       edges: []
