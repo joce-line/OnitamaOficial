@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
-using Assets.scripts.classes;
+using Assets.scripts.Classes;
 using System.Security.Cryptography;
 using System.Collections.Generic;
 

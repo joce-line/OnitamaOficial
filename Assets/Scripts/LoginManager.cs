@@ -2,9 +2,9 @@ using UnityEngine;
 using System;
 using TMPro;
 using UnityEngine.SceneManagement;
-using Assets.scripts.classes;
+using Assets.scripts.Classes;
 using System.Security.Cryptography;
-using Assets.scripts.infoPlayer;
+using Assets.scripts.InfoPlayer;
 using System.Collections.Generic;
 
 public class LoginManager : MonoBehaviour
@@ -69,7 +69,7 @@ public class LoginManager : MonoBehaviour
             if (valida.VerificarSenha(password, comparaSenhaBanco))
             {
                 Debug.Log("Login bem-sucedido!");
-                playerInfo.nomePlayer = username;
+                PlayerInfo.nomePlayer = username;
                 SceneManager.LoadScene("Game");
             }
             else

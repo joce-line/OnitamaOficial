@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 // Link de referencia: https://www.devmedia.com.br/criptografia-hash-em-net/32112 
 
-namespace Assets.scripts.classes
+namespace Assets.scripts.Classes
 {
     public class HashSenha
     {
