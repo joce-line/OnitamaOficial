@@ -3,8 +3,8 @@ guid: e444f3275f2881b449fa49f90e87947a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2224998826146691632
-    second: BackGroundBattle_0
+      213: -8601151008527160559
+    second: BackGroundBattle0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackGroundBattle_0
+      name: BackGroundBattle0_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d58ddd2b573f11e0800000000000000
-      internalID: -2224998826146691632
+      spriteID: 11bee358ab292a880800000000000000
+      internalID: -8601151008527160559
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BackGroundBattle_0: -2224998826146691632
+      BackGroundBattle0_0: -8601151008527160559
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

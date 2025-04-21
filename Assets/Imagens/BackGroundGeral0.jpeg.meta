@@ -3,8 +3,8 @@ guid: 85fcdd4db0b8aa0419b6d2981f7af6a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6101661559588144694
-    second: WhatsApp Image 2025-04-08 at 18.46.41_0
+      213: -5942839095371229345
+    second: BackGroundGeral0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhatsApp Image 2025-04-08 at 18.46.41_0
+      name: BackGroundGeral0_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ac9b719b32b825ba0800000000000000
-      internalID: -6101661559588144694
+      spriteID: f57181b445bc68da0800000000000000
+      internalID: -5942839095371229345
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WhatsApp Image 2025-04-08 at 18.46.41_0: -6101661559588144694
+      BackGroundGeral0_0: -5942839095371229345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
