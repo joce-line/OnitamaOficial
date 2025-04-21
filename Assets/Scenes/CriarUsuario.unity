@@ -869,6 +869,7 @@ GameObject:
   - component: {fileID: 449579827}
   - component: {fileID: 449579826}
   - component: {fileID: 449579825}
+  - component: {fileID: 449579828}
   m_Layer: 0
   m_Name: ButtonCriar
   m_TagString: Untagged
@@ -940,9 +941,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1651960237}
-        m_TargetAssemblyTypeName: ScriptCriarUsuario, Assembly-CSharp
-        m_MethodName: OnCreateButtonClicked
+      - m_Target: {fileID: 449579828}
+        m_TargetAssemblyTypeName: Register, Assembly-CSharp
+        m_MethodName: Registrar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -990,6 +991,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449579823}
   m_CullTransparentMesh: 1
+--- !u!114 &449579828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449579823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17749bbe025f8404a9f8c6c1d2ebbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nicknameInput: {fileID: 754008672}
+  cpfInput: {fileID: 683919023}
+  emailInput: {fileID: 718517267}
+  senhaInput: {fileID: 205360149}
 --- !u!1 &454162883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,7 +2438,6 @@ GameObject:
   - component: {fileID: 1651960236}
   - component: {fileID: 1651960235}
   - component: {fileID: 1651960234}
-  - component: {fileID: 1651960237}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -2521,19 +2537,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1651960237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651960232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7e6aeb3bbc2cf24a8752957b1159c93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  create: {fileID: 449579825}
 --- !u!1 &1808451226
 GameObject:
   m_ObjectHideFlags: 0
