@@ -449,4 +449,8 @@ public class Register : MonoBehaviour
 
         return cpf[9] - '0' == digito1 && cpf[10] - '0' == digito2;
     }
+public void OpenLoginScene()
+    {
+        SceneManager.LoadScene("Login");
+    }
 }
