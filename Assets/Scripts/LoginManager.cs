@@ -6,6 +6,9 @@ using Assets.scripts.Classes;
 using System.Security.Cryptography;
 using Assets.scripts.InfoPlayer;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.UI;
+
 
 public class LoginManager : MonoBehaviour
 {
@@ -14,6 +17,10 @@ public class LoginManager : MonoBehaviour
 
     public TextMeshProUGUI avisoCampos;
     public TextMeshProUGUI avisoDadosIncorretos;
+
+    [SerializeField] private GameObject telaCarregamento;
+    [SerializeField] private Slider barraCarregamento;
+    [SerializeField] private TextMeshProUGUI textoCarregamento;
 
     HashSenha valida = new HashSenha(SHA512.Create());
     public void Login()
@@ -87,7 +94,8 @@ public class LoginManager : MonoBehaviour
             {
                 Debug.Log("Login bem-sucedido!");
                 PlayerInfo.nomePlayer = username;
-                SceneManager.LoadScene("Game");
+                //SceneManager.LoadScene("Game");
+                StartCoroutine(Loading("Game"));
             }
             else
             {
@@ -99,6 +107,24 @@ public class LoginManager : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogError($"Erro ao realizar login: {e.Message}");
+        }
+    }
+
+    private IEnumerator Loading(string nomeCena)
+    {
+        AsyncOperation carregamento = SceneManager.LoadSceneAsync(nomeCena);
+
+        telaCarregamento.SetActive(true);
+
+        while (!carregamento.isDone)
+        {
+            float progressoCarregamento = Mathf.Clamp01(carregamento.progress / 0.9f);
+            //Debug.Log(progressoCarregamento);
+
+            barraCarregamento.value = progressoCarregamento;
+            textoCarregamento.text = progressoCarregamento * 100 + "%";
+
+            yield return null;
         }
     }
 
