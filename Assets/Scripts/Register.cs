@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using Assets.scripts.Classes;
 using System.Security.Cryptography;
 using System.Collections.Generic;
+using System.Threading;
 
 public class Register : MonoBehaviour
 {
@@ -13,6 +14,17 @@ public class Register : MonoBehaviour
     public TMP_InputField cpfInput;
     public TMP_InputField emailInput;
     public TMP_InputField senhaInput;
+    public TextMeshProUGUI textoAvisoCPF;
+    public TextMeshProUGUI textoAvisoCamposObrigatorios;
+    public TextMeshProUGUI textoAvisoSenhaCaracteres;
+    public TextMeshProUGUI textoAvisoSenhaLetra;
+    public TextMeshProUGUI textoAvisoSenhaNumero;
+    public TextMeshProUGUI textoAvisoSenhaEspecial;
+    public TextMeshProUGUI textoAvisoEmail;
+    public TextMeshProUGUI textoAvisoCpfCadastrado;
+    public TextMeshProUGUI textoAvisoEmailCadastrado;
+    public TextMeshProUGUI textoAvisoNickCadastrado;
+    public TextMeshProUGUI textoAvisoErroCadastro;
 
     private string cpf;
     private string email;
@@ -21,6 +33,8 @@ public class Register : MonoBehaviour
 
     public void Registrar()
     {
+        FeedbackUser aviso = new FeedbackUser();
+
         try
         {
             if (DatabaseManager.Instance == null || string.IsNullOrEmpty(DatabaseManager.ConnectionString))
@@ -36,55 +50,95 @@ public class Register : MonoBehaviour
 
             if (string.IsNullOrEmpty(nickname) || string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
             {
-                Debug.LogError("Todos os campos são obrigatórios. Algum campo esta nulo.");
-                //TODO: quando adicionar texto visível para usuário, adicionar aqui a atualização da variável de feedback.
+                //Debug.LogError("Todos os campos são obrigatórios. Algum campo esta nulo.");
+                aviso.exibeTextoAviso(true, textoAvisoCamposObrigatorios);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoCamposObrigatorios);
             }
 
             // Verificação de senha mínima
             if (senha.Length < 8)
             {
-                Debug.LogError("A senha deve ter pelo menos 8 caracteres.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.LogError("A senha deve ter pelo menos 8 caracteres.");
+                aviso.exibeTextoAviso(true, textoAvisoSenhaCaracteres);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoSenhaCaracteres);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaLetra);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaNumero);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaEspecial);
             }
 
             // Verificação de complexidade da senha
             if (!Regex.IsMatch(senha, @"[A-Za-z]")) // Tem letra?
             {
-                Debug.LogError("A senha deve conter pelo menos uma letra.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.LogError("A senha deve conter pelo menos uma letra.");
+                aviso.exibeTextoAviso(true, textoAvisoSenhaLetra);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoSenhaLetra);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaCaracteres);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaNumero);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaEspecial);
             }
 
             if (!Regex.IsMatch(senha, @"\d")) // Tem número?
             {
-                Debug.LogError("A senha deve conter pelo menos um número.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.LogError("A senha deve conter pelo menos um número.");
+                aviso.exibeTextoAviso(true, textoAvisoSenhaNumero);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoSenhaNumero);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaCaracteres);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaLetra);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaEspecial);
             }
 
             if (!Regex.IsMatch(senha, @"[\W_]")) // Tem caractere especial?
             {
-                Debug.LogError("A senha deve conter pelo menos um caractere especial.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.LogError("A senha deve conter pelo menos um caractere especial.");
+                aviso.exibeTextoAviso(true, textoAvisoSenhaEspecial);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoSenhaEspecial);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaCaracteres);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaLetra);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaNumero);
             }
 
             // Verificação de formato de email
             if (!email.Contains("@"))
             {
-                Debug.LogError("Formato de email inválido.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.LogError("Formato de email inválido.");
+                aviso.exibeTextoAviso(true, textoAvisoEmail);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoEmail);
             }
 
             // Verificação se CPF é válido (estrutura correta)
             if (!ValidarCPF(cpf))
             {
-                Debug.LogError("CPF inválido.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.LogError("CPF inválido.");
+                aviso.exibeTextoAviso(true, textoAvisoCPF);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoCPF);
             }
 
             // Verificação se CPF já está cadastrado
@@ -94,9 +148,13 @@ public class Register : MonoBehaviour
 
             if (countCpf > 0)
             {
-                Debug.Log("CPF já cadastrado.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.Log("CPF já cadastrado.");
+                aviso.exibeTextoAviso(true, textoAvisoCpfCadastrado);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoCpfCadastrado);
             }
 
             HashSenha encriptografar = new HashSenha(SHA512.Create());
@@ -107,9 +165,13 @@ public class Register : MonoBehaviour
             long countEmail = Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectEmailQuery, emailParams));
             if (countEmail > 0)
             {
-                Debug.Log("Email indisponível.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.Log("Email indisponível.");
+                aviso.exibeTextoAviso(true, textoAvisoEmailCadastrado);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoEmailCadastrado);
             }
 
             // Verificação se nickname está disponível
@@ -118,9 +180,13 @@ public class Register : MonoBehaviour
             long countNickname = Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectNicknameQuery, nickParams));
             if (countNickname > 0)
             {
-                Debug.Log("Nickname indisponível.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.Log("Nickname indisponível.");
+                aviso.exibeTextoAviso(true, textoAvisoNickCadastrado);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoNickCadastrado);
             }
 
             // Inserção no banco de dados
@@ -140,8 +206,10 @@ public class Register : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Falha ao cadastrar usuário.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                //Debug.LogError("Falha ao cadastrar usuário.");
+                aviso.exibeTextoAviso(true, textoAvisoErroCadastro);
+                Thread.Sleep(3000);
+                aviso.exibeTextoAviso(false, textoAvisoErroCadastro);
             }
         }
         catch (Exception e)

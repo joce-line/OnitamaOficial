@@ -12,9 +12,14 @@ public class LoginManager : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
 
+    public TextMeshProUGUI avisoCampos;
+    public TextMeshProUGUI avisoDadosIncorretos;
+
     HashSenha valida = new HashSenha(SHA512.Create());
     public void Login()
     {
+        FeedbackUser aviso = new FeedbackUser();
+
         try
         {
             if (DatabaseManager.Instance == null || string.IsNullOrEmpty(DatabaseManager.ConnectionString))
@@ -30,9 +35,13 @@ public class LoginManager : MonoBehaviour
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                Debug.LogError("Todos os campos são obrigatórios.");
-                //TODO: quando adicionar texto visivel para usuario, adicionar aqui a atualização da variavel de feedback.
+                //Debug.LogError("Todos os campos são obrigatórios.");
+                aviso.exibeTextoAviso(true, avisoCampos);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, avisoCampos);
             }
 
             //Verifica usuario
@@ -42,9 +51,13 @@ public class LoginManager : MonoBehaviour
 
             if (userExists == 0 || userExists == -1)
             {
-                Debug.Log("Usuário ou senha incorretos.");
-                //TODO: adicionar aqui variavel de feedback para usuario
+                //Debug.Log("Usuário ou senha incorretos.");
+                aviso.exibeTextoAviso(true, avisoDadosIncorretos);
                 return;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, avisoDadosIncorretos);
             }
 
             // Verificar senha
@@ -60,12 +73,16 @@ public class LoginManager : MonoBehaviour
 
             if (result == null)
             {
-                Debug.Log("Usuário ou senha incorretos.");
-                //TODO: adicionar aqui variavel de feedback para usuario
+                //Debug.Log("Usuário ou senha incorretos.");
+                aviso.exibeTextoAviso(true, avisoDadosIncorretos);
                 return;
             }
+            else
+            {
+                aviso.exibeTextoAviso(false, avisoDadosIncorretos);
+            }
 
-            string comparaSenhaBanco = result?.ToString();
+                string comparaSenhaBanco = result?.ToString();
             if (valida.VerificarSenha(password, comparaSenhaBanco))
             {
                 Debug.Log("Login bem-sucedido!");
@@ -74,8 +91,8 @@ public class LoginManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Usuário ou senha incorretos.");
-                //TODO: adicionar aqui variavel de feedback para usuario
+                //Debug.Log("Usuário ou senha incorretos.");
+                aviso.exibeTextoAviso(true, avisoDadosIncorretos);
             }
 
         }
