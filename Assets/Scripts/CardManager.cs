@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CardManager : MonoBehaviour
@@ -124,13 +125,80 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    /* public void OnEndPlayerMovement(string eventName, ActionParams data)
+     {
+         int receivedPlayer = data.Get<int>("activePlayer");
+         OnitamaCard receivedCard = data.Get<OnitamaCard>("lastSelectedCard");
+         upcomingCard.TurnOffUpcoming();
+         if (receivedPlayer == 1)
+         {
+             for (int i = 0; i < p1Cards.Count; i++)
+             {
+                 if (p1Cards[i] == receivedCard)
+                 {
+                     p1Cards[i].playerId = 2;
+                     p2Cards.Add(p1Cards[i]);
+                     //RotateCard(p1Cards[i]); //Rotação para mostrar ao outro jogador
+                     MoveCardToPosition(p2slot3, p1Cards[i]);
+                     p1Cards[i].TurnOnUpcoming();
+                     upcomingCard = p1Cards[i];
+                     p1Cards.RemoveAt(i);
+                     break;
+                 }
+             }
+
+             for (int i = 0; i < p1Cards.Count; i++)
+             {
+                 MoveCardToPosition(p1SlotList[i], p1Cards[i]);
+             }
+         }
+         else
+         {
+             for (int i = 0; i < p2Cards.Count; i++)
+             {
+                 if (p2Cards[i] == receivedCard)
+                 {
+                     p2Cards[i].playerId = 1;
+                     p1Cards.Add(p2Cards[i]);
+                     //RotateCard(p2Cards[i]);
+                     MoveCardToPosition(p1slot3, p2Cards[i]);
+                     p2Cards[i].TurnOnUpcoming();
+                     upcomingCard = p2Cards[i];
+                     p2Cards.RemoveAt(i);
+                     break;
+                 }
+             }
+             for (int i = 0; i < p2Cards.Count; i++)
+             {
+                 MoveCardToPosition(p2SlotList[i], p2Cards[i]);
+             }
+
+         }
+     }
+      */
+
+
     public void OnEndPlayerMovement(string eventName, ActionParams data)
     {
         int receivedPlayer = data.Get<int>("activePlayer");
         OnitamaCard receivedCard = data.Get<OnitamaCard>("lastSelectedCard");
-        upcomingCard.TurnOffUpcoming();
+        upcomingCard.TurnOffUpcoming(); // Desativa o status 'upcoming' da carta atual
+        
+        Debug.Log($"OnEndPlayerMovement called: activePlayer={receivedPlayer}, receivedCard={receivedCard}");
+
         if (receivedPlayer == 1)
         {
+            // Se o turno foi forçado pelo tempo, restaure a carta upcoming para o jogador 1
+            if (upcomingCard != null && upcomingCard.playerId == 2)
+            {
+                Debug.Log("Restaurando carta upcoming para o jogador 1: " + upcomingCard?.cardinfo?.name);
+                
+                p2Cards.Remove(upcomingCard);
+                p1Cards.Add(upcomingCard);
+                MoveCardToPosition(p1slot3, upcomingCard);
+                upcomingCard.TurnOffUpcoming();
+            }
+
             for (int i = 0; i < p1Cards.Count; i++)
             {
                 if (p1Cards[i] == receivedCard)
@@ -153,10 +221,22 @@ public class CardManager : MonoBehaviour
         }
         else
         {
+            // Se o turno foi forçado pelo tempo, restaure a carta upcoming para o jogador 2
+            if (upcomingCard != null && upcomingCard.playerId == 1)
+            {
+                Debug.Log("Restaurando carta upcoming para o jogador 2: " + upcomingCard?.cardinfo?.name);
+                
+                p1Cards.Remove(upcomingCard);
+                p2Cards.Add(upcomingCard);
+                MoveCardToPosition(p2slot3, upcomingCard);
+                upcomingCard.TurnOffUpcoming();
+            }
+
             for (int i = 0; i < p2Cards.Count; i++)
             {
                 if (p2Cards[i] == receivedCard)
                 {
+                    Debug.Log($"Jogador 2 movendo a carta {p2Cards[i]} para o jogador 1");
                     p2Cards[i].playerId = 1;
                     p1Cards.Add(p2Cards[i]);
                     //RotateCard(p2Cards[i]);
@@ -171,10 +251,11 @@ public class CardManager : MonoBehaviour
             {
                 MoveCardToPosition(p2SlotList[i], p2Cards[i]);
             }
-
         }
+        Debug.Log($"After swap - p1Cards: {p1Cards.Count} ({string.Join(", ", p1Cards.Select(c => c.cardinfo.name))}), p2Cards: {p2Cards.Count} ({string.Join(", ", p2Cards.Select(c => c.cardinfo.name))}), upcomingCard: {upcomingCard?.cardinfo?.name}");
     }
-        
+
+
     private void MoveCardToPosition(Vector3 pos, OnitamaCard card)
     {
         StartCoroutine(MoveUtils.SmoothLerp(1f, card.cardHolder.transform.position, pos, card.cardHolder));
