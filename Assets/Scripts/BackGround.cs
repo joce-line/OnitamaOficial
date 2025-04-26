@@ -11,7 +11,7 @@ public class BackGround : MonoBehaviour
             case "0": this.GetComponent<SpriteRenderer>().sprite = bg00;break;
             case "1": this.GetComponent<SpriteRenderer>().sprite = bg01;break;
         }
-        this.transform.position = new Vector3(0,0,-1);
+        this.transform.position = new Vector3(0,0,1);
     }
 
 }
