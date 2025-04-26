@@ -4,6 +4,7 @@ using UnityEngine;
 public class GridManagerS : MonoBehaviour
 {
     public static GridManagerS instance;
+
     public static GridManagerS GetInstance()
     {
         if (instance == null)
