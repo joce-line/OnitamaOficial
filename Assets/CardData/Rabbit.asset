@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
   m_Name: Rabbit
   m_EditorClassIdentifier: 
-  name: Rabbit
-  gridSprite: {fileID: 5110612511535974256, guid: 59bb8955938036145982aa72ee89336e, type: 3}
+  name: "S\xE3o Bernardo"
+  gridSprite: {fileID: 21300000, guid: 59bb8955938036145982aa72ee89336e, type: 3}
+  dogSprite: {fileID: 21300000, guid: c1960857040b1984f81034383e410d63, type: 3}
   moveset:
   - {fileID: 11400000, guid: 1d59b2e529fa876478fb4a02a72721bf, type: 2}
   - {fileID: 11400000, guid: 9752490e5a9dae84fb27435deaf613fa, type: 2}

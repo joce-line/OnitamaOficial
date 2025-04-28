@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
   m_Name: Boar
   m_EditorClassIdentifier: 
-  name: Boar
-  gridSprite: {fileID: 3232954995629961432, guid: 942e03c8bf7bdb64b8dde67fda83d858, type: 3}
+  name: Beagle
+  gridSprite: {fileID: 21300000, guid: 942e03c8bf7bdb64b8dde67fda83d858, type: 3}
+  dogSprite: {fileID: 21300000, guid: 12e3f4cf36201474f9c977ddeb9f0be4, type: 3}
   moveset:
   - {fileID: 11400000, guid: e8d0174e3ab228b4e86ff0a8d772a9b0, type: 2}
   - {fileID: 11400000, guid: 15f4d6d363218fa408fd1b79f9eb6d61, type: 2}

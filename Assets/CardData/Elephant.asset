@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
   m_Name: Elephant
   m_EditorClassIdentifier: 
-  name: Elephant
-  gridSprite: {fileID: 832877967638892730, guid: 0beb8582fd97f9f42990cbc7befb0c49, type: 3}
+  name: Husky Siberiano
+  gridSprite: {fileID: 21300000, guid: 0beb8582fd97f9f42990cbc7befb0c49, type: 3}
+  dogSprite: {fileID: 21300000, guid: bec34455dcbde2c4183b97167b788250, type: 3}
   moveset:
   - {fileID: 11400000, guid: 15f4d6d363218fa408fd1b79f9eb6d61, type: 2}
   - {fileID: 11400000, guid: fbdff2a8b666c0640837d412c02efcc1, type: 2}
