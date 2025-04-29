@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
   m_Name: Ox
   m_EditorClassIdentifier: 
-  name: Ox
-  gridSprite: {fileID: 5688853055220777826, guid: c58ec5666e9675144a7f11ae6fde0cdf, type: 3}
+  name: Salsicha
+  gridSprite: {fileID: 21300000, guid: c58ec5666e9675144a7f11ae6fde0cdf, type: 3}
+  dogSprite: {fileID: 21300000, guid: 25d5f524fde6ade4fb9f08fd7afb4725, type: 3}
   moveset:
   - {fileID: 11400000, guid: e8d0174e3ab228b4e86ff0a8d772a9b0, type: 2}
   - {fileID: 11400000, guid: a48ef2f39b6d74f489764152d6686571, type: 2}

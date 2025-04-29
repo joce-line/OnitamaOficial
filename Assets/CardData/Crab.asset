@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
   m_Name: Crab
   m_EditorClassIdentifier: 
-  name: Crab
-  gridSprite: {fileID: 2104901783972924173, guid: 77d7ce9a192aa5f4d99142af44a83467, type: 3}
+  name: Bull Terrier
+  gridSprite: {fileID: 21300000, guid: 77d7ce9a192aa5f4d99142af44a83467, type: 3}
+  dogSprite: {fileID: 21300000, guid: ad89f04fd3819f746b194fe21af81d82, type: 3}
   moveset:
   - {fileID: 11400000, guid: e8d0174e3ab228b4e86ff0a8d772a9b0, type: 2}
   - {fileID: 11400000, guid: 554128f2e8b5d854c9392f99966b1933, type: 2}

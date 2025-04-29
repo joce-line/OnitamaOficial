@@ -6,6 +6,7 @@ public class CardData : ScriptableObject
 {
     public new string name;
     public Sprite gridSprite;
+    public Sprite dogSprite;
     public List<CardMove> moveset = new List<CardMove>();
 
     public CardData GetInstance()
