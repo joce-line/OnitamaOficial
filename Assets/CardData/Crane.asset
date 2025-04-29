@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
   m_Name: Crane
   m_EditorClassIdentifier: 
-  name: Crane
-  gridSprite: {fileID: -172748361037858554, guid: 20e796156dce043408ae63f8811a3308, type: 3}
+  name: ChowChow
+  gridSprite: {fileID: 21300000, guid: 20e796156dce043408ae63f8811a3308, type: 3}
+  dogSprite: {fileID: 21300000, guid: 38220fe57c6722c4ea5c55614f21e4e5, type: 3}
   moveset:
   - {fileID: 11400000, guid: e8d0174e3ab228b4e86ff0a8d772a9b0, type: 2}
   - {fileID: 11400000, guid: 1d59b2e529fa876478fb4a02a72721bf, type: 2}

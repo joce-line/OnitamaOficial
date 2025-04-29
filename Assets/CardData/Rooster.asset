@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
   m_Name: Rooster
   m_EditorClassIdentifier: 
-  name: Rooster
-  gridSprite: {fileID: 1223526088056373679, guid: a07120ea57107dc4d80d193061423aca, type: 3}
+  name: "Spitz Alem\xE3o"
+  gridSprite: {fileID: 21300000, guid: a07120ea57107dc4d80d193061423aca, type: 3}
+  dogSprite: {fileID: 21300000, guid: 17f1a210cc484474daef07246528b75f, type: 3}
   moveset:
   - {fileID: 11400000, guid: 1d59b2e529fa876478fb4a02a72721bf, type: 2}
   - {fileID: 11400000, guid: 15f4d6d363218fa408fd1b79f9eb6d61, type: 2}

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19111e5c27f2847be61dee2702bc98, type: 3}
   m_Name: Cobra
   m_EditorClassIdentifier: 
-  name: Cobra
-  gridSprite: {fileID: -3613037242526514039, guid: f8b402e37141d084f8e03e0a12e1b1a8, type: 3}
+  name: "Buldogue Franc\xEAs"
+  gridSprite: {fileID: 21300000, guid: f8b402e37141d084f8e03e0a12e1b1a8, type: 3}
+  dogSprite: {fileID: 21300000, guid: 30ec20c4e60a6b7459331cf744f912ed, type: 3}
   moveset:
   - {fileID: 11400000, guid: 15f4d6d363218fa408fd1b79f9eb6d61, type: 2}
   - {fileID: 11400000, guid: 802a0f1ba44c5d34f9746548342ade26, type: 2}

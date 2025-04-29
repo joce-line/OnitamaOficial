@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   name: Default
-  gridSprite: {fileID: -4729510303597989806, guid: bfe1788dc20cf9341b323045ebf8682d, type: 3}
+  gridSprite: {fileID: 8982117124692984405, guid: 3de5a8ff2490d7d478a44ca0e9af841d, type: 3}
+  dogSprite: {fileID: 7298464241232338789, guid: 07115dafdd7a2764e817b868adf675db, type: 3}
   moveset: []

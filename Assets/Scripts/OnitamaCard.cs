@@ -9,6 +9,7 @@ public class OnitamaCard : MonoBehaviour
     public TextMeshPro cardName;
     public SpriteRenderer cardBackgroundSprite;
     public SpriteRenderer cardMovesSprite;
+    public SpriteRenderer cardDogSprite;
     public CardData cardinfo;
     public int playerId;
 
@@ -24,6 +25,7 @@ public class OnitamaCard : MonoBehaviour
         cardinfo = cardinfo.GetInstance();
         cardName.text = cardinfo.name;
         cardMovesSprite.sprite = cardinfo.gridSprite;
+        cardDogSprite.sprite = cardinfo.dogSprite;
     }
 
     //coloca na carta as informações corretas de nome e movimentação (sprite)
@@ -31,6 +33,7 @@ public class OnitamaCard : MonoBehaviour
     {
         cardName.text = cardinfo2.name;
         cardMovesSprite.sprite = cardinfo2.gridSprite;
+        cardDogSprite.sprite = cardinfo2.dogSprite;
     }
 
     public void TurnOnHighlight() => highlightSprite.enabled = true;
