@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TelaVitoria_0: 8465449008968339602
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
