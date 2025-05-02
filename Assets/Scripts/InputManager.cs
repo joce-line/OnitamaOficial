@@ -150,6 +150,12 @@ public class InputManager : MonoBehaviour
 
     public void OnActivePlayerChange(string eventName, ActionParams data)
     {
+        if (lastSelectedCard != null)
+        {
+            lastSelectedCard.TurnOffHighlight();
+            lastSelectedCard = null;
+        }
+
         activePlayer = data.Get<int>("activePlayer");
         lastSelectedCard = CardManager.SelectRandomPlayerCard(activePlayer);
         lastSelectedCard.TurnOnHighlight();
