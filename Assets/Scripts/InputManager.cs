@@ -128,7 +128,15 @@ public class InputManager : MonoBehaviour
         moveList = GameManager.BuildUnitMoveList(lastSelectedCard, node);
         foreach (GridNodeS item in moveList)
         {
-            item.TurnOnMoveHighlight();
+            if (item.occupyingUnit != null && item.occupyingUnit.ptype == lastSelectedNode.occupyingUnit.ptype)
+            {
+                item.TurnOffHighlight();
+            }
+            else
+            {
+                item.TurnOnMoveHighlight();
+
+            }
         }
     }
 
