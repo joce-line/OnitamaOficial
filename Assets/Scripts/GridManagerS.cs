@@ -78,7 +78,9 @@ public class GridManagerS : MonoBehaviour
                 node.objHolder.transform.parent = gridParent;
                 node.objHolder.localScale = Vector3.one * nodeSize;
                 node.objHolder.gameObject.GetComponent<SpriteRenderer>().enabled = node.walkable;
+                node.objHolder.GetComponent<SpriteRenderer>().color = Color.clear;
                 node.objHolder.tag = "GridNode";
+
             }
         }
     }
