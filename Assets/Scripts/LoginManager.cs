@@ -12,6 +12,10 @@ public class LoginManager : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
 
+    //thiago mostrar Erro
+    public TextMeshProUGUI errorMessage;
+    public GameObject errorPanel;
+
     HashSenha valida = new HashSenha(SHA512.Create());
     public void Login()
     {
@@ -20,6 +24,7 @@ public class LoginManager : MonoBehaviour
             if (DatabaseManager.Instance == null || string.IsNullOrEmpty(DatabaseManager.ConnectionString))
             {
                 Debug.LogError("DatabaseManager não inicializado.");
+                showError();
                 return;
             }
 
@@ -32,6 +37,7 @@ public class LoginManager : MonoBehaviour
             {
                 Debug.LogError("Todos os campos são obrigatórios.");
                 //TODO: quando adicionar texto visivel para usuario, adicionar aqui a atualização da variavel de feedback.
+                showError();
                 return;
             }
 
@@ -44,6 +50,7 @@ public class LoginManager : MonoBehaviour
             {
                 Debug.Log("Usuário ou senha incorretos.");
                 //TODO: adicionar aqui variavel de feedback para usuario
+                showError();
                 return;
             }
 
@@ -62,6 +69,7 @@ public class LoginManager : MonoBehaviour
             {
                 Debug.Log("Usuário ou senha incorretos.");
                 //TODO: adicionar aqui variavel de feedback para usuario
+                showError();
                 return;
             }
 
@@ -70,12 +78,13 @@ public class LoginManager : MonoBehaviour
             {
                 Debug.Log("Login bem-sucedido!");
                 PlayerInfo.nomePlayer = username;
-                SceneManager.LoadScene("Game");
+                SceneManager.LoadScene("MenuPrincipal");
             }
             else
             {
                 Debug.Log("Usuário ou senha incorretos.");
                 //TODO: adicionar aqui variavel de feedback para usuario
+                showError();
             }
 
         }
@@ -88,5 +97,19 @@ public class LoginManager : MonoBehaviour
     public void OpenRegisterScene()
     {
         SceneManager.LoadScene("CriarUsuario");
+    }
+    
+    //ativa o painel de erro e mostra a menssagem
+    public void showError()
+    {
+        errorPanel.SetActive(true);
+        errorMessage.text = "Usuário ou senha incorretos.";
+    }
+    
+    //esconde o painel de erro e limpa a menssagem
+    public void closeError()
+    {
+        errorPanel.SetActive(false);
+        errorMessage.text = null;
     }
 }

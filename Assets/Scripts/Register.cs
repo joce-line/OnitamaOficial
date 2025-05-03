@@ -19,6 +19,16 @@ public class Register : MonoBehaviour
     private string nickname;
     private string senha;
 
+    //mostra erro de cadastro
+    public GameObject erroNome;
+    public TextMeshProUGUI messageErroNome;    
+    public GameObject erroCpf;
+    public TextMeshProUGUI messageErroCPF;
+    public GameObject erroEmail;
+    public TextMeshProUGUI messageErroEmail;
+    public GameObject erroSenha;
+    public TextMeshProUGUI messageErroSenha;
+
     public void Registrar()
     {
         try
@@ -38,6 +48,10 @@ public class Register : MonoBehaviour
             {
                 Debug.LogError("Todos os campos são obrigatórios. Algum campo esta nulo.");
                 //TODO: quando adicionar texto visível para usuário, adicionar aqui a atualização da variável de feedback.
+                mostraMessage(erroNome, messageErroNome, "Este campo precisa ser PREENCHIDO");
+                mostraMessage(erroCpf, messageErroCPF, "Este campo precisa ser PREENCHIDO");
+                mostraMessage(erroEmail, messageErroEmail, "Este campo precisa ser PREENCHIDO");
+                mostraMessage(erroSenha, messageErroSenha, "Este campo precisa ser PREENCHIDO");
                 return;
             }
 
@@ -46,6 +60,7 @@ public class Register : MonoBehaviour
             {
                 Debug.LogError("A senha deve ter pelo menos 8 caracteres.");
                 //TODO: adicionar aqui variável de feedback para usuário
+                mostraMessage(erroSenha, messageErroSenha, "A senha deve ter pelo menos 8 caracteres.");
                 return;
             }
 
@@ -54,6 +69,7 @@ public class Register : MonoBehaviour
             {
                 Debug.LogError("A senha deve conter pelo menos uma letra.");
                 //TODO: adicionar aqui variável de feedback para usuário
+                mostraMessage(erroSenha, messageErroSenha, "A senha deve conter pelo menos uma letra.");
                 return;
             }
 
@@ -61,6 +77,7 @@ public class Register : MonoBehaviour
             {
                 Debug.LogError("A senha deve conter pelo menos um número.");
                 //TODO: adicionar aqui variável de feedback para usuário
+                mostraMessage(erroSenha, messageErroSenha, "A senha deve conter pelo menos um número.");
                 return;
             }
 
@@ -68,6 +85,7 @@ public class Register : MonoBehaviour
             {
                 Debug.LogError("A senha deve conter pelo menos um caractere especial.");
                 //TODO: adicionar aqui variável de feedback para usuário
+                mostraMessage(erroSenha, messageErroSenha, "A senha deve conter pelo menos um número.");
                 return;
             }
 
@@ -76,6 +94,7 @@ public class Register : MonoBehaviour
             {
                 Debug.LogError("Formato de email inválido.");
                 //TODO: adicionar aqui variável de feedback para usuário
+                 mostraMessage(erroEmail, messageErroEmail, "Formato de email inválido.");
                 return;
             }
 
@@ -84,6 +103,7 @@ public class Register : MonoBehaviour
             {
                 Debug.LogError("CPF inválido.");
                 //TODO: adicionar aqui variável de feedback para usuário
+                mostraMessage(erroCpf, messageErroCPF, "CPF inválido.");
                 return;
             }
 
@@ -96,6 +116,7 @@ public class Register : MonoBehaviour
             {
                 Debug.Log("CPF já cadastrado.");
                 //TODO: adicionar aqui variável de feedback para usuário
+                mostraMessage(erroCpf, messageErroCPF, "CPF já cadastrado.");
                 return;
             }
 
@@ -109,6 +130,7 @@ public class Register : MonoBehaviour
             {
                 Debug.Log("Email indisponível.");
                 //TODO: adicionar aqui variável de feedback para usuário
+                mostraMessage(erroEmail, messageErroEmail, "Email indisponível.");
                 return;
             }
 
@@ -120,6 +142,7 @@ public class Register : MonoBehaviour
             {
                 Debug.Log("Nickname indisponível.");
                 //TODO: adicionar aqui variável de feedback para usuário
+                mostraMessage(erroNome, messageErroNome, "Nickname indisponível.");
                 return;
             }
 
@@ -180,8 +203,18 @@ public class Register : MonoBehaviour
 
         return cpf[9] - '0' == digito1 && cpf[10] - '0' == digito2;
     }
-public void OpenLoginScene()
+
+    //navega para a pagina anterior
+    public void OpenLoginScene()
     {
         SceneManager.LoadScene("Login");
+    }
+
+
+    //mostra a menssagem de erro
+    public void mostraMessage(GameObject messagePanel, TextMeshProUGUI messageText, string textErro)
+    {
+        messagePanel.SetActive(true);
+        messageText.text = textErro;
     }
 }
