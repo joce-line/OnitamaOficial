@@ -7,4 +7,9 @@ public class FeedbackUser : MonoBehaviour
     {
         elemento.gameObject.SetActive(aviso);
     }
+
+    public void exibePouUpAviso(bool aviso, GameObject elemento)
+    {
+        elemento.gameObject.SetActive(aviso);
+    }
 }

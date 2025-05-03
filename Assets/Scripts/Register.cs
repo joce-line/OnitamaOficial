@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using Assets.scripts.Classes;
 using System.Security.Cryptography;
 using System.Collections.Generic;
-using System.Threading;
+using System.Collections;
 
 public class Register : MonoBehaviour
 {
@@ -14,17 +14,17 @@ public class Register : MonoBehaviour
     public TMP_InputField cpfInput;
     public TMP_InputField emailInput;
     public TMP_InputField senhaInput;
+
     public TextMeshProUGUI textoAvisoCPF;
     public TextMeshProUGUI textoAvisoCamposObrigatorios;
-    public TextMeshProUGUI textoAvisoSenhaCaracteres;
-    public TextMeshProUGUI textoAvisoSenhaLetra;
-    public TextMeshProUGUI textoAvisoSenhaNumero;
-    public TextMeshProUGUI textoAvisoSenhaEspecial;
+    public TextMeshProUGUI textoAvisoSenhaRequisitos;
     public TextMeshProUGUI textoAvisoEmail;
     public TextMeshProUGUI textoAvisoCpfCadastrado;
     public TextMeshProUGUI textoAvisoEmailCadastrado;
     public TextMeshProUGUI textoAvisoNickCadastrado;
     public TextMeshProUGUI textoAvisoErroCadastro;
+
+    public GameObject avisoCamposVazios;
 
     private string cpf;
     private string email;
@@ -34,6 +34,7 @@ public class Register : MonoBehaviour
     public void Registrar()
     {
         FeedbackUser aviso = new FeedbackUser();
+        bool temErro = false;
 
         try
         {
@@ -48,149 +49,85 @@ public class Register : MonoBehaviour
             email = emailInput.text;
             senha = senhaInput.text;
 
+            // Campos obrigatórios
             if (string.IsNullOrEmpty(nickname) || string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
             {
-                //Debug.LogError("Todos os campos são obrigatórios. Algum campo esta nulo.");
-                aviso.exibeTextoAviso(true, textoAvisoCamposObrigatorios);
-                return;
-            }
-            else
-            {
-                aviso.exibeTextoAviso(false, textoAvisoCamposObrigatorios);
+                StartCoroutine(OcultarAvisoTemporario(avisoCamposVazios, 3f));
+                temErro = true;
             }
 
-            // Verificação de senha mínima
-            if (senha.Length < 8)
-            {
-                //Debug.LogError("A senha deve ter pelo menos 8 caracteres.");
-                aviso.exibeTextoAviso(true, textoAvisoSenhaCaracteres);
-                return;
-            }
-            else
-            {
-                aviso.exibeTextoAviso(false, textoAvisoSenhaCaracteres);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaLetra);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaNumero);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaEspecial);
-            }
+            // Se há erro nos campos obrigatórios, não valida as outras condições
+            //if (temErro) return;
 
-            // Verificação de complexidade da senha
-            if (!Regex.IsMatch(senha, @"[A-Za-z]")) // Tem letra?
+            // Validações adicionais (senha, email, CPF)
+            if (!ValidarCPF(cpf) && !string.IsNullOrEmpty(cpf))
             {
-                //Debug.LogError("A senha deve conter pelo menos uma letra.");
-                aviso.exibeTextoAviso(true, textoAvisoSenhaLetra);
-                return;
-            }
-            else
-            {
-                aviso.exibeTextoAviso(false, textoAvisoSenhaLetra);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaCaracteres);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaNumero);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaEspecial);
-            }
-
-            if (!Regex.IsMatch(senha, @"\d")) // Tem número?
-            {
-                //Debug.LogError("A senha deve conter pelo menos um número.");
-                aviso.exibeTextoAviso(true, textoAvisoSenhaNumero);
-                return;
-            }
-            else
-            {
-                aviso.exibeTextoAviso(false, textoAvisoSenhaNumero);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaCaracteres);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaLetra);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaEspecial);
-            }
-
-            if (!Regex.IsMatch(senha, @"[\W_]")) // Tem caractere especial?
-            {
-                //Debug.LogError("A senha deve conter pelo menos um caractere especial.");
-                aviso.exibeTextoAviso(true, textoAvisoSenhaEspecial);
-                return;
-            }
-            else
-            {
-                aviso.exibeTextoAviso(false, textoAvisoSenhaEspecial);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaCaracteres);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaLetra);
-                aviso.exibeTextoAviso(false, textoAvisoSenhaNumero);
-            }
-
-            // Verificação de formato de email
-            if (!email.Contains("@"))
-            {
-                //Debug.LogError("Formato de email inválido.");
-                aviso.exibeTextoAviso(true, textoAvisoEmail);
-                return;
-            }
-            else
-            {
-                aviso.exibeTextoAviso(false, textoAvisoEmail);
-            }
-
-            // Verificação se CPF é válido (estrutura correta)
-            if (!ValidarCPF(cpf))
-            {
-                //Debug.LogError("CPF inválido.");
                 aviso.exibeTextoAviso(true, textoAvisoCPF);
-                return;
+                temErro = true;
+            }
+            else aviso.exibeTextoAviso(false, textoAvisoCPF);
+
+            if (!email.Contains("@") && !string.IsNullOrEmpty(email))
+            {
+                aviso.exibeTextoAviso(true, textoAvisoEmail);
+                temErro = true;
+            }
+            else aviso.exibeTextoAviso(false, textoAvisoEmail);
+
+            bool senhaInvalida = senha.Length < 8 ||
+                                 !Regex.IsMatch(senha, @"[A-Za-z]") ||
+                                 !Regex.IsMatch(senha, @"\d") ||
+                                 !Regex.IsMatch(senha, @"[\W_]");
+
+            if (senhaInvalida && !string.IsNullOrEmpty(senha))
+            {
+                aviso.exibeTextoAviso(true, textoAvisoSenhaRequisitos);
+                temErro = true;
             }
             else
             {
-                aviso.exibeTextoAviso(false, textoAvisoCPF);
+                aviso.exibeTextoAviso(false, textoAvisoSenhaRequisitos);
             }
 
-            // Verificação se CPF já está cadastrado
+            //if (temErro) return;
+
+            // CPF já cadastrado
             string selectCpfQuery = "SELECT COUNT(*) FROM usuarios WHERE cpf = @cpf";
             var cpfParams = new Dictionary<string, object> { { "@cpf", cpf } };
-            long countCpf = Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectCpfQuery, cpfParams));
-
-            if (countCpf > 0)
+            if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectCpfQuery, cpfParams)) > 0)
             {
-                //Debug.Log("CPF já cadastrado.");
                 aviso.exibeTextoAviso(true, textoAvisoCpfCadastrado);
-                return;
+                temErro = true;
             }
-            else
-            {
-                aviso.exibeTextoAviso(false, textoAvisoCpfCadastrado);
-            }
+            else aviso.exibeTextoAviso(false, textoAvisoCpfCadastrado);
 
-            HashSenha encriptografar = new HashSenha(SHA512.Create());
-
-            // Verificação se email já está em uso
+            // Email já cadastrado
             string selectEmailQuery = "SELECT COUNT(*) FROM usuarios WHERE email = @email";
             var emailParams = new Dictionary<string, object> { { "@email", email } };
-            long countEmail = Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectEmailQuery, emailParams));
-            if (countEmail > 0)
+            if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectEmailQuery, emailParams)) > 0)
             {
-                //Debug.Log("Email indisponível.");
+                Debug.Log(selectEmailQuery);  // Verifique o debug aqui para saber se a consulta está sendo executada
                 aviso.exibeTextoAviso(true, textoAvisoEmailCadastrado);
-                return;
+                temErro = true;
             }
-            else
-            {
-                aviso.exibeTextoAviso(false, textoAvisoEmailCadastrado);
-            }
+            else aviso.exibeTextoAviso(false, textoAvisoEmailCadastrado);
 
-            // Verificação se nickname está disponível
+            // Nickname já cadastrado
             string selectNicknameQuery = "SELECT COUNT(*) FROM usuarios WHERE nickname = @nickname";
             var nickParams = new Dictionary<string, object> { { "@nickname", nickname } };
-            long countNickname = Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectNicknameQuery, nickParams));
-            if (countNickname > 0)
+            if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectNicknameQuery, nickParams)) > 0)
             {
-                //Debug.Log("Nickname indisponível.");
                 aviso.exibeTextoAviso(true, textoAvisoNickCadastrado);
-                return;
+                temErro = true;
             }
-            else
-            {
-                aviso.exibeTextoAviso(false, textoAvisoNickCadastrado);
-            }
+            else aviso.exibeTextoAviso(false, textoAvisoNickCadastrado);
 
-            // Inserção no banco de dados
-            string insertQuery = "INSERT INTO usuarios (nickname, cpf, email, senha) VALUES (@nickname, @cpf, @email, @senha);";
+            if (temErro) return;
+
+            // Criptografar e inserir
+            HashSenha encriptografar = new HashSenha(SHA512.Create());
+
+            string insertQuery = "INSERT INTO usuarios (nickname, cpf, email, senha) VALUES (@nickname, @cpf, @email, @senha)";
             var insertParams = new Dictionary<string, object>
             {
                 { "@nickname", nickname },
@@ -201,24 +138,20 @@ public class Register : MonoBehaviour
 
             if (DatabaseManager.Instance.ExecuteNonQuery(insertQuery, insertParams))
             {
-                Debug.Log("Usuário cadastrado!");
+                Debug.Log("Usuário cadastrado com sucesso.");
                 SceneManager.LoadScene("Login");
             }
             else
             {
-                //Debug.LogError("Falha ao cadastrar usuário.");
-                aviso.exibeTextoAviso(true, textoAvisoErroCadastro);
-                Thread.Sleep(3000);
-                aviso.exibeTextoAviso(false, textoAvisoErroCadastro);
+                StartCoroutine(OcultarAvisoTemporarioTexto(textoAvisoErroCadastro, 3f));
             }
         }
         catch (Exception e)
         {
-            Debug.LogError($"Erro ao realizar cadastro: {e.Message}");
+            Debug.LogError($"Erro no cadastro: {e.Message}");
         }
     }
 
-    // Função para validar estrutura do CPF
     private bool ValidarCPF(string cpf)
     {
         cpf = cpf.Replace(".", "").Replace("-", "");
@@ -248,8 +181,23 @@ public class Register : MonoBehaviour
 
         return cpf[9] - '0' == digito1 && cpf[10] - '0' == digito2;
     }
-public void OpenLoginScene()
+
+    public void OpenLoginScene()
     {
         SceneManager.LoadScene("Login");
+    }
+
+    private IEnumerator OcultarAvisoTemporario(GameObject aviso, float tempo)
+    {
+        aviso.SetActive(true);
+        yield return new WaitForSeconds(tempo);
+        aviso.SetActive(false);
+    }
+
+    private IEnumerator OcultarAvisoTemporarioTexto(TextMeshProUGUI aviso, float tempo)
+    {
+        aviso.gameObject.SetActive(true);
+        yield return new WaitForSeconds(tempo);
+        aviso.gameObject.SetActive(false);
     }
 }
