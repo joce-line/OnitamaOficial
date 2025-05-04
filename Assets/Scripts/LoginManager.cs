@@ -26,6 +26,15 @@ public class LoginManager : MonoBehaviour
             string username = usernameInput.text;
             string password = passwordInput.text;
 
+            string query = "SELECT id, nome, type, nome_conjunto FROM pecas";
+
+            List<Dictionary<string, object>> resultados = DatabaseManager.Instance.ExecuteReader(query);
+
+            foreach (var linha in resultados)
+            {
+                Debug.Log($"ID: {linha["id"]}, Nome: {linha["nome"]}, {linha["type"]}, {linha["nome_conjunto"]}");
+            }
+
             //Debug.Log($"Tentando login com usuário: {username}");
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
