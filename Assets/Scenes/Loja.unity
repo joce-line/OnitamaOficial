@@ -661,10 +661,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 837958352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53fa40ccf00bfe943b49a3a044de65fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cec5eaeed955e84a8221f1d9225ea34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sairButton: {fileID: 701024131}
 --- !u!1 &877470539
 GameObject:
   m_ObjectHideFlags: 0
