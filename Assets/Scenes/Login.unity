@@ -2901,7 +2901,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1042774563}
         m_TargetAssemblyTypeName: LoginManager, Assembly-CSharp
         m_MethodName: OpenRegisterScene
         m_Mode: 1
