@@ -11,4 +11,10 @@ namespace Assets.scripts.InfoPlayer
     {
         public static String nomePlayer;
     }
+
+    public static class DadosJogo
+    {
+        public static int vencedor;
+        public static int perdedor;
+    }
 }

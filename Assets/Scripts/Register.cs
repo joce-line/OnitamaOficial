@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using Assets.scripts.Classes;
 using System.Security.Cryptography;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Register : MonoBehaviour
 {
@@ -14,23 +15,28 @@ public class Register : MonoBehaviour
     public TMP_InputField emailInput;
     public TMP_InputField senhaInput;
 
+    public TextMeshProUGUI textoAvisoCPF;
+    public TextMeshProUGUI textoAvisoCamposObrigatorios;
+    public TextMeshProUGUI textoAvisoSenhaRequisitos;
+    public TextMeshProUGUI textoAvisoEmail;
+    public TextMeshProUGUI textoAvisoCpfCadastrado;
+    public TextMeshProUGUI textoAvisoEmailCadastrado;
+    public TextMeshProUGUI textoAvisoNickCadastrado;
+    public TextMeshProUGUI textoAvisoErroCadastro;
+    public TextMeshProUGUI avisoCamposVazios;
+    public TextMeshProUGUI avisoErroCadastro;
+
+
     private string cpf;
     private string email;
     private string nickname;
     private string senha;
 
-    //mostra erro de cadastro
-    public GameObject erroNome;
-    public TextMeshProUGUI messageErroNome;    
-    public GameObject erroCpf;
-    public TextMeshProUGUI messageErroCPF;
-    public GameObject erroEmail;
-    public TextMeshProUGUI messageErroEmail;
-    public GameObject erroSenha;
-    public TextMeshProUGUI messageErroSenha;
-
     public void Registrar()
     {
+        FeedbackUser aviso = new FeedbackUser();
+        bool temErro = false;
+
         try
         {
             if (DatabaseManager.Instance == null || string.IsNullOrEmpty(DatabaseManager.ConnectionString))
@@ -44,110 +50,92 @@ public class Register : MonoBehaviour
             email = emailInput.text;
             senha = senhaInput.text;
 
+            // Campos obrigatórios
             if (string.IsNullOrEmpty(nickname) || string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
             {
-                Debug.LogError("Todos os campos são obrigatórios. Algum campo esta nulo.");
-                //TODO: quando adicionar texto visível para usuário, adicionar aqui a atualização da variável de feedback.
-                mostraMessage(erroNome, messageErroNome, "Este campo precisa ser PREENCHIDO");
-                mostraMessage(erroCpf, messageErroCPF, "Este campo precisa ser PREENCHIDO");
-                mostraMessage(erroEmail, messageErroEmail, "Este campo precisa ser PREENCHIDO");
-                mostraMessage(erroSenha, messageErroSenha, "Este campo precisa ser PREENCHIDO");
-                return;
+                Debug.LogError("Todos os campos são obrigatórios.");
+                aviso.exibeTextoAviso(true, avisoCamposVazios);
+                temErro = true;
             }
 
-            // Verificação de senha mínima
-            if (senha.Length < 8)
-            {
-                Debug.LogError("A senha deve ter pelo menos 8 caracteres.");
-                //TODO: adicionar aqui variável de feedback para usuário
-                mostraMessage(erroSenha, messageErroSenha, "A senha deve ter pelo menos 8 caracteres.");
-                return;
-            }
+            // Se há erro nos campos obrigatórios, não valida as outras condições
+            //if (temErro) return;
 
-            // Verificação de complexidade da senha
-            if (!Regex.IsMatch(senha, @"[A-Za-z]")) // Tem letra?
-            {
-                Debug.LogError("A senha deve conter pelo menos uma letra.");
-                //TODO: adicionar aqui variável de feedback para usuário
-                mostraMessage(erroSenha, messageErroSenha, "A senha deve conter pelo menos uma letra.");
-                return;
-            }
-
-            if (!Regex.IsMatch(senha, @"\d")) // Tem número?
-            {
-                Debug.LogError("A senha deve conter pelo menos um número.");
-                //TODO: adicionar aqui variável de feedback para usuário
-                mostraMessage(erroSenha, messageErroSenha, "A senha deve conter pelo menos um número.");
-                return;
-            }
-
-            if (!Regex.IsMatch(senha, @"[\W_]")) // Tem caractere especial?
-            {
-                Debug.LogError("A senha deve conter pelo menos um caractere especial.");
-                //TODO: adicionar aqui variável de feedback para usuário
-                mostraMessage(erroSenha, messageErroSenha, "A senha deve conter pelo menos um número.");
-                return;
-            }
-
-            // Verificação de formato de email
-            if (!email.Contains("@"))
-            {
-                Debug.LogError("Formato de email inválido.");
-                //TODO: adicionar aqui variável de feedback para usuário
-                 mostraMessage(erroEmail, messageErroEmail, "Formato de email inválido.");
-                return;
-            }
-
-            // Verificação se CPF é válido (estrutura correta)
-            if (!ValidarCPF(cpf))
+            // Validações adicionais (senha, email, CPF)
+            if (!ValidarCPF(cpf) && !string.IsNullOrEmpty(cpf))
             {
                 Debug.LogError("CPF inválido.");
-                //TODO: adicionar aqui variável de feedback para usuário
-                mostraMessage(erroCpf, messageErroCPF, "CPF inválido.");
-                return;
+                aviso.exibeTextoAviso(true, textoAvisoCPF);
+                temErro = true;
+            }
+            else aviso.exibeTextoAviso(false, textoAvisoCPF);
+
+            if (!email.Contains("@") && !string.IsNullOrEmpty(email))
+            {
+                Debug.LogError("email inválido.");
+                aviso.exibeTextoAviso(true, textoAvisoEmail);
+                temErro = true;
+            }
+            else aviso.exibeTextoAviso(false, textoAvisoEmail);
+
+            bool senhaInvalida = senha.Length < 8 ||
+                                 !Regex.IsMatch(senha, @"[A-Za-z]") ||
+                                 !Regex.IsMatch(senha, @"\d") ||
+                                 !Regex.IsMatch(senha, @"[\W_]");
+
+            if (senhaInvalida && !string.IsNullOrEmpty(senha))
+            {
+                Debug.LogError("Senha invalida.");
+                aviso.exibeTextoAviso(true, textoAvisoSenhaRequisitos);
+                temErro = true;
+            }
+            else
+            {
+                aviso.exibeTextoAviso(false, textoAvisoSenhaRequisitos);
             }
 
-            // Verificação se CPF já está cadastrado
+            //if (temErro) return;
+
+            // CPF já cadastrado
             string selectCpfQuery = "SELECT COUNT(*) FROM usuarios WHERE cpf = @cpf";
             var cpfParams = new Dictionary<string, object> { { "@cpf", cpf } };
-            long countCpf = Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectCpfQuery, cpfParams));
-
-            if (countCpf > 0)
+            if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectCpfQuery, cpfParams)) > 0)
             {
                 Debug.Log("CPF já cadastrado.");
-                //TODO: adicionar aqui variável de feedback para usuário
-                mostraMessage(erroCpf, messageErroCPF, "CPF já cadastrado.");
-                return;
+                aviso.exibeTextoAviso(true, textoAvisoCpfCadastrado);
+                temErro = true;
             }
+            else aviso.exibeTextoAviso(false, textoAvisoCpfCadastrado);
 
-            HashSenha encriptografar = new HashSenha(SHA512.Create());
-
-            // Verificação se email já está em uso
+            // Email já cadastrado
             string selectEmailQuery = "SELECT COUNT(*) FROM usuarios WHERE email = @email";
             var emailParams = new Dictionary<string, object> { { "@email", email } };
-            long countEmail = Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectEmailQuery, emailParams));
-            if (countEmail > 0)
+            if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectEmailQuery, emailParams)) > 0)
             {
                 Debug.Log("Email indisponível.");
-                //TODO: adicionar aqui variável de feedback para usuário
-                mostraMessage(erroEmail, messageErroEmail, "Email indisponível.");
-                return;
+                Debug.Log(selectEmailQuery);  // Verifique o debug aqui para saber se a consulta está sendo executada
+                aviso.exibeTextoAviso(true, textoAvisoEmailCadastrado);
+                temErro = true;
             }
+            else aviso.exibeTextoAviso(false, textoAvisoEmailCadastrado);
 
-            // Verificação se nickname está disponível
+            // Nickname já cadastrado
             string selectNicknameQuery = "SELECT COUNT(*) FROM usuarios WHERE nickname = @nickname";
             var nickParams = new Dictionary<string, object> { { "@nickname", nickname } };
-            long countNickname = Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectNicknameQuery, nickParams));
-            if (countNickname > 0)
+            if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectNicknameQuery, nickParams)) > 0)
             {
                 Debug.Log("Nickname indisponível.");
-                //TODO: adicionar aqui variável de feedback para usuário
-                mostraMessage(erroNome, messageErroNome, "Nickname indisponível.");
-                return;
+                aviso.exibeTextoAviso(true, textoAvisoNickCadastrado);
+                temErro = true;
             }
+            else aviso.exibeTextoAviso(false, textoAvisoNickCadastrado);
 
-            // Inserção no banco de dados
-            string insertQuery = "INSERT INTO usuarios (nickname, cpf, email, senha) VALUES (@nickname, @cpf, @email, @senha);";
+            if (temErro) return;
+
+            // Criptografar e inserir
+            HashSenha encriptografar = new HashSenha(SHA512.Create());
+
+            string insertQuery = "INSERT INTO usuarios (nickname, cpf, email, senha) VALUES (@nickname, @cpf, @email, @senha)";
             var insertParams = new Dictionary<string, object>
             {
                 { "@nickname", nickname },
@@ -158,22 +146,22 @@ public class Register : MonoBehaviour
 
             if (DatabaseManager.Instance.ExecuteNonQuery(insertQuery, insertParams))
             {
-                Debug.Log("Usuário cadastrado!");
+                Debug.Log("Usuário cadastrado com sucesso.");
                 SceneManager.LoadScene("Login");
             }
             else
             {
-                Debug.LogError("Falha ao cadastrar usuário.");
-                //TODO: adicionar aqui variável de feedback para usuário
+                Debug.LogError("Erro no cadastro.");
+                aviso.exibeTextoAviso(true, avisoErroCadastro);
+                temErro = true;
             }
         }
         catch (Exception e)
         {
-            Debug.LogError($"Erro ao realizar cadastro: {e.Message}");
+            Debug.LogError($"Erro no cadastro: {e.Message}");
         }
     }
 
-    // Função para validar estrutura do CPF
     private bool ValidarCPF(string cpf)
     {
         cpf = cpf.Replace(".", "").Replace("-", "");
@@ -210,11 +198,10 @@ public class Register : MonoBehaviour
         SceneManager.LoadScene("Login");
     }
 
-
-    //mostra a menssagem de erro
-    public void mostraMessage(GameObject messagePanel, TextMeshProUGUI messageText, string textErro)
+    private IEnumerator OcultarAvisoTemporarioTexto(TextMeshProUGUI aviso, float tempo)
     {
-        messagePanel.SetActive(true);
-        messageText.text = textErro;
+        aviso.gameObject.SetActive(true);
+        yield return new WaitForSeconds(tempo);
+        aviso.gameObject.SetActive(false);
     }
 }

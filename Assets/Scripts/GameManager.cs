@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Assets.scripts.InfoPlayer;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -142,9 +144,15 @@ public class GameManager : MonoBehaviour
 
         if (CheckForGameEnd(receivedNode))
         {
+            DadosJogo.vencedor = receivedPlayer;  
+            DadosJogo.perdedor = (receivedPlayer == 1) ? 2 : 1;
+
+
             ActionParams temp = new ActionParams();
             temp.Put("activePlayer", activePlayer);
             EventManager.TriggerEvent("GameOver", temp);
+
+            SceneManager.LoadScene("FimDoJogo");
         }
         else
         {

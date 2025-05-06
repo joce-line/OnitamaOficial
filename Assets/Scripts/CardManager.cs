@@ -131,6 +131,15 @@ public class CardManager : MonoBehaviour
         upcomingCard.TurnOffUpcoming();
         if (receivedPlayer == 1)
         {
+            if (upcomingCard != null && upcomingCard.playerId == 2)
+            {
+
+                p2Cards.Remove(upcomingCard);
+                p1Cards.Add(upcomingCard);
+                MoveCardToPosition(p1slot3, upcomingCard);
+                upcomingCard.TurnOffUpcoming();
+            }
+
             for (int i = 0; i < p1Cards.Count; i++)
             {
                 if (p1Cards[i] == receivedCard)
@@ -153,6 +162,14 @@ public class CardManager : MonoBehaviour
         }
         else
         {
+            if (upcomingCard != null && upcomingCard.playerId == 1)
+            {
+                p1Cards.Remove(upcomingCard);
+                p2Cards.Add(upcomingCard);
+                MoveCardToPosition(p2slot3, upcomingCard);
+                upcomingCard.TurnOffUpcoming();
+            }
+
             for (int i = 0; i < p2Cards.Count; i++)
             {
                 if (p2Cards[i] == receivedCard)

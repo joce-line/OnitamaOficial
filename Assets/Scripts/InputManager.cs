@@ -128,7 +128,15 @@ public class InputManager : MonoBehaviour
         moveList = GameManager.BuildUnitMoveList(lastSelectedCard, node);
         foreach (GridNodeS item in moveList)
         {
-            item.TurnOnMoveHighlight();
+            if (item.occupyingUnit != null && item.occupyingUnit.ptype == lastSelectedNode.occupyingUnit.ptype)
+            {
+                item.TurnOffHighlight();
+            }
+            else
+            {
+                item.TurnOnMoveHighlight();
+
+            }
         }
     }
 
@@ -142,6 +150,12 @@ public class InputManager : MonoBehaviour
 
     public void OnActivePlayerChange(string eventName, ActionParams data)
     {
+        if (lastSelectedCard != null)
+        {
+            lastSelectedCard.TurnOffHighlight();
+            lastSelectedCard = null;
+        }
+
         activePlayer = data.Get<int>("activePlayer");
         lastSelectedCard = CardManager.SelectRandomPlayerCard(activePlayer);
         lastSelectedCard.TurnOnHighlight();
