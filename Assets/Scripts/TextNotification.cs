@@ -1,14 +1,14 @@
 using TMPro;
 using UnityEngine;
 
-public class FeedbackUser : MonoBehaviour
+public class FeedbackUser
 {
-    public void exibeTextoAviso(bool aviso, TextMeshProUGUI elemento)
+    public void ExibeTextoAviso(bool aviso, TextMeshProUGUI elemento)
     {
         elemento.gameObject.SetActive(aviso);
     }
 
-    public void exibePouUpAviso(bool aviso, GameObject elemento)
+    public void ExibePouUpAviso(bool aviso, GameObject elemento)
     {
         elemento.gameObject.SetActive(aviso);
     }

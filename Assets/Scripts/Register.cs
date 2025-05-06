@@ -23,9 +23,6 @@ public class Register : MonoBehaviour
     public TextMeshProUGUI textoAvisoEmailCadastrado;
     public TextMeshProUGUI textoAvisoNickCadastrado;
     public TextMeshProUGUI textoAvisoErroCadastro;
-    public TextMeshProUGUI avisoCamposVazios;
-    public TextMeshProUGUI avisoErroCadastro;
-
 
     private string cpf;
     private string email;
@@ -54,8 +51,12 @@ public class Register : MonoBehaviour
             if (string.IsNullOrEmpty(nickname) || string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
             {
                 Debug.LogError("Todos os campos são obrigatórios.");
-                aviso.exibeTextoAviso(true, avisoCamposVazios);
+                aviso.ExibeTextoAviso(true, textoAvisoCamposObrigatorios);
                 temErro = true;
+            }
+            else
+            {
+                aviso.ExibeTextoAviso(false, textoAvisoCamposObrigatorios);
             }
 
             // Se há erro nos campos obrigatórios, não valida as outras condições
@@ -65,18 +66,18 @@ public class Register : MonoBehaviour
             if (!ValidarCPF(cpf) && !string.IsNullOrEmpty(cpf))
             {
                 Debug.LogError("CPF inválido.");
-                aviso.exibeTextoAviso(true, textoAvisoCPF);
+                aviso.ExibeTextoAviso(true, textoAvisoCPF);
                 temErro = true;
             }
-            else aviso.exibeTextoAviso(false, textoAvisoCPF);
+            else aviso.ExibeTextoAviso(false, textoAvisoCPF);
 
             if (!email.Contains("@") && !string.IsNullOrEmpty(email))
             {
                 Debug.LogError("email inválido.");
-                aviso.exibeTextoAviso(true, textoAvisoEmail);
+                aviso.ExibeTextoAviso(true, textoAvisoEmail);
                 temErro = true;
             }
-            else aviso.exibeTextoAviso(false, textoAvisoEmail);
+            else aviso.ExibeTextoAviso(false, textoAvisoEmail);
 
             bool senhaInvalida = senha.Length < 8 ||
                                  !Regex.IsMatch(senha, @"[A-Za-z]") ||
@@ -86,12 +87,12 @@ public class Register : MonoBehaviour
             if (senhaInvalida && !string.IsNullOrEmpty(senha))
             {
                 Debug.LogError("Senha invalida.");
-                aviso.exibeTextoAviso(true, textoAvisoSenhaRequisitos);
+                aviso.ExibeTextoAviso(true, textoAvisoSenhaRequisitos);
                 temErro = true;
             }
             else
             {
-                aviso.exibeTextoAviso(false, textoAvisoSenhaRequisitos);
+                aviso.ExibeTextoAviso(false, textoAvisoSenhaRequisitos);
             }
 
             //if (temErro) return;
@@ -102,10 +103,10 @@ public class Register : MonoBehaviour
             if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectCpfQuery, cpfParams)) > 0)
             {
                 Debug.Log("CPF já cadastrado.");
-                aviso.exibeTextoAviso(true, textoAvisoCpfCadastrado);
+                aviso.ExibeTextoAviso(true, textoAvisoCpfCadastrado);
                 temErro = true;
             }
-            else aviso.exibeTextoAviso(false, textoAvisoCpfCadastrado);
+            else aviso.ExibeTextoAviso(false, textoAvisoCpfCadastrado);
 
             // Email já cadastrado
             string selectEmailQuery = "SELECT COUNT(*) FROM usuarios WHERE email = @email";
@@ -114,10 +115,10 @@ public class Register : MonoBehaviour
             {
                 Debug.Log("Email indisponível.");
                 Debug.Log(selectEmailQuery);  // Verifique o debug aqui para saber se a consulta está sendo executada
-                aviso.exibeTextoAviso(true, textoAvisoEmailCadastrado);
+                aviso.ExibeTextoAviso(true, textoAvisoEmailCadastrado);
                 temErro = true;
             }
-            else aviso.exibeTextoAviso(false, textoAvisoEmailCadastrado);
+            else aviso.ExibeTextoAviso(false, textoAvisoEmailCadastrado);
 
             // Nickname já cadastrado
             string selectNicknameQuery = "SELECT COUNT(*) FROM usuarios WHERE nickname = @nickname";
@@ -125,10 +126,10 @@ public class Register : MonoBehaviour
             if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectNicknameQuery, nickParams)) > 0)
             {
                 Debug.Log("Nickname indisponível.");
-                aviso.exibeTextoAviso(true, textoAvisoNickCadastrado);
+                aviso.ExibeTextoAviso(true, textoAvisoNickCadastrado);
                 temErro = true;
             }
-            else aviso.exibeTextoAviso(false, textoAvisoNickCadastrado);
+            else aviso.ExibeTextoAviso(false, textoAvisoNickCadastrado);
 
             if (temErro) return;
 
@@ -152,7 +153,7 @@ public class Register : MonoBehaviour
             else
             {
                 Debug.LogError("Erro no cadastro.");
-                aviso.exibeTextoAviso(true, avisoErroCadastro);
+                aviso.ExibeTextoAviso(true, textoAvisoErroCadastro);
                 temErro = true;
             }
         }
