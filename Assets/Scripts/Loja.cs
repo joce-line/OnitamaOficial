@@ -8,6 +8,6 @@ public class ScriptLoja : MonoBehaviour
 
 	public void OnClickSair()
 	{
-		SceneManager.LoadScene("MainMenu");
+		SceneManager.LoadScene("MenuPrincipal");
 	}
 }

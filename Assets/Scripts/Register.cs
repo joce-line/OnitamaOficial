@@ -23,8 +23,9 @@ public class Register : MonoBehaviour
     public TextMeshProUGUI textoAvisoEmailCadastrado;
     public TextMeshProUGUI textoAvisoNickCadastrado;
     public TextMeshProUGUI textoAvisoErroCadastro;
+    public TextMeshProUGUI avisoCamposVazios;
+    public TextMeshProUGUI avisoErroCadastro;
 
-    public GameObject avisoCamposVazios;
 
     private string cpf;
     private string email;
@@ -52,7 +53,8 @@ public class Register : MonoBehaviour
             // Campos obrigatórios
             if (string.IsNullOrEmpty(nickname) || string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
             {
-                StartCoroutine(OcultarAvisoTemporario(avisoCamposVazios, 3f));
+                Debug.LogError("Todos os campos são obrigatórios.");
+                aviso.exibeTextoAviso(true, avisoCamposVazios);
                 temErro = true;
             }
 
@@ -62,6 +64,7 @@ public class Register : MonoBehaviour
             // Validações adicionais (senha, email, CPF)
             if (!ValidarCPF(cpf) && !string.IsNullOrEmpty(cpf))
             {
+                Debug.LogError("CPF inválido.");
                 aviso.exibeTextoAviso(true, textoAvisoCPF);
                 temErro = true;
             }
@@ -69,6 +72,7 @@ public class Register : MonoBehaviour
 
             if (!email.Contains("@") && !string.IsNullOrEmpty(email))
             {
+                Debug.LogError("email inválido.");
                 aviso.exibeTextoAviso(true, textoAvisoEmail);
                 temErro = true;
             }
@@ -81,6 +85,7 @@ public class Register : MonoBehaviour
 
             if (senhaInvalida && !string.IsNullOrEmpty(senha))
             {
+                Debug.LogError("Senha invalida.");
                 aviso.exibeTextoAviso(true, textoAvisoSenhaRequisitos);
                 temErro = true;
             }
@@ -96,6 +101,7 @@ public class Register : MonoBehaviour
             var cpfParams = new Dictionary<string, object> { { "@cpf", cpf } };
             if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectCpfQuery, cpfParams)) > 0)
             {
+                Debug.Log("CPF já cadastrado.");
                 aviso.exibeTextoAviso(true, textoAvisoCpfCadastrado);
                 temErro = true;
             }
@@ -106,6 +112,7 @@ public class Register : MonoBehaviour
             var emailParams = new Dictionary<string, object> { { "@email", email } };
             if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectEmailQuery, emailParams)) > 0)
             {
+                Debug.Log("Email indisponível.");
                 Debug.Log(selectEmailQuery);  // Verifique o debug aqui para saber se a consulta está sendo executada
                 aviso.exibeTextoAviso(true, textoAvisoEmailCadastrado);
                 temErro = true;
@@ -117,6 +124,7 @@ public class Register : MonoBehaviour
             var nickParams = new Dictionary<string, object> { { "@nickname", nickname } };
             if (Convert.ToInt64(DatabaseManager.Instance.ExecuteScalar(selectNicknameQuery, nickParams)) > 0)
             {
+                Debug.Log("Nickname indisponível.");
                 aviso.exibeTextoAviso(true, textoAvisoNickCadastrado);
                 temErro = true;
             }
@@ -143,7 +151,9 @@ public class Register : MonoBehaviour
             }
             else
             {
-                StartCoroutine(OcultarAvisoTemporarioTexto(textoAvisoErroCadastro, 3f));
+                Debug.LogError("Erro no cadastro.");
+                aviso.exibeTextoAviso(true, avisoErroCadastro);
+                temErro = true;
             }
         }
         catch (Exception e)
@@ -182,16 +192,10 @@ public class Register : MonoBehaviour
         return cpf[9] - '0' == digito1 && cpf[10] - '0' == digito2;
     }
 
+    //navega para a pagina anterior
     public void OpenLoginScene()
     {
         SceneManager.LoadScene("Login");
-    }
-
-    private IEnumerator OcultarAvisoTemporario(GameObject aviso, float tempo)
-    {
-        aviso.SetActive(true);
-        yield return new WaitForSeconds(tempo);
-        aviso.SetActive(false);
     }
 
     private IEnumerator OcultarAvisoTemporarioTexto(TextMeshProUGUI aviso, float tempo)
