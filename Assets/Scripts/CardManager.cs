@@ -59,11 +59,11 @@ public class CardManager : MonoBehaviour
     }
 
     // TODO: posição das cartas que vão aparecer, apos design verificar
-    private Vector3 p1slot1 = new(-1.5f, -4, -5);
-    private Vector3 p1slot2 = new(1, -4, -5);
+    private Vector3 p1slot1 = new(-6.5f, -2, -5);
+    private Vector3 p1slot2 = new(-4, -2, -5);
     private Vector3 p1slot3 = new(4, 0, -5);
-    private Vector3 p2slot1 = new(-1.5f, 4, -5);
-    private Vector3 p2slot2 = new(1, 4, -5);
+    private Vector3 p2slot1 = new(-6.5f, 2, -5);
+    private Vector3 p2slot2 = new(-4, 2, -5);
     private Vector3 p2slot3 = new(4, 0, -5);
     private List<Vector3> p1SlotList = new();
     private List<Vector3> p2SlotList = new();
@@ -103,7 +103,7 @@ public class CardManager : MonoBehaviour
         else
         {            
             Vector3 scale = temp2.cardHolder.transform.localScale;
-            //scale.x *= -1; //não deixa a carta invertida do p2
+            //scale.y *= -1; //invertida para o p2
             temp2.cardHolder.transform.localScale = scale;
             p2Cards.Add(temp2);
         }
@@ -194,7 +194,7 @@ public class CardManager : MonoBehaviour
         
     private void MoveCardToPosition(Vector3 pos, OnitamaCard card)
     {
-        StartCoroutine(MoveUtils.SmoothLerp(1f, card.cardHolder.transform.position, pos, card.cardHolder));
+        StartCoroutine(MoveUtils.SmoothLerp(1f, card.cardHolder.transform.position, pos, card.cardHolder, true));
 
     }
 

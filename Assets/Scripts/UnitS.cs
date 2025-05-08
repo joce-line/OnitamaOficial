@@ -21,7 +21,7 @@ public class UnitS : MonoBehaviour
     private IEnumerator MoveAnimation(Vector3 pos)
     {
         //    AudioManager.PlayClip("startMove"); // TODO: #Audio para movimentação inicial, verificar se colocar
-        yield return StartCoroutine(MoveUtils.SmoothLerp(0.2f, unitObj.transform.position, pos + new Vector3(0, 0.5f, 0), unitObj));
+        yield return StartCoroutine(MoveUtils.SmoothLerp(0.2f, unitObj.transform.position, pos + new Vector3(0, 0.5f, -1), unitObj));
         yield return StartCoroutine(MoveUtils.SmoothLerp(0.2f, unitObj.transform.position, pos, unitObj));
         //    AudioManager.PlayClip("endMove"); // TODO: #Audio para movimentação final, verificar se colocar
     }
