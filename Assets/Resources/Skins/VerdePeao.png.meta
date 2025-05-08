@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dbf8618f801d3814f9c5ee53375c0a91
+guid: d9ce64201fc118048ab0dfedb11cfff2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7273677240875895606
-    second: VerdeRei_0
+      213: 1755846438962023939
+    second: VerdePeao_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VerdeRei_0
+      name: VerdePeao_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 91
-        height: 99
+        x: 4
+        y: 1
+        width: 94
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ac4bfb64615be0b90800000000000000
-      internalID: -7273677240875895606
+      spriteID: 30e477a88050e5810800000000000000
+      internalID: 1755846438962023939
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      VerdeRei_0: -7273677240875895606
+      VerdePeao_0: 1755846438962023939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

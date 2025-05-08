@@ -123,15 +123,27 @@ public class GameManager : MonoBehaviour
 
         temp.unitObj.transform.position = node.GetPosition() + new Vector3(0, 0.1f, -1);
 
+        //TODO: renderizando as sprites padrao, modificar ao puxar do BD
+        SpriteRenderer spriteRenderer = newGo.GetComponent<SpriteRenderer>();
+        spriteRenderer.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+
         if (playerId == 1)
         {
-            newGo.GetComponent<Renderer>().material.color = Color.red;
+            spriteRenderer.sprite = Resources.Load<Sprite>("Skins/PretoPeao");
+            if (utype == UnitS.unitType.king)
+            {
+                spriteRenderer.sprite = Resources.Load<Sprite>("Skins/PretoRei");
+            }
             temp.ptype = UnitS.player.p1;
             player1Units.Add(temp);
         }
         else
         {
-            newGo.GetComponent<Renderer>().material.color = Color.blue;
+            spriteRenderer.sprite = Resources.Load<Sprite>("Skins/BrancoPeao");
+            if (utype == UnitS.unitType.king)
+            {
+                spriteRenderer.sprite = Resources.Load<Sprite>("Skins/BrancoRei");
+            }
             temp.ptype = UnitS.player.p2;
             player2Units.Add(temp);
         }
