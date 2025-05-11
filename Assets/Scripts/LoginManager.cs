@@ -6,15 +6,26 @@ using Assets.scripts.Classes;
 using System.Security.Cryptography;
 using Assets.scripts.InfoPlayer;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.UI;
+
 
 public class LoginManager : MonoBehaviour
 {
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
 
+    //thiago mostrar Erro
+    //public TextMeshProUGUI errorMessage;
+    public GameObject errorPanel;
+
+    [SerializeField] private GameObject telaLogin;
+    [SerializeField] private SceneLoader sceneLoader;
+
     HashSenha valida = new HashSenha(SHA512.Create());
     public void Login()
     {
+
         try
         {
             if (DatabaseManager.Instance == null || string.IsNullOrEmpty(DatabaseManager.ConnectionString))
@@ -26,21 +37,11 @@ public class LoginManager : MonoBehaviour
             string username = usernameInput.text;
             string password = passwordInput.text;
 
-            string query = "SELECT id, nome, type, nome_conjunto FROM pecas";
-
-            List<Dictionary<string, object>> resultados = DatabaseManager.Instance.ExecuteReader(query);
-
-            foreach (var linha in resultados)
-            {
-                Debug.Log($"ID: {linha["id"]}, Nome: {linha["nome"]}, {linha["type"]}, {linha["nome_conjunto"]}");
-            }
-
-            //Debug.Log($"Tentando login com usuário: {username}");
-
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 Debug.LogError("Todos os campos são obrigatórios.");
-                //TODO: quando adicionar texto visivel para usuario, adicionar aqui a atualização da variavel de feedback.
+                showError("Todos os campos são obrigatórios.");
+
                 return;
             }
 
@@ -52,7 +53,7 @@ public class LoginManager : MonoBehaviour
             if (userExists == 0 || userExists == -1)
             {
                 Debug.Log("Usuário ou senha incorretos.");
-                //TODO: adicionar aqui variavel de feedback para usuario
+                showError("Usuário ou senha incorretos.");
                 return;
             }
 
@@ -70,7 +71,7 @@ public class LoginManager : MonoBehaviour
             if (result == null)
             {
                 Debug.Log("Usuário ou senha incorretos.");
-                //TODO: adicionar aqui variavel de feedback para usuario
+                showError("Usuário ou senha incorretos.");
                 return;
             }
 
@@ -79,12 +80,13 @@ public class LoginManager : MonoBehaviour
             {
                 Debug.Log("Login bem-sucedido!");
                 PlayerInfo.nomePlayer = username;
-                SceneManager.LoadScene("Game");
+
+                sceneLoader.CarregarCena("MenuPrincipal", telaLogin);
             }
             else
             {
                 Debug.Log("Usuário ou senha incorretos.");
-                //TODO: adicionar aqui variavel de feedback para usuario
+                showError("Usuário ou senha incorretos.");
             }
 
         }
@@ -97,5 +99,19 @@ public class LoginManager : MonoBehaviour
     public void OpenRegisterScene()
     {
         SceneManager.LoadScene("CriarUsuario");
+    }
+
+    //ativa o painel de erro e mostra a menssagem
+    public void showError(string mensagem)
+    {
+        errorPanel.SetActive(true);
+        //errorMessage.text = mensagem;
+    }
+
+    //esconde o painel de erro e limpa a menssagem
+    public void closeError()
+    {
+        errorPanel.SetActive(false);
+        //errorMessage.text = null;
     }
 }
