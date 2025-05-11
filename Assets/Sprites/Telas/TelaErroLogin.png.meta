@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: e0472db92a3fc3445a19d6126cfd5ce0
+guid: efcbb757d5f88264ab42b63a4da7c2e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8145476379449798459
-    second: defaultCardHighlight_0
+      213: -7234203040192500550
+    second: TelaErroLogin_0
+  - first:
+      213: -8458598213943126088
+    second: TelaErroLogin_1
+  - first:
+      213: -4868357880222654090
+    second: TelaErroLogin_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: defaultCardHighlight_0
+      name: TelaErroLogin_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 456
-        height: 600
+        x: 134
+        y: 679
+        width: 770
+        height: 543
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c05f84b36475fe80800000000000000
-      internalID: -8145476379449798459
+      spriteID: abc6644d9a2fa9b90800000000000000
+      internalID: -7234203040192500550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TelaErroLogin_1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 115
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b79a207db50d9a80800000000000000
+      internalID: -8458598213943126088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TelaErroLogin_2
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 87
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 671ead53d4e107cb0800000000000000
+      internalID: -4868357880222654090
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      defaultCardHighlight_0: -8145476379449798459
+      TelaErroLogin_0: -7234203040192500550
+      TelaErroLogin_1: -8458598213943126088
+      TelaErroLogin_2: -4868357880222654090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

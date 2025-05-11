@@ -59,12 +59,12 @@ public class CardManager : MonoBehaviour
     }
 
     // TODO: posição das cartas que vão aparecer, apos design verificar
-    private Vector3 p1slot1 = new(-6.5f, -2, -5);
-    private Vector3 p1slot2 = new(-4, -2, -5);
-    private Vector3 p1slot3 = new(4, 0, -5);
-    private Vector3 p2slot1 = new(-6.5f, 2, -5);
-    private Vector3 p2slot2 = new(-4, 2, -5);
-    private Vector3 p2slot3 = new(4, 0, -5);
+    private Vector3 p1slot1 = new(-7.01f, -2, -5);
+    private Vector3 p1slot2 = new(-3.86f, -2, -5);
+    private Vector3 p1slot3 = new(7.28f, 0.31f, -5);
+    private Vector3 p2slot1 = new(-7.01f, 2.36f, -5);
+    private Vector3 p2slot2 = new(-3.86f, 2.36f, -5);
+    private Vector3 p2slot3 = new(7.28f, 0.31f, -5);
     private List<Vector3> p1SlotList = new();
     private List<Vector3> p2SlotList = new();
 
