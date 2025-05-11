@@ -16,7 +16,7 @@ public class LoginManager : MonoBehaviour
     public TMP_InputField passwordInput;
 
     //thiago mostrar Erro
-    public TextMeshProUGUI errorMessage;
+    //public TextMeshProUGUI errorMessage;
     public GameObject errorPanel;
 
     [SerializeField] private GameObject telaLogin;
@@ -105,13 +105,13 @@ public class LoginManager : MonoBehaviour
     public void showError(string mensagem)
     {
         errorPanel.SetActive(true);
-        errorMessage.text = mensagem;
+        //errorMessage.text = mensagem;
     }
 
     //esconde o painel de erro e limpa a menssagem
     public void closeError()
     {
         errorPanel.SetActive(false);
-        errorMessage.text = null;
+        //errorMessage.text = null;
     }
 }
