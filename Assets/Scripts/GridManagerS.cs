@@ -40,8 +40,8 @@ public class GridManagerS : MonoBehaviour
     public void GenerateGridList()
     {
         //calcula o offset para centralizar a grade no centro
-        float offsetX = (dimensionX * nodeSize * 0.5f) - (nodeSize * 0.5f);
-        float offsetY = (dimensionY * nodeSize * 0.5f) - (nodeSize * 0.5f);
+        float offsetX = (dimensionX * nodeSize * 0.25f) - (nodeSize * 0.25f);
+        float offsetY = (dimensionY * nodeSize * 0.7f) - (nodeSize * 0.7f);
 
         int count = 0;
         for (int x = 0; x < dimensionX; x++)
@@ -49,7 +49,7 @@ public class GridManagerS : MonoBehaviour
             List<GridNodeS> tempList = new List<GridNodeS>();
             for (int y = 0; y < dimensionY; y++)
             {
-                Vector3 position = new Vector3(x, y, 0) * nodeSize - new Vector3(offsetX, offsetY, 0);
+                Vector3 position = new Vector3(x, y, 0) * (nodeSize * 1.39f) - new Vector3(offsetX, offsetY, 0); //ajusta posição de acordo com tamanho
                 GridNodeS node = new GridNodeS(count, x, y, position);
                 tempList.Add(node);
                 allNodes.Add(node);
@@ -76,7 +76,7 @@ public class GridManagerS : MonoBehaviour
                 GridNodeS node = grid[x][y];
                 node.objHolder = Instantiate(nodePrefab, node.GetPosition(), Quaternion.identity);
                 node.objHolder.transform.parent = gridParent;
-                node.objHolder.localScale = Vector3.one * nodeSize;
+                node.objHolder.localScale = Vector3.one * (nodeSize * 1.39f); //aumenta o tamanho do grid
                 node.objHolder.gameObject.GetComponent<SpriteRenderer>().enabled = node.walkable;
                 node.objHolder.GetComponent<SpriteRenderer>().color = Color.clear;
                 node.objHolder.tag = "GridNode";
