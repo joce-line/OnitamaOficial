@@ -95,4 +95,47 @@ public class DatabaseManager : MonoBehaviour
             }
         }
     }
+
+    // Método para consultas que retornam mais de um valor
+    public List<Dictionary<string, object>> ExecuteReader(string query, Dictionary<string, object> parameters = null)
+    {
+        List<Dictionary<string, object>> results = new List<Dictionary<string, object>>();
+
+        using (MySqlConnection conn = new MySqlConnection(ConnectionString))
+        {
+            try
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    if (parameters != null)
+                    {
+                        foreach (var param in parameters)
+                        {
+                            cmd.Parameters.AddWithValue(param.Key, param.Value);
+                        }
+                    }
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Dictionary<string, object> row = new Dictionary<string, object>();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                row.Add(reader.GetName(i), reader.GetValue(i));
+                            }
+                            results.Add(row);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Erro ao executar reader: {e.Message}");
+            }
+        }
+
+        return results;
+    }
 }
