@@ -58,28 +58,29 @@ public class LoginManager : MonoBehaviour
             }
 
             // Verificar senha
-            string selectSenhaQuery = "SELECT senha FROM usuarios WHERE nickname = @nome";
+            string selectSenhaQuery = "SELECT idUsuario, senha FROM usuarios WHERE nickname = @nome";
             var senhaParams = new Dictionary<string, object> { { "@nome", username } };
-            object result = DatabaseManager.Instance.ExecuteScalar(selectSenhaQuery, senhaParams);
+            List<Dictionary<string, object>> results = DatabaseManager.Instance.ExecuteReader(selectSenhaQuery, senhaParams);
 
-            if (result != null && result.ToString() == "-1")
+            if (results != null && results.ToString() == "-1")
             {
                 Debug.Log("Falha no banco de dados");
                 return;
             }
 
-            if (result == null)
-            {
+            if (results.Count == 0)
+                {
                 Debug.Log("Usuário ou senha incorretos.");
                 showError("Usuário ou senha incorretos.");
                 return;
             }
 
-            string comparaSenhaBanco = result?.ToString();
+            string comparaSenhaBanco = results[0]["senha"].ToString();
             if (valida.VerificarSenha(password, comparaSenhaBanco))
             {
                 Debug.Log("Login bem-sucedido!");
                 PlayerInfo.nomePlayer = username;
+                PlayerInfo.idPlayer = Convert.ToInt32(results[0]["idUsuario"]);
 
                 sceneLoader.CarregarCena("MenuPrincipal", telaLogin);
             }
