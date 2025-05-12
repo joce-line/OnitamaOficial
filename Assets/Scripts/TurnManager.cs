@@ -62,4 +62,10 @@ public class TurnManager : MonoBehaviour
         EventManager.TriggerEvent("ActivePlayer", data);
 
     }
+    public void RestartTimer()
+    {
+        maxIndicatorTimer = indicatorTimer;
+        isGameOver = false;
+        radialIndicatorUI.enabled = true;
+    }
 }

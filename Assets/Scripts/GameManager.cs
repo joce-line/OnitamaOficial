@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject GoalText;
 
     public int activePlayer = 0;
+    public TurnManager turnManager;
 
     public static GameManager instance;
     public static GameManager GetInstance()
@@ -164,7 +165,10 @@ public class GameManager : MonoBehaviour
             temp.Put("activePlayer", activePlayer);
             EventManager.TriggerEvent("GameOver", temp);
 
-            SceneManager.LoadScene("FimDoJogo");
+
+            VitoriaDerrota.instance.FimDeJogo();
+            FindAnyObjectByType<InputManager>().enabled = false;
+
         }
         else
         {
@@ -307,8 +311,12 @@ public class GameManager : MonoBehaviour
         player2Units.Clear();
     }
 
-    public static void RestartGame()
+    public void RestartGame()
     {
+        VitoriaDerrota.instance.painelDerrota.SetActive(false);
+        VitoriaDerrota.instance.painelVitoria.SetActive(false);
+        FindAnyObjectByType<InputManager>().enabled = true;
+        FindFirstObjectByType<TurnManager>().RestartTimer();
         CardManager.RestartGame();
         instance.CleanUpPlayerUnits();
         instance.InitPlayers();
@@ -317,4 +325,10 @@ public class GameManager : MonoBehaviour
         instance.p2KingCaptured = false;
         instance.RunGame();
     }
+
+    public void Sair()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
