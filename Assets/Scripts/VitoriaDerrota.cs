@@ -35,6 +35,6 @@ public class VitoriaDerrota : MonoBehaviour
     //TODO: modificar apos logica de paginas
     public void Sair()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MenuPrincipal");
     }
 }
