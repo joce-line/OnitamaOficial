@@ -1,3 +1,6 @@
+using Assets.scripts.InfoPlayer;
+using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,9 +8,10 @@ public class BackgroundController : MonoBehaviour
 {
     public static BackgroundController Instance { get; private set; }
 
-    public GameObject backGround; //background reinderizado
+    public GameObject backGround;
 
-    public string id = "1";//TODO: id do background mudar posterior mente para um sistema BD
+    public Sprite[] backgroundSprites;
+
     private static GameObject instantiatedBackground = null;
 
     private void Awake()
@@ -22,7 +26,6 @@ public class BackgroundController : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
         }
         else
         {
@@ -30,30 +33,61 @@ public class BackgroundController : MonoBehaviour
             return;
         }
 
+        //LoadUserBackground();
+
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name != "Game")
         {
-            //verifica se o background ainda não foi instanciado, instancia
             if (instantiatedBackground == null)
             {
-                instantiatedBackground = Instantiate(backGround, new Vector3(0, 0, 0), Quaternion.identity);
-                instantiatedBackground.name = id;
+                string set_backgroung = string.IsNullOrEmpty(PlayerInfo.id_Background) ? "0" : PlayerInfo.id_Background;
+
+                instantiatedBackground = Instantiate(backGround, Vector3.zero, Quaternion.identity);
+                instantiatedBackground.name = set_backgroung;
+
                 BackGround bgComponent = instantiatedBackground.GetComponent<BackGround>();
+
+                if (int.TryParse(set_backgroung, out int selectedIndex) &&
+                    selectedIndex >= 0 && selectedIndex < backgroundSprites.Length)
+                {
+                    bgComponent.SetSprite(backgroundSprites[selectedIndex]);
+                }
+                else
+                {
+                    Debug.LogWarning("ID inválido para background: " + set_backgroung);
+                }
+
                 bgComponent.Activate();
 
                 Debug.Log("Background instanciado na cena: " + scene.name);
             }
         }
     }
+    public void AtualizarBackground(int novoId)
+    {
+        if (instantiatedBackground == null)
+            return;
+
+        BackGround bgComponent = instantiatedBackground.GetComponent<BackGround>();
+
+        if (novoId >= 0 && novoId < backgroundSprites.Length)
+        {
+            bgComponent.SetSprite(backgroundSprites[novoId]);
+            Debug.Log("Background atualizado em tempo real.");
+        }
+        else
+        {
+            Debug.LogWarning("ID de background inválido para atualização.");
+        }
+    }
+
 
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
 }

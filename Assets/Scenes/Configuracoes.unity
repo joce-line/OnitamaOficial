@@ -797,9 +797,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1438727136}
-        m_TargetAssemblyTypeName: "ScriptTelaConfigura\xE7\xE3o, Assembly-CSharp"
-        m_MethodName: voltarButton
+      - m_Target: {fileID: 1693737893}
+        m_TargetAssemblyTypeName: ScriptTelaConfiguracao, Assembly-CSharp
+        m_MethodName: confirmarButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5392,6 +5392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17251e4a09450834ab9d4138d455bc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropdownTemas: {fileID: 0}
 --- !u!4 &1438727137
 Transform:
   m_ObjectHideFlags: 0
@@ -6206,6 +6207,7 @@ GameObject:
   - component: {fileID: 1693737891}
   - component: {fileID: 1693737890}
   - component: {fileID: 1693737889}
+  - component: {fileID: 1693737893}
   m_Layer: 5
   m_Name: Canvas (1)
   m_TagString: Untagged
@@ -6301,6 +6303,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920.0001, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1693737893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693737888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17251e4a09450834ab9d4138d455bc93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdownTemas: {fileID: 2072144972}
 --- !u!1 &1703003305
 GameObject:
   m_ObjectHideFlags: 0
@@ -7266,6 +7281,12 @@ MonoBehaviour:
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Option C
+      m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    - m_Text: Option D
+      m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    - m_Text: Option E
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:

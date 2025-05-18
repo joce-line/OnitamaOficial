@@ -2,16 +2,23 @@ using UnityEngine;
 
 public class BackGround : MonoBehaviour
 {
-    public Sprite bg00, bg01;//variaveis de Sprite background
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void SetSprite(Sprite sprite)
+    {
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = sprite;
+    }
 
     public void Activate()
     {
-        switch(this.name)
-        {
-            case "0": this.GetComponent<SpriteRenderer>().sprite = bg00;break;
-            case "1": this.GetComponent<SpriteRenderer>().sprite = bg01;break;
-        }
-        this.transform.position = new Vector3(0,0,1);
+        this.transform.position = new Vector3(0, 0, 1);
     }
-
 }
