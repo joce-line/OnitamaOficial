@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Data;
-using UnityEngine.UI;
 using Assets.scripts.InfoPlayer;
 using System.Collections.Generic;
 using System;
@@ -10,8 +8,8 @@ public class Loja : MonoBehaviour
 {
     [Header("Referências na cena")]
     public Transform contentParent;
-    public GameObject skinPrefab; 
-    public GameObject modalConfirmacao; 
+    public GameObject skinPrefab;
+    public GameObject modalConfirmacao;
 
     private int idItemSelecionado;
 
@@ -51,7 +49,7 @@ public class Loja : MonoBehaviour
 
     public static void CreateItems()
     {
-        string query = "SELECT id_Conjunto, nome_Conjunto, preco FROM conjuntos_skins WHERE active = 1";
+        string query = "SELECT id_Conjunto, nome_Conjunto, preco, caminho_Pawn, caminho_King FROM conjuntos_skins WHERE active = 1";
         List<Dictionary<string, object>> results = DatabaseManager.Instance.ExecuteReader(query);
 
         int idUsuario = PlayerInfo.idPlayer;
@@ -61,27 +59,29 @@ public class Loja : MonoBehaviour
             int id = Convert.ToInt32(linha["id_Conjunto"]);
             string nome = linha["nome_Conjunto"].ToString();
             int preco = Convert.ToInt32(linha["preco"]);
+            string caminhoPawn = linha["caminho_Pawn"].ToString();
+            string caminhoKing = linha["caminho_King"].ToString();
 
             // Verifica se o usuário já comprou esse item
             string queryCheck = $"SELECT COUNT(*) FROM skins_usuario WHERE id_usuario = {idUsuario} AND id_conjunto = {id}";
             int count = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryCheck));
             bool jaComprado = count > 0;
 
-            instance.CreateItem(id, nome, preco, jaComprado);
+            instance.CreateItem(id, nome, preco, caminhoPawn, caminhoKing, jaComprado);
 
-            Debug.Log($"ID: {id}, Nome: {nome}, Preço: {preco}, Já Comprado: {jaComprado}");
+            //Debug.Log($"ID: {id}, Nome: {nome}, Preço: {preco}, Já Comprado: {jaComprado}");
         }
     }
 
 
-    public void CreateItem(int id, string nome, int preco, bool jaComprado)
+    public void CreateItem(int id, string nome, int preco, string caminhoPawn, string caminhoKing, bool jaComprado)
     {
         GameObject temp = Instantiate(skinPrefab, contentParent);
         SkinItem skinItemScript = temp.GetComponent<SkinItem>();
 
         if (skinItemScript != null)
         {
-            skinItemScript.ConfigurarItem(id, nome, preco, jaComprado);
+            skinItemScript.ConfigurarItem(id, nome, preco, caminhoPawn, caminhoKing, jaComprado);
         }
         else
         {
@@ -120,7 +120,7 @@ public class Loja : MonoBehaviour
         CreateItems();
     }
 
-    public void voltarButton()
+    public void VoltarButton()
     {
         SceneManager.LoadScene("MenuPrincipal");
     }
