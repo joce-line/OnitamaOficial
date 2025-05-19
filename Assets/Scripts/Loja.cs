@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Loja : MonoBehaviour
 {
-    [Header("Referências na cena")]
+    [Header("Referencias na cena")]
     public Transform contentParent;
     public GameObject skinPrefab;
     public GameObject modalConfirmacao;
+    //paineis de compras na loja
+    public GameObject LojaItem, LojaBackground, LojaPoderes, LojaCoin;
 
     private int idItemSelecionado;
 
@@ -40,7 +42,7 @@ public class Loja : MonoBehaviour
     {
         if (DatabaseManager.Instance == null || string.IsNullOrEmpty(DatabaseManager.ConnectionString))
         {
-            Debug.LogError("DatabaseManager não inicializado.");
+            Debug.LogError("DatabaseManager nï¿½o inicializado.");
             return;
         }
 
@@ -62,14 +64,14 @@ public class Loja : MonoBehaviour
             string caminhoPawn = linha["caminho_Pawn"].ToString();
             string caminhoKing = linha["caminho_King"].ToString();
 
-            // Verifica se o usuário já comprou esse item
+            // Verifica se o usuï¿½rio jï¿½ comprou esse item
             string queryCheck = $"SELECT COUNT(*) FROM skins_usuario WHERE id_usuario = {idUsuario} AND id_conjunto = {id}";
             int count = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryCheck));
             bool jaComprado = count > 0;
 
             instance.CreateItem(id, nome, preco, caminhoPawn, caminhoKing, jaComprado);
 
-            //Debug.Log($"ID: {id}, Nome: {nome}, Preço: {preco}, Já Comprado: {jaComprado}");
+            //Debug.Log($"ID: {id}, Nome: {nome}, Preï¿½o: {preco}, Jï¿½ Comprado: {jaComprado}");
         }
     }
 
@@ -85,7 +87,7 @@ public class Loja : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Prefab não contém o script SkinItem.");
+            Debug.LogError("Prefab nï¿½o contï¿½m o script SkinItem.");
         }
     }
 
@@ -106,7 +108,6 @@ public class Loja : MonoBehaviour
         modalConfirmacao.SetActive(false);
     }
 
-
     public void ComprarItem(int idItem)
     {
         int idUsuario = PlayerInfo.idPlayer;
@@ -123,5 +124,39 @@ public class Loja : MonoBehaviour
     public void VoltarButton()
     {
         SceneManager.LoadScene("MenuPrincipal");
+    }
+
+
+    //funÃ§Ã£o de lojas
+    public void AtvLojaItem()
+    {
+        LojaItem.SetActive(true);
+        LojaBackground.SetActive(false);
+        LojaPoderes.SetActive(false);
+        LojaCoin.SetActive(false);
+    }
+
+    public void AtvLojaBackGround()
+    {
+        LojaItem.SetActive(false);
+        LojaBackground.SetActive(true);
+        LojaPoderes.SetActive(false);
+        LojaCoin.SetActive(false);
+    }
+
+    public void AtvLojaPoderes()
+    {
+        LojaItem.SetActive(false);
+        LojaBackground.SetActive(false);
+        LojaPoderes.SetActive(true);
+        LojaCoin.SetActive(false);
+    }
+
+    public void AtvLojaCoins()
+    {
+        LojaItem.SetActive(false);
+        LojaBackground.SetActive(false);
+        LojaPoderes.SetActive(false);
+        LojaCoin.SetActive(true);
     }
 }
