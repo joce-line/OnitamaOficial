@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2021026769}
         m_TargetAssemblyTypeName: Loja, Assembly-CSharp
         m_MethodName: OnCancelarCompra
         m_Mode: 1
@@ -529,8 +529,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2021026769}
-        m_TargetAssemblyTypeName: ScriptLoja, Assembly-CSharp
-        m_MethodName: atvLojaItem
+        m_TargetAssemblyTypeName: Loja, Assembly-CSharp
+        m_MethodName: AtvLojaItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1136,8 +1136,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2021026769}
-        m_TargetAssemblyTypeName: ScriptLoja, Assembly-CSharp
-        m_MethodName: atvLojaBackGround
+        m_TargetAssemblyTypeName: Loja, Assembly-CSharp
+        m_MethodName: AtvLojaBackGround
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1668,8 +1668,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2021026769}
-        m_TargetAssemblyTypeName: ScriptLoja, Assembly-CSharp
-        m_MethodName: atvLojaPoderes
+        m_TargetAssemblyTypeName: Loja, Assembly-CSharp
+        m_MethodName: AtvLojaPoderes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2049,8 +2049,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2021026769}
-        m_TargetAssemblyTypeName: ScriptLoja, Assembly-CSharp
-        m_MethodName: atvLojaCoins
+        m_TargetAssemblyTypeName: Loja, Assembly-CSharp
+        m_MethodName: AtvLojaCoins
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2021026769}
         m_TargetAssemblyTypeName: Loja, Assembly-CSharp
         m_MethodName: OnConfirmarCompra
         m_Mode: 1
@@ -3773,7 +3773,7 @@ GameObject:
   - component: {fileID: 2021026768}
   - component: {fileID: 2021026769}
   m_Layer: 0
-  m_Name: LojaMananger
+  m_Name: LojaManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

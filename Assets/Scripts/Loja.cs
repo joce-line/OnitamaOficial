@@ -15,6 +15,8 @@ public class Loja : MonoBehaviour
 
     private int idItemSelecionado;
 
+    private static bool itemsCreated = false;
+
     public static Loja instance;
 
     public static Loja GetInstance()
@@ -36,17 +38,16 @@ public class Loja : MonoBehaviour
                 instance = this;
             }
         }
+        AtvLojaItem();
     }
 
     void Start()
     {
         if (DatabaseManager.Instance == null || string.IsNullOrEmpty(DatabaseManager.ConnectionString))
         {
-            Debug.LogError("DatabaseManager n�o inicializado.");
+            Debug.LogError("DatabaseManager não inicializado.");
             return;
         }
-
-        CreateItems();
     }
 
     public static void CreateItems()
@@ -131,6 +132,11 @@ public class Loja : MonoBehaviour
     public void AtvLojaItem()
     {
         LojaItem.SetActive(true);
+        if (!itemsCreated)
+        {
+            CreateItems();
+            itemsCreated = true;
+        }
         LojaBackground.SetActive(false);
         LojaPoderes.SetActive(false);
         LojaCoin.SetActive(false);
@@ -159,4 +165,10 @@ public class Loja : MonoBehaviour
         LojaPoderes.SetActive(false);
         LojaCoin.SetActive(true);
     }
+
+    void OnDestroy()
+    {
+        itemsCreated = false;
+    }
+
 }
