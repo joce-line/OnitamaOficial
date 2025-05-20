@@ -11,6 +11,7 @@ namespace Assets.scripts.InfoPlayer
     {
         public static String nomePlayer;
         public static int idPlayer;
+        public static String id_Background;
     }
 
     public static class DadosJogo
