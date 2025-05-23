@@ -12,7 +12,7 @@ public static class EnvReader
     // Caminho padrão do arquivo .env
     private static string GetEnvPath()
     {
-        return Path.Combine(Application.dataPath, "..", ".env");
+        return Path.Combine(Application.streamingAssetsPath, ".env");
     }
 
     public static void Load()
