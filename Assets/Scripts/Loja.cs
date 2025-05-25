@@ -10,6 +10,7 @@ public class Loja : MonoBehaviour
     public Transform contentParent;
     public GameObject skinPrefab;
     public GameObject modalConfirmacao;
+    public GameObject modalConfirmacaoCompra;
     //paineis de compras na loja
     public GameObject LojaItem, LojaBackground, LojaPoderes, LojaCoin;
 
@@ -109,17 +110,42 @@ public class Loja : MonoBehaviour
         modalConfirmacao.SetActive(false);
     }
 
+    public void OnMoedasInsuficientes()
+    {
+        modalConfirmacaoCompra.SetActive(false);
+    }
+
     public void ComprarItem(int idItem)
     {
         int idUsuario = PlayerInfo.idPlayer;
-        string insertQuery = $"INSERT INTO skins_usuario (id_usuario, id_conjunto) VALUES ({idUsuario}, {idItem})";
-        DatabaseManager.Instance.ExecuteNonQuery(insertQuery);
 
-        foreach (Transform child in contentParent)
+        string queryPreco = $"SELECT preco FROM conjuntos_skins WHERE id_Conjunto = {idItem}";
+        int preco = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryPreco));
+
+        string queryMoedas = $"SELECT moedas FROM usuarios WHERE idUsuario = {idUsuario}";
+        int moedasAtuais = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryMoedas));
+
+        if (moedasAtuais >= preco)
         {
-            Destroy(child.gameObject);
+            int novasMoedas = moedasAtuais - preco;
+
+            string updateMoedasQuery = $"UPDATE usuarios SET moedas = {novasMoedas} WHERE idUsuario = {idUsuario}";
+            DatabaseManager.Instance.ExecuteNonQuery(updateMoedasQuery);
+
+            string insertQuery = $"INSERT INTO skins_usuario (id_Usuario, id_Conjunto) VALUES ({idUsuario}, {idItem})";
+            DatabaseManager.Instance.ExecuteNonQuery(insertQuery);
+
+            foreach (Transform child in contentParent)
+            {
+                Destroy(child.gameObject);
+            }
+            CreateItems();
         }
-        CreateItems();
+        else
+        {
+            Debug.Log("Moedas insuficientes!");
+            modalConfirmacaoCompra.SetActive(true);
+        }
     }
 
     public void VoltarButton()
