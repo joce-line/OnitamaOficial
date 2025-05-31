@@ -19,6 +19,7 @@ public class BackGround : MonoBehaviour
 
     public void Activate()
     {
+        gameObject.SetActive(true);
         this.transform.position = new Vector3(0, 0, 1);
     }
 }

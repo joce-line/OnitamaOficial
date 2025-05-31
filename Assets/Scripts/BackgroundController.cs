@@ -1,8 +1,7 @@
 using Assets.scripts.InfoPlayer;
-using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class BackgroundController : MonoBehaviour
 {
@@ -10,9 +9,9 @@ public class BackgroundController : MonoBehaviour
 
     public GameObject backGround;
 
-    public Sprite[] backgroundSprites;
-
     private static GameObject instantiatedBackground = null;
+    private string caminhoAtual = "";
+    private Sprite spriteAtual = null;
 
     private void Awake()
     {
@@ -33,8 +32,6 @@ public class BackgroundController : MonoBehaviour
             return;
         }
 
-        //LoadUserBackground();
-
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -44,50 +41,72 @@ public class BackgroundController : MonoBehaviour
         {
             if (instantiatedBackground == null)
             {
-                string set_backgroung = string.IsNullOrEmpty(PlayerInfo.id_Background) ? "0" : PlayerInfo.id_Background;
-
                 instantiatedBackground = Instantiate(backGround, Vector3.zero, Quaternion.identity);
-                instantiatedBackground.name = set_backgroung;
-
-                BackGround bgComponent = instantiatedBackground.GetComponent<BackGround>();
-
-                if (int.TryParse(set_backgroung, out int selectedIndex) &&
-                    selectedIndex >= 0 && selectedIndex < backgroundSprites.Length)
-                {
-                    bgComponent.SetSprite(backgroundSprites[selectedIndex]);
-                }
-                else
-                {
-                    Debug.LogWarning("ID inválido para background: " + set_backgroung);
-                }
-
-                bgComponent.Activate();
-
-                Debug.Log("Background instanciado na cena: " + scene.name);
+                instantiatedBackground.name = "Background";
+                DontDestroyOnLoad(instantiatedBackground);
             }
+
+            AplicarBackground(); // <- só chama depois da instância criada
         }
     }
-    public void AtualizarBackground(int novoId)
+
+    private void AplicarBackground()
+    {
+        string caminho = PlayerInfo.caminho_Background;
+        Debug.Log("Caminho de background: " + caminho);
+
+        if (string.IsNullOrEmpty(caminho))
+        {
+            caminho = "Backgrounds/defaultBG";
+        }
+
+        StartCoroutine(LoadBackground(caminho));
+    }
+
+    public void AtualizarBackground(int idBackground, string caminho)
     {
         if (instantiatedBackground == null)
+        {
+            Debug.LogWarning("Instância do background ainda não existe.");
             return;
-
-        BackGround bgComponent = instantiatedBackground.GetComponent<BackGround>();
-
-        if (novoId >= 0 && novoId < backgroundSprites.Length)
-        {
-            bgComponent.SetSprite(backgroundSprites[novoId]);
-            Debug.Log("Background atualizado em tempo real.");
         }
-        else
-        {
-            Debug.LogWarning("ID de background inválido para atualização.");
-        }
+
+        StartCoroutine(LoadBackground(caminho));
     }
 
-
-    private void OnDestroy()
+    private IEnumerator LoadBackground(string url)
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (instantiatedBackground == null)
+        {
+            Debug.LogError("instantiatedBackground está nulo! Não é possível aplicar o background.");
+            yield break;
+        }
+
+        if (string.IsNullOrEmpty(url) || !url.StartsWith("http"))
+        {
+            //Debug.LogWarning("Caminho inválido ou vazio, usando defaultBG.");
+            Sprite defaultSprite = Resources.Load<Sprite>("Backgrounds/defaultBG");
+            instantiatedBackground.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+            yield break;
+        }
+
+        using (UnityEngine.Networking.UnityWebRequest request = UnityEngine.Networking.UnityWebRequestTexture.GetTexture(url))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityEngine.Networking.UnityWebRequest.Result.Success)
+            {
+                Texture2D texture = ((UnityEngine.Networking.DownloadHandlerTexture)request.downloadHandler).texture;
+                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
+                instantiatedBackground.GetComponent<SpriteRenderer>().sprite = sprite;
+                Debug.Log("Background carregado com sucesso!");
+            }
+            else
+            {
+                Debug.LogWarning("Erro ao carregar background remoto. Usando defaultBG.");
+                Sprite defaultSprite = Resources.Load<Sprite>("Backgrounds/defaultBG");
+                instantiatedBackground.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+            }
+        }
     }
 }

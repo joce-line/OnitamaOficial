@@ -81,7 +81,10 @@ public class LoginManager : MonoBehaviour
                 Debug.Log("Login bem-sucedido!");
                 PlayerInfo.nomePlayer = username;
                 PlayerInfo.idPlayer = Convert.ToInt32(results[0]["idUsuario"]);
-                PlayerInfo.id_Background = results[0]["id_Background"].ToString();
+                PlayerInfo.id_Background = Convert.ToInt32(results[0]["id_Background"]);
+
+                // AQUI: busca o caminho do background e salva
+                PlayerInfo.caminho_Background = DatabaseManager.Instance.GetCaminhoDoBackground(PlayerInfo.id_Background);
 
                 sceneLoader.CarregarCena("MenuPrincipal", telaLogin);
             }

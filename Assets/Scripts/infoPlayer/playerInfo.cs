@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.scripts.InfoPlayer
+﻿namespace Assets.scripts.InfoPlayer
 {
-    // solucao que encontrei para passar informacoes entre cenas
     public static class PlayerInfo
     {
-        public static String nomePlayer;
+        public static string nomePlayer;
         public static int idPlayer;
-        public static String id_Background;
+        public static int id_Background; // Alterado para int
+        public static string caminho_Background;
     }
 
     public static class DadosJogo
