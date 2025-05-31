@@ -1,48 +1,200 @@
 using UnityEngine;
-using UnityEngine.UI;
+using Assets.scripts.InfoPlayer;
+using System.Collections.Generic;
+using System;
 using UnityEngine.SceneManagement;
 
-public class ScriptLoja : MonoBehaviour
+public class Loja : MonoBehaviour
 {
-	//paineis de compras na loja
-	public GameObject LojaItem,LojaBackground,LojaPoderes,LojaCoin;
+    [Header("Referencias na cena")]
+    public Transform contentParent;
+    public GameObject skinPrefab;
+    public GameObject modalConfirmacao;
+    public GameObject modalConfirmacaoCompra;
+    //paineis de compras na loja
+    public GameObject LojaItem, LojaBackground, LojaPoderes, LojaCoin;
+
+    private int idItemSelecionado;
+
+    private static bool itemsCreated = false;
+
+    public static Loja instance;
+
+    public static Loja GetInstance()
+    {
+        if (instance == null)
+        {
+            instance = (Loja)FindFirstObjectByType(typeof(Loja));
+        }
+        return instance;
+    }
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = (Loja)FindFirstObjectByType(typeof(Loja));
+            if (instance == null)
+            {
+                instance = this;
+            }
+        }
+        AtvLojaItem();
+    }
+
+    void Start()
+    {
+        if (DatabaseManager.Instance == null || string.IsNullOrEmpty(DatabaseManager.ConnectionString))
+        {
+            Debug.LogError("DatabaseManager nÃ£o inicializado.");
+            return;
+        }
+    }
+
+    public static void CreateItems()
+    {
+        string query = "SELECT id_Conjunto, nome_Conjunto, preco, caminho_Pawn, caminho_King FROM conjuntos_skins WHERE active = 1";
+        List<Dictionary<string, object>> results = DatabaseManager.Instance.ExecuteReader(query);
+
+        int idUsuario = PlayerInfo.idPlayer;
+
+        foreach (var linha in results)
+        {
+            int id = Convert.ToInt32(linha["id_Conjunto"]);
+            string nome = linha["nome_Conjunto"].ToString();
+            int preco = Convert.ToInt32(linha["preco"]);
+            string caminhoPawn = linha["caminho_Pawn"].ToString();
+            string caminhoKing = linha["caminho_King"].ToString();
+
+            // Verifica se o usuï¿½rio jï¿½ comprou esse item
+            string queryCheck = $"SELECT COUNT(*) FROM skins_usuario WHERE id_usuario = {idUsuario} AND id_conjunto = {id}";
+            int count = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryCheck));
+            bool jaComprado = count > 0;
+
+            instance.CreateItem(id, nome, preco, caminhoPawn, caminhoKing, jaComprado);
+
+            //Debug.Log($"ID: {id}, Nome: {nome}, Preï¿½o: {preco}, Jï¿½ Comprado: {jaComprado}");
+        }
+    }
 
 
-	//função de lojas
-	public void atvLojaItem()
-	{
-		LojaItem.SetActive(true);
-		LojaBackground.SetActive(false);
-		LojaPoderes.SetActive(false);
-		LojaCoin.SetActive(false);
-	}
+    public void CreateItem(int id, string nome, int preco, string caminhoPawn, string caminhoKing, bool jaComprado)
+    {
+        GameObject temp = Instantiate(skinPrefab, contentParent);
+        SkinItem skinItemScript = temp.GetComponent<SkinItem>();
 
-	public void atvLojaBackGround()
-	{
-		LojaItem.SetActive(false);
-		LojaBackground.SetActive(true);
-		LojaPoderes.SetActive(false);
-		LojaCoin.SetActive(false);
-	}
+        if (skinItemScript != null)
+        {
+            skinItemScript.ConfigurarItem(id, nome, preco, caminhoPawn, caminhoKing, jaComprado);
+        }
+        else
+        {
+            Debug.LogError("Prefab nï¿½o contï¿½m o script SkinItem.");
+        }
+    }
 
-	public void atvLojaPoderes()
-	{
-		LojaItem.SetActive(false);
-		LojaBackground.SetActive(false);
-		LojaPoderes.SetActive(true);
-		LojaCoin.SetActive(false);
-	}
+    public void ConfirmarCompra(int id)
+    {
+        idItemSelecionado = id;
+        modalConfirmacao.SetActive(true);
+    }
 
-	public void atvLojaCoins()
-	{
-		LojaItem.SetActive(false);
-		LojaBackground.SetActive(false);
-		LojaPoderes.SetActive(false);
-		LojaCoin.SetActive(true);
-	}
-	//função de navegação
-	public void OnClickSair()
-	{
-		SceneManager.LoadScene("MenuPrincipal");
-	}
+    public void OnConfirmarCompra()
+    {
+        ComprarItem(idItemSelecionado);
+        modalConfirmacao.SetActive(false);
+    }
+
+    public void OnCancelarCompra()
+    {
+        modalConfirmacao.SetActive(false);
+    }
+
+    public void OnMoedasInsuficientes()
+    {
+        modalConfirmacaoCompra.SetActive(false);
+    }
+
+    public void ComprarItem(int idItem)
+    {
+        int idUsuario = PlayerInfo.idPlayer;
+
+        string queryPreco = $"SELECT preco FROM conjuntos_skins WHERE id_Conjunto = {idItem}";
+        int preco = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryPreco));
+
+        string queryMoedas = $"SELECT moedas FROM usuarios WHERE idUsuario = {idUsuario}";
+        int moedasAtuais = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryMoedas));
+
+        if (moedasAtuais >= preco)
+        {
+            int novasMoedas = moedasAtuais - preco;
+
+            string updateMoedasQuery = $"UPDATE usuarios SET moedas = {novasMoedas} WHERE idUsuario = {idUsuario}";
+            DatabaseManager.Instance.ExecuteNonQuery(updateMoedasQuery);
+
+            string insertQuery = $"INSERT INTO skins_usuario (id_Usuario, id_Conjunto) VALUES ({idUsuario}, {idItem})";
+            DatabaseManager.Instance.ExecuteNonQuery(insertQuery);
+
+            foreach (Transform child in contentParent)
+            {
+                Destroy(child.gameObject);
+            }
+            CreateItems();
+        }
+        else
+        {
+            Debug.Log("Moedas insuficientes!");
+            modalConfirmacaoCompra.SetActive(true);
+        }
+    }
+
+    public void VoltarButton()
+    {
+        SceneManager.LoadScene("MenuPrincipal");
+    }
+
+
+    //funÃ§Ã£o de lojas
+    public void AtvLojaItem()
+    {
+        LojaItem.SetActive(true);
+        if (!itemsCreated)
+        {
+            CreateItems();
+            itemsCreated = true;
+        }
+        LojaBackground.SetActive(false);
+        LojaPoderes.SetActive(false);
+        LojaCoin.SetActive(false);
+    }
+
+    public void AtvLojaBackGround()
+    {
+        LojaItem.SetActive(false);
+        LojaBackground.SetActive(true);
+        LojaPoderes.SetActive(false);
+        LojaCoin.SetActive(false);
+    }
+
+    public void AtvLojaPoderes()
+    {
+        LojaItem.SetActive(false);
+        LojaBackground.SetActive(false);
+        LojaPoderes.SetActive(true);
+        LojaCoin.SetActive(false);
+    }
+
+    public void AtvLojaCoins()
+    {
+        LojaItem.SetActive(false);
+        LojaBackground.SetActive(false);
+        LojaPoderes.SetActive(false);
+        LojaCoin.SetActive(true);
+    }
+
+    void OnDestroy()
+    {
+        itemsCreated = false;
+    }
+
 }

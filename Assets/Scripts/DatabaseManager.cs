@@ -36,10 +36,8 @@ public class DatabaseManager : MonoBehaviour
 
         ConnectionString = $"Server={server};Database={db};Uid={user};Pwd={password};SslMode={sslmode};Pooling=true;Max Pool Size=7;";
         Debug.Log("DatabaseManager inicializado com sucesso.");
-
     }
 
-    // Método para executar consultas que não retornam dados (INSERT, UPDATE, DELETE, CREATE, ALTER, DROP)
     public bool ExecuteNonQuery(string query, Dictionary<string, object> parameters = null)
     {
         using (MySqlConnection conn = new MySqlConnection(ConnectionString))
@@ -68,7 +66,6 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    // Método para consultas que retornam um valor único (SELECT, COUNT, SHOW, DESCRIBE, EXPLAIN)
     public object ExecuteScalar(string query, Dictionary<string, object> parameters = null)
     {
         using (MySqlConnection conn = new MySqlConnection(ConnectionString))
@@ -96,7 +93,6 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    // Método para consultas que retornam mais de um valor
     public List<Dictionary<string, object>> ExecuteReader(string query, Dictionary<string, object> parameters = null)
     {
         List<Dictionary<string, object>> results = new List<Dictionary<string, object>>();
@@ -137,5 +133,25 @@ public class DatabaseManager : MonoBehaviour
         }
 
         return results;
+    }
+
+    // Buscar backgrounds ativos (usando id_Background)
+    public List<Dictionary<string, object>> GetBackgroundsAtivos()
+    {
+        string query = "SELECT id_Background, nome, caminho FROM backgrounds WHERE active = 1";
+        return ExecuteReader(query);
+    }
+
+    // Buscar caminho do background por id_Background
+    public string GetCaminhoDoBackground(int id_Background)
+    {
+        string query = "SELECT caminho FROM backgrounds WHERE id_Background = @id_Background";
+        var parametros = new Dictionary<string, object>
+        {
+            { "@id_Background", id_Background }
+        };
+
+        object resultado = ExecuteScalar(query, parametros);
+        return resultado != null ? resultado.ToString() : string.Empty;
     }
 }
