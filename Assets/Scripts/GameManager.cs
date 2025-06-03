@@ -59,8 +59,6 @@ public class GameManager : MonoBehaviour
 
     public void InitPlayers()
     {
-        Debug.Log($"InitPlayers executado por {PhotonNetwork.NickName} (ActorNumber: {PhotonNetwork.LocalPlayer.ActorNumber})");
-        Debug.Log("InitPlayers chamado por: " + PhotonNetwork.NickName + " | IsMasterClient: " + PhotonNetwork.IsMasterClient);
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
@@ -109,16 +107,13 @@ public class GameManager : MonoBehaviour
     IEnumerator setStartingActivePlayer()
     {
         yield return new WaitForSeconds(.5f);
-        ActionParams data = new ActionParams();
-        data.Put("activePlayer", activePlayer);
-        EventManager.TriggerEvent("ActivePlayer", data);
+        PhotonView.Get(this).RPC("RPC_SetActivePlayer", RpcTarget.All, activePlayer);
     }
     public void CreateUnit(int playerId, int x, int y, UnitS.unitType utype)
     {
         string prefabName = (utype == UnitS.unitType.pawn) ? "Prefabs/PlayerPawn" : "Prefabs/PlayerKing";
         GameObject newGo = PhotonNetwork.Instantiate(prefabName, Vector3.zero, Quaternion.identity);
 
-        // spritePath para usar no Load
         string spritePath = (playerId == 1)
             ? (utype == UnitS.unitType.pawn ? "Skins/PretoPeao" : "Skins/PretoRei")
             : (utype == UnitS.unitType.pawn ? "Skins/BrancoPeao" : "Skins/BrancoRei");
@@ -167,11 +162,21 @@ public class GameManager : MonoBehaviour
 
             ActionParams temp = new ActionParams();
             temp.Put("activePlayer", activePlayer);
-            EventManager.TriggerEvent("ActivePlayer", temp);
+            //EventManager.TriggerEvent("ActivePlayer", temp);
+            PhotonView.Get(this).RPC("RPC_SetActivePlayer", RpcTarget.All, activePlayer);
 
         }
     }
 
+    [PunRPC]
+    public void RPC_SetActivePlayer(int playerId)
+    {
+        activePlayer = playerId;
+
+        ActionParams data = new ActionParams();
+        data.Put("activePlayer", playerId);
+        EventManager.TriggerEvent("ActivePlayer", data);
+    }
     public bool CheckForGameEnd(GridNodeS node)
     {
         //verifica se os reis foram capturados
@@ -266,15 +271,8 @@ public class GameManager : MonoBehaviour
                 newY >= 0 && newY < GridManagerS.instance.dimensionY)
             {
                 GridNodeS temp = GridManagerS.GetNodeS(newX, newY);
-                if (temp != null) // Mantém a robustez
+                if (temp != null)
                 {
-                    //rList.Add(temp);
-                    // if (temp.occupyingUnit == null ||
-                    //temp.occupyingUnit.ptype != GridManagerS.GetNodeS(x, y).occupyingUnit.ptype)
-                    // {
-                    //     rList.Add(temp);
-                    // }
-
                     UnitS originUnit = GridManagerS.GetNodeS(x, y).occupyingUnit;
                     if (temp.occupyingUnit == null || temp.occupyingUnit.ptype != originUnit.ptype)
                     {

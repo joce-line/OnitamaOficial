@@ -5,7 +5,7 @@ public class ScriptTelaMenu : MonoBehaviour
 {
    public void gameStartButton()
    {
-	   SceneManager.LoadScene("Game");
+	   SceneManager.LoadScene("LoadingLobby");
    }
 
    public void lojaButton()

@@ -14,12 +14,6 @@ public class UnitS : MonoBehaviourPun
     public player ptype;
 
     public bool isMine => GetComponent<PhotonView>().IsMine;
-
-    void Start()
-    {
-        Debug.Log($"{gameObject.name} iniciado com ptype: {ptype}");
-    }
-
     public void MoveToPosition(Vector3 pos)
     {
         //if (photonView.IsMine)
