@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -33,6 +34,7 @@ public class InputManager : MonoBehaviour
 
                 if (tempHit.CompareTag("GridNode"))
                 {
+                    Debug.Log("Cliquei em: " + tempHit.name + ", Tag: " + tempHit.tag);
                     GridNodeS tempNode = GridManagerS.GetNodeS(tempHit);
 
                     if (tempNode.occupyingUnit != null && lastSelectedNode != null)
@@ -48,10 +50,16 @@ public class InputManager : MonoBehaviour
 
                     if (inSelectionMode)
                     {
+                        Debug.Log("inSelectionMode: ");
+                        Debug.Log("tempNode.occupyingUnit: " + tempNode.occupyingUnit);
                         if (tempNode.occupyingUnit != null)
                         {
+                        Debug.Log("tempNode unit: " + tempNode.occupyingUnit.name + ", tipo: " + tempNode.occupyingUnit.ptype);
+                            Debug.Log("lastSelectedNode unit: " + lastSelectedNode.occupyingUnit.name + ", tipo: " + lastSelectedNode.occupyingUnit.ptype);
+                            Debug.Log("Está no moveList? " + CheckIfInMoveList(tempNode));
                             if (tempNode.occupyingUnit.ptype != lastSelectedNode.occupyingUnit.ptype && CheckIfInMoveList(tempNode))
                             {
+                                Debug.Log("Capturando unidade222: " + tempNode.occupyingUnit.name);
                                 GameManager.RemoveUnitAtNode(tempNode);
                                 lastSelectedNode.occupyingUnit.MoveToGridNode(tempNode);
                                 lastSelectedNode.TurnOffHighlight();
@@ -83,6 +91,9 @@ public class InputManager : MonoBehaviour
                     {
                         if (tempNode.occupyingUnit != null && playerUnitCheck(tempNode.occupyingUnit.ptype))
                         {
+                            if (!tempNode.occupyingUnit.isMine)
+                                return;
+
                             inSelectionMode = true;
                             lastSelectedNode = tempNode;
                             lastSelectedNode.TurnOnHighlight();
@@ -119,11 +130,17 @@ public class InputManager : MonoBehaviour
 
     private bool CheckIfInMoveList(GridNodeS nodeS)
     {
-        return moveList.Contains(nodeS);
+        foreach (var node in moveList)
+        {
+            if (node.x == nodeS.x && node.y == nodeS.y)
+                return true;
+        }
+        return false;
     }
 
     private void SetupMoveList(GridNodeS node)
     {
+        Debug.Log($"Node válido para movimento: ({node.x}, {node.y})");
         ResetMoveList();
         moveList = GameManager.BuildUnitMoveList(lastSelectedCard, node);
         foreach (GridNodeS item in moveList)
