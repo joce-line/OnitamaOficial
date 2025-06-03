@@ -9,14 +9,14 @@ public class ConectarAoServidor : MonoBehaviourPunCallbacks
 {
     void Start()
     {
-        Debug.Log("Conectando...");
+        UnityEngine.Debug.Log("Conectando...");
         // Conecta ao servidor Photon usando as configurações definidas no PhotonServerSettings
         PhotonNetwork.ConnectUsingSettings();
     }
     public override void OnConnectedToMaster()
     {
         // Chamado quando a conexão com o servidor Photon é bem-sucedida
-        Debug.Log("Conectado ao servidor Photon!");
+        UnityEngine.Debug.Log("Conectado ao servidor Photon!");
         // Aqui você pode adicionar lógica para entrar em uma sala ou criar uma nova sala
         PhotonNetwork.JoinLobby(); // Opcional: entra no lobby para listar salas disponíveis
     }
