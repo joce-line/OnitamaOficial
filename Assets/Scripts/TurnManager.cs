@@ -16,27 +16,31 @@ public class TurnManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            this.enabled = false;
-            return;
-        }
-
-        
         EventManager.StartListening("GameOver", OnGameOver);
         EventManager.StartListening("EndPlayerMovement", OnEndPlayerMovement);
-        //EventManager.StartListening("ActivePlayer", onActivePlayerChanged);
-        activePlayer = 1;
-        TriggerActivePlayerEvent(activePlayer);
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+
+            activePlayer = 1;
+            maxIndicatorTimer = indicatorTimer;
+            TriggerActivePlayerEvent(activePlayer);
+            photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
+        }
+
     }
 
     void Update()
     {
+        if (!isGameOver)
+        {
+            radialIndicatorUI.enabled = true;
+            radialIndicatorUI.fillAmount = maxIndicatorTimer / indicatorTimer;
+        }
+
         if (!isGameOver && PhotonNetwork.IsMasterClient)
         {
             maxIndicatorTimer -= Time.deltaTime;
-            radialIndicatorUI.enabled = true;
-            radialIndicatorUI.fillAmount = maxIndicatorTimer / indicatorTimer;
 
             syncTimer += Time.deltaTime;
             if (syncTimer >= syncInterval)
@@ -49,13 +53,12 @@ public class TurnManager : MonoBehaviourPunCallbacks
             {
                 maxIndicatorTimer = indicatorTimer;
                 activePlayer = (activePlayer == 1) ? 2 : 1;
-                //TurnChange();
                 TriggerActivePlayerEvent(activePlayer);
+                photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
             }
         }
 
     }
-
     private void TriggerActivePlayerEvent(int newActivePlayer)
     {
         photonView.RPC("RPC_TriggerActivePlayer", RpcTarget.All, newActivePlayer);
@@ -64,6 +67,7 @@ public class TurnManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void RPC_TriggerActivePlayer(int newActivePlayer)
     {
+        activePlayer = newActivePlayer;
         ActionParams data = new ActionParams();
         data.Put("activePlayer", newActivePlayer);
         EventManager.TriggerEvent("ActivePlayer", data);
@@ -76,9 +80,6 @@ public class TurnManager : MonoBehaviourPunCallbacks
         radialIndicatorUI.fillAmount = maxIndicatorTimer / indicatorTimer;
         radialIndicatorUI.enabled = true;
     }
-
-    
-
     private void OnGameOver(string eventName, ActionParams data)
     {
         string gameOver = data.Get<string>("GameOver");
@@ -94,15 +95,11 @@ public class TurnManager : MonoBehaviourPunCallbacks
 
     private void OnEndPlayerMovement(string eventName, ActionParams data)
     {
+        int receivedPlayer = data.Get<int>("activePlayer");
         maxIndicatorTimer = indicatorTimer;
-    }
-
-    private void TurnChange()
-    {
-        ActionParams data = new ActionParams();
-        OnitamaCard receivedCard = data.Get<OnitamaCard>("lastSelectedCard");
-        data.Put("activePlayer", activePlayer);
-        EventManager.TriggerEvent("ActivePlayer", data);
+        photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
+        activePlayer = (activePlayer == 1) ? 2 : 1;
+        TriggerActivePlayerEvent(activePlayer);
 
     }
     public void RestartTimer()
@@ -110,5 +107,10 @@ public class TurnManager : MonoBehaviourPunCallbacks
         maxIndicatorTimer = indicatorTimer;
         isGameOver = false;
         radialIndicatorUI.enabled = true;
+        //photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer); Talvez mudar quando colocar no botao.
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
+        }
     }
 }

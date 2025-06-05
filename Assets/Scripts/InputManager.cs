@@ -189,6 +189,11 @@ public class InputManager : MonoBehaviour
 
     public void EndPlayerMovement()
     {
+        //verificar talvez mudar depois.
+        if ((PhotonNetwork.LocalPlayer.ActorNumber == 1 && activePlayer != 1) ||
+        (PhotonNetwork.LocalPlayer.ActorNumber == 2 && activePlayer != 2))
+            return;
+
         lastSelectedCard.TurnOffHighlight();
         ActionParams data = new ActionParams();
         data.Put("activePlayer", activePlayer);

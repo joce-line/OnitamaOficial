@@ -162,7 +162,6 @@ public class GameManager : MonoBehaviour
 
             ActionParams temp = new ActionParams();
             temp.Put("activePlayer", activePlayer);
-            //EventManager.TriggerEvent("ActivePlayer", temp);
             PhotonView.Get(this).RPC("RPC_SetActivePlayer", RpcTarget.All, activePlayer);
 
         }
