@@ -8,6 +8,10 @@ public class VitoriaDerrota : MonoBehaviour
     public GameObject painelDerrota;
     public static VitoriaDerrota instance;
 
+    //teste de musica de fundo
+    public GameObject musicBackGround;
+    public MusicMananger musicMananger;
+
     public static VitoriaDerrota GetInstance()
     {
         if (instance == null)
@@ -40,11 +44,19 @@ public class VitoriaDerrota : MonoBehaviour
         {
             painelVitoria.SetActive(true);
             painelDerrota.SetActive(false);
+            //musica de fundo
+            musicBackGround = GameObject.FindGameObjectWithTag("MusicMananger");
+            musicMananger = musicBackGround.GetComponent<MusicMananger>();
+            musicMananger.playMusicWin();
         }
         else if (vencedor == 2)
         {
             painelVitoria.SetActive(false);
             painelDerrota.SetActive(true);
+            //musica de fundo
+            musicBackGround = GameObject.FindGameObjectWithTag("MusicMananger");
+            musicMananger = musicBackGround.GetComponent<MusicMananger>();
+            musicMananger.playMusicLose();
         }
     }
 }
