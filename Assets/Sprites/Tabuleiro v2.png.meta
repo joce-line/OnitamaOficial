@@ -1,0 +1,6539 @@
+fileFormatVersion: 2
+guid: b0dff37cc23c60b4bb09c920054f33bf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5214969855228796091
+    second: Tabuleiro v2_0
+  - first:
+      213: -7742298880307570612
+    second: Tabuleiro v2_1
+  - first:
+      213: -638907938269979631
+    second: Tabuleiro v2_2
+  - first:
+      213: 988316815191590675
+    second: Tabuleiro v2_3
+  - first:
+      213: 7762988391506271838
+    second: Tabuleiro v2_4
+  - first:
+      213: -5143759219930058069
+    second: Tabuleiro v2_5
+  - first:
+      213: 6966714001848924677
+    second: Tabuleiro v2_6
+  - first:
+      213: 640267870190963088
+    second: Tabuleiro v2_7
+  - first:
+      213: 7035982097458896017
+    second: Tabuleiro v2_8
+  - first:
+      213: 3829863937557114822
+    second: Tabuleiro v2_9
+  - first:
+      213: 4447222589105036150
+    second: Tabuleiro v2_10
+  - first:
+      213: -5704521257444830149
+    second: Tabuleiro v2_11
+  - first:
+      213: -72600961130479055
+    second: Tabuleiro v2_12
+  - first:
+      213: -3288382555881014906
+    second: Tabuleiro v2_13
+  - first:
+      213: -3378869684807009865
+    second: Tabuleiro v2_14
+  - first:
+      213: -3356462833217632905
+    second: Tabuleiro v2_15
+  - first:
+      213: -2914346522395528631
+    second: Tabuleiro v2_16
+  - first:
+      213: -8213463137043324499
+    second: Tabuleiro v2_17
+  - first:
+      213: 6656726287249738551
+    second: Tabuleiro v2_18
+  - first:
+      213: 9096061038103124338
+    second: Tabuleiro v2_19
+  - first:
+      213: 5858674691349099475
+    second: Tabuleiro v2_20
+  - first:
+      213: -1017706378367538377
+    second: Tabuleiro v2_21
+  - first:
+      213: -5512110695657138036
+    second: Tabuleiro v2_22
+  - first:
+      213: 366914663327014649
+    second: Tabuleiro v2_23
+  - first:
+      213: 3049649526443863100
+    second: Tabuleiro v2_24
+  - first:
+      213: -7562144150094995479
+    second: Tabuleiro v2_25
+  - first:
+      213: 4366576658833613110
+    second: Tabuleiro v2_26
+  - first:
+      213: -2732434657291144347
+    second: Tabuleiro v2_27
+  - first:
+      213: 1068985237971805929
+    second: Tabuleiro v2_28
+  - first:
+      213: 8237769166607815519
+    second: Tabuleiro v2_29
+  - first:
+      213: -2031736013226098853
+    second: Tabuleiro v2_30
+  - first:
+      213: -1090409333177820002
+    second: Tabuleiro v2_31
+  - first:
+      213: -7038476223745802454
+    second: Tabuleiro v2_32
+  - first:
+      213: -5104488167282077734
+    second: Tabuleiro v2_33
+  - first:
+      213: -4383909175291319084
+    second: Tabuleiro v2_34
+  - first:
+      213: -6202709313072600001
+    second: Tabuleiro v2_35
+  - first:
+      213: 7539817841951916075
+    second: Tabuleiro v2_36
+  - first:
+      213: 3924742188536118530
+    second: Tabuleiro v2_37
+  - first:
+      213: -9109043242356291851
+    second: Tabuleiro v2_38
+  - first:
+      213: 5465720293836440052
+    second: Tabuleiro v2_39
+  - first:
+      213: 5387341741809805954
+    second: Tabuleiro v2_40
+  - first:
+      213: 7284319874662499812
+    second: Tabuleiro v2_41
+  - first:
+      213: 94430426824169504
+    second: Tabuleiro v2_42
+  - first:
+      213: -279775649337271019
+    second: Tabuleiro v2_43
+  - first:
+      213: 6365052732332375492
+    second: Tabuleiro v2_44
+  - first:
+      213: 5410133101061781234
+    second: Tabuleiro v2_45
+  - first:
+      213: -1475103385479432644
+    second: Tabuleiro v2_46
+  - first:
+      213: 4053833949799130712
+    second: Tabuleiro v2_47
+  - first:
+      213: 5641707042465070115
+    second: Tabuleiro v2_48
+  - first:
+      213: 1057461654562845084
+    second: Tabuleiro v2_49
+  - first:
+      213: 7239189200936801656
+    second: Tabuleiro v2_50
+  - first:
+      213: 8777550721860521554
+    second: Tabuleiro v2_51
+  - first:
+      213: -6388626285232832809
+    second: Tabuleiro v2_52
+  - first:
+      213: 2318561574116734968
+    second: Tabuleiro v2_53
+  - first:
+      213: 7179759211380491947
+    second: Tabuleiro v2_54
+  - first:
+      213: 4698324825304738242
+    second: Tabuleiro v2_55
+  - first:
+      213: -521689522557833785
+    second: Tabuleiro v2_56
+  - first:
+      213: 2280735944969511020
+    second: Tabuleiro v2_57
+  - first:
+      213: -317663812461889159
+    second: Tabuleiro v2_58
+  - first:
+      213: 3331721315694313248
+    second: Tabuleiro v2_59
+  - first:
+      213: 7460248101864554946
+    second: Tabuleiro v2_60
+  - first:
+      213: -4224391915241194195
+    second: Tabuleiro v2_61
+  - first:
+      213: -1952327712911979456
+    second: Tabuleiro v2_62
+  - first:
+      213: 7141091153166093782
+    second: Tabuleiro v2_63
+  - first:
+      213: 3471313770207841906
+    second: Tabuleiro v2_64
+  - first:
+      213: 8154768764565385647
+    second: Tabuleiro v2_65
+  - first:
+      213: -8951870844056980826
+    second: Tabuleiro v2_66
+  - first:
+      213: -7253410697791305823
+    second: Tabuleiro v2_67
+  - first:
+      213: 4401450430738295564
+    second: Tabuleiro v2_68
+  - first:
+      213: -4509205418802229086
+    second: Tabuleiro v2_69
+  - first:
+      213: 7089057726239952895
+    second: Tabuleiro v2_70
+  - first:
+      213: -2469414007088453800
+    second: Tabuleiro v2_71
+  - first:
+      213: 3907108190599749494
+    second: Tabuleiro v2_72
+  - first:
+      213: 3456695279488298256
+    second: Tabuleiro v2_73
+  - first:
+      213: 4930723556716818084
+    second: Tabuleiro v2_74
+  - first:
+      213: -1583811471023546787
+    second: Tabuleiro v2_75
+  - first:
+      213: -6734149267481720731
+    second: Tabuleiro v2_76
+  - first:
+      213: 7971014366896339235
+    second: Tabuleiro v2_77
+  - first:
+      213: -509173997068382275
+    second: Tabuleiro v2_78
+  - first:
+      213: -4196986852727435160
+    second: Tabuleiro v2_79
+  - first:
+      213: 6184188695263888250
+    second: Tabuleiro v2_80
+  - first:
+      213: 3627500026873107345
+    second: Tabuleiro v2_81
+  - first:
+      213: -257996683148095556
+    second: Tabuleiro v2_82
+  - first:
+      213: -162619946839715403
+    second: Tabuleiro v2_83
+  - first:
+      213: -1834837648322446729
+    second: Tabuleiro v2_84
+  - first:
+      213: -9102219150062649905
+    second: Tabuleiro v2_85
+  - first:
+      213: -3923841667713040930
+    second: Tabuleiro v2_86
+  - first:
+      213: 2684974246776805280
+    second: Tabuleiro v2_87
+  - first:
+      213: 3653194932865648344
+    second: Tabuleiro v2_88
+  - first:
+      213: 8893008014819153884
+    second: Tabuleiro v2_89
+  - first:
+      213: -1332028685595715906
+    second: Tabuleiro v2_90
+  - first:
+      213: -5919838901770972012
+    second: Tabuleiro v2_91
+  - first:
+      213: -5311461951470137473
+    second: Tabuleiro v2_92
+  - first:
+      213: 8046100497186809349
+    second: Tabuleiro v2_93
+  - first:
+      213: 4633903073025215459
+    second: Tabuleiro v2_94
+  - first:
+      213: -7411280152515255655
+    second: Tabuleiro v2_95
+  - first:
+      213: 3891246145476510110
+    second: Tabuleiro v2_96
+  - first:
+      213: -3759766990202228228
+    second: Tabuleiro v2_97
+  - first:
+      213: -8064515877695263799
+    second: Tabuleiro v2_98
+  - first:
+      213: 3461747571791523541
+    second: Tabuleiro v2_99
+  - first:
+      213: 7231599741492303487
+    second: Tabuleiro v2_100
+  - first:
+      213: 1611013779634561836
+    second: Tabuleiro v2_101
+  - first:
+      213: 3511578637184483640
+    second: Tabuleiro v2_102
+  - first:
+      213: 4578167865859767245
+    second: Tabuleiro v2_103
+  - first:
+      213: -1590645530244383954
+    second: Tabuleiro v2_104
+  - first:
+      213: -6044096067970555548
+    second: Tabuleiro v2_105
+  - first:
+      213: -108928099720101087
+    second: Tabuleiro v2_106
+  - first:
+      213: -622549900721548358
+    second: Tabuleiro v2_107
+  - first:
+      213: 7302044301900033245
+    second: Tabuleiro v2_108
+  - first:
+      213: -3992937406000523485
+    second: Tabuleiro v2_109
+  - first:
+      213: 3508920954337069001
+    second: Tabuleiro v2_110
+  - first:
+      213: 8634840729731074363
+    second: Tabuleiro v2_111
+  - first:
+      213: 6926941224567953307
+    second: Tabuleiro v2_112
+  - first:
+      213: -4286281725275242454
+    second: Tabuleiro v2_113
+  - first:
+      213: -807225759300725399
+    second: Tabuleiro v2_114
+  - first:
+      213: -4841041092866967193
+    second: Tabuleiro v2_115
+  - first:
+      213: -5516343234375555249
+    second: Tabuleiro v2_116
+  - first:
+      213: 3625879830162780768
+    second: Tabuleiro v2_117
+  - first:
+      213: -3569549476182216899
+    second: Tabuleiro v2_118
+  - first:
+      213: 7666196844541783497
+    second: Tabuleiro v2_119
+  - first:
+      213: 6621017619578437534
+    second: Tabuleiro v2_120
+  - first:
+      213: 8459884773284383409
+    second: Tabuleiro v2_121
+  - first:
+      213: 7150182016939913303
+    second: Tabuleiro v2_122
+  - first:
+      213: 1477637527722015989
+    second: Tabuleiro v2_123
+  - first:
+      213: -6975260700603406017
+    second: Tabuleiro v2_124
+  - first:
+      213: 6667554454262184784
+    second: Tabuleiro v2_125
+  - first:
+      213: -5963418628601034532
+    second: Tabuleiro v2_126
+  - first:
+      213: 8814713018081392083
+    second: Tabuleiro v2_127
+  - first:
+      213: -1169403511475062629
+    second: Tabuleiro v2_128
+  - first:
+      213: -2729263650941770332
+    second: Tabuleiro v2_129
+  - first:
+      213: 474123924568161937
+    second: Tabuleiro v2_130
+  - first:
+      213: -6490644344947514768
+    second: Tabuleiro v2_131
+  - first:
+      213: -4799213268199628252
+    second: Tabuleiro v2_132
+  - first:
+      213: 2450876578873229724
+    second: Tabuleiro v2_133
+  - first:
+      213: 8705771471356726851
+    second: Tabuleiro v2_134
+  - first:
+      213: 4264374162055789493
+    second: Tabuleiro v2_135
+  - first:
+      213: -8838584829020501436
+    second: Tabuleiro v2_136
+  - first:
+      213: -7366508993503300288
+    second: Tabuleiro v2_137
+  - first:
+      213: 6025840970047114101
+    second: Tabuleiro v2_138
+  - first:
+      213: 840898996414453414
+    second: Tabuleiro v2_139
+  - first:
+      213: 5597672207827828175
+    second: Tabuleiro v2_140
+  - first:
+      213: 1277949031577057220
+    second: Tabuleiro v2_141
+  - first:
+      213: 1134578770301751766
+    second: Tabuleiro v2_142
+  - first:
+      213: -802482620099597156
+    second: Tabuleiro v2_143
+  - first:
+      213: -2616389558645560346
+    second: Tabuleiro v2_144
+  - first:
+      213: 923344193454463725
+    second: Tabuleiro v2_145
+  - first:
+      213: 8306239758507399288
+    second: Tabuleiro v2_146
+  - first:
+      213: -4486025157952001226
+    second: Tabuleiro v2_147
+  - first:
+      213: -6372531423192504205
+    second: Tabuleiro v2_148
+  - first:
+      213: -9194279618046598669
+    second: Tabuleiro v2_149
+  - first:
+      213: -204353762926564461
+    second: Tabuleiro v2_150
+  - first:
+      213: 131845867743473794
+    second: Tabuleiro v2_151
+  - first:
+      213: 4094686245984580607
+    second: Tabuleiro v2_152
+  - first:
+      213: -1944233455328279683
+    second: Tabuleiro v2_153
+  - first:
+      213: 5179208013149569224
+    second: Tabuleiro v2_154
+  - first:
+      213: 4826913383001207714
+    second: Tabuleiro v2_155
+  - first:
+      213: -656611555559049419
+    second: Tabuleiro v2_156
+  - first:
+      213: 6270985579988296577
+    second: Tabuleiro v2_157
+  - first:
+      213: -4528427250870944302
+    second: Tabuleiro v2_158
+  - first:
+      213: -1209439653550405457
+    second: Tabuleiro v2_159
+  - first:
+      213: 1828444707765700085
+    second: Tabuleiro v2_160
+  - first:
+      213: -159979586946527282
+    second: Tabuleiro v2_161
+  - first:
+      213: -8320575216539654577
+    second: Tabuleiro v2_162
+  - first:
+      213: -1381384951778693628
+    second: Tabuleiro v2_163
+  - first:
+      213: -1358020722677863486
+    second: Tabuleiro v2_164
+  - first:
+      213: 1027994833925529341
+    second: Tabuleiro v2_165
+  - first:
+      213: -7852250120039779481
+    second: Tabuleiro v2_166
+  - first:
+      213: 3619146174510947632
+    second: Tabuleiro v2_167
+  - first:
+      213: -1209087037381181778
+    second: Tabuleiro v2_168
+  - first:
+      213: 3283810327889880322
+    second: Tabuleiro v2_169
+  - first:
+      213: -7531645344140518341
+    second: Tabuleiro v2_170
+  - first:
+      213: 600135950403257963
+    second: Tabuleiro v2_171
+  - first:
+      213: 4294101058613475060
+    second: Tabuleiro v2_172
+  - first:
+      213: 1340414864827942701
+    second: Tabuleiro v2_173
+  - first:
+      213: -2430834117672829976
+    second: Tabuleiro v2_174
+  - first:
+      213: -2578747575381690694
+    second: Tabuleiro v2_175
+  - first:
+      213: -8368382575637135132
+    second: Tabuleiro v2_176
+  - first:
+      213: 6178790056719956256
+    second: Tabuleiro v2_177
+  - first:
+      213: -1205439883029489073
+    second: Tabuleiro v2_178
+  - first:
+      213: -4994421009565164193
+    second: Tabuleiro v2_179
+  - first:
+      213: 1773516990422290237
+    second: Tabuleiro v2_180
+  - first:
+      213: -2373385098758557521
+    second: Tabuleiro v2_181
+  - first:
+      213: -8068566962741370160
+    second: Tabuleiro v2_182
+  - first:
+      213: 6723866431396300251
+    second: Tabuleiro v2_183
+  - first:
+      213: 8158615364790318490
+    second: Tabuleiro v2_184
+  - first:
+      213: 8194905171568362069
+    second: Tabuleiro v2_185
+  - first:
+      213: -2488063296265533272
+    second: Tabuleiro v2_186
+  - first:
+      213: -4058619025960349872
+    second: Tabuleiro v2_187
+  - first:
+      213: 5784722719125731765
+    second: Tabuleiro v2_188
+  - first:
+      213: -633310509137785449
+    second: Tabuleiro v2_189
+  - first:
+      213: 3511498161926384990
+    second: Tabuleiro v2_190
+  - first:
+      213: -2958447389195351408
+    second: Tabuleiro v2_191
+  - first:
+      213: 1960818732268104429
+    second: Tabuleiro v2_192
+  - first:
+      213: -6371746059376615996
+    second: Tabuleiro v2_193
+  - first:
+      213: -6923312609856693500
+    second: Tabuleiro v2_194
+  - first:
+      213: 631835455938936287
+    second: Tabuleiro v2_195
+  - first:
+      213: -5879192389241704228
+    second: Tabuleiro v2_196
+  - first:
+      213: 199035075095581744
+    second: Tabuleiro v2_197
+  - first:
+      213: 8163202515172231673
+    second: Tabuleiro v2_198
+  - first:
+      213: -6608921847386341720
+    second: Tabuleiro v2_199
+  - first:
+      213: -6650563527419693817
+    second: Tabuleiro v2_200
+  - first:
+      213: 9084284790927486556
+    second: Tabuleiro v2_201
+  - first:
+      213: -4521847027491022256
+    second: Tabuleiro v2_202
+  - first:
+      213: 5428723915618921089
+    second: Tabuleiro v2_203
+  - first:
+      213: 5088698513814859698
+    second: Tabuleiro v2_204
+  - first:
+      213: -4940180151283497297
+    second: Tabuleiro v2_205
+  - first:
+      213: -5312166831774435064
+    second: Tabuleiro v2_206
+  - first:
+      213: 4252743790000433203
+    second: Tabuleiro v2_207
+  - first:
+      213: -5786855237036156765
+    second: Tabuleiro v2_208
+  - first:
+      213: 2841257730146910234
+    second: Tabuleiro v2_209
+  - first:
+      213: -3118373606638447185
+    second: Tabuleiro v2_210
+  - first:
+      213: -3404455910383622650
+    second: Tabuleiro v2_211
+  - first:
+      213: -79800823494818045
+    second: Tabuleiro v2_212
+  - first:
+      213: -4515358764005221638
+    second: Tabuleiro v2_213
+  - first:
+      213: 8066037438445573745
+    second: Tabuleiro v2_214
+  - first:
+      213: 516798479715419166
+    second: Tabuleiro v2_215
+  - first:
+      213: 2252889181797467999
+    second: Tabuleiro v2_216
+  - first:
+      213: 8079612165978159461
+    second: Tabuleiro v2_217
+  - first:
+      213: -5893138347628749757
+    second: Tabuleiro v2_218
+  - first:
+      213: 8151726358878437633
+    second: Tabuleiro v2_219
+  - first:
+      213: 2568346664760277565
+    second: Tabuleiro v2_220
+  - first:
+      213: 7374238172768704482
+    second: Tabuleiro v2_221
+  - first:
+      213: 2491612403765698513
+    second: Tabuleiro v2_222
+  - first:
+      213: 565432816917299460
+    second: Tabuleiro v2_223
+  - first:
+      213: -2651155410305185889
+    second: Tabuleiro v2_224
+  - first:
+      213: -3477833456282045881
+    second: Tabuleiro v2_225
+  - first:
+      213: -7332874684892312993
+    second: Tabuleiro v2_226
+  - first:
+      213: 4488692167012539965
+    second: Tabuleiro v2_227
+  - first:
+      213: -7100551764883602040
+    second: Tabuleiro v2_228
+  - first:
+      213: -6588729107957318852
+    second: Tabuleiro v2_229
+  - first:
+      213: -6552165461488989284
+    second: Tabuleiro v2_230
+  - first:
+      213: -8159213927345552671
+    second: Tabuleiro v2_231
+  - first:
+      213: -1695599169170435915
+    second: Tabuleiro v2_232
+  - first:
+      213: 2505307252339501446
+    second: Tabuleiro v2_233
+  - first:
+      213: -6440322114565229762
+    second: Tabuleiro v2_234
+  - first:
+      213: 7223312663653119364
+    second: Tabuleiro v2_235
+  - first:
+      213: -8518242095094211456
+    second: Tabuleiro v2_236
+  - first:
+      213: 8960258194864450307
+    second: Tabuleiro v2_237
+  - first:
+      213: -6474394001444072698
+    second: Tabuleiro v2_238
+  - first:
+      213: -3122860155985704294
+    second: Tabuleiro v2_239
+  - first:
+      213: -3047751038974094683
+    second: Tabuleiro v2_240
+  - first:
+      213: -9194044143055498016
+    second: Tabuleiro v2_241
+  - first:
+      213: 6451248386601770176
+    second: Tabuleiro v2_242
+  - first:
+      213: 2130960079304782036
+    second: Tabuleiro v2_243
+  - first:
+      213: -6365930671829299051
+    second: Tabuleiro v2_244
+  - first:
+      213: -8764418626191548418
+    second: Tabuleiro v2_245
+  - first:
+      213: 1249352683655400998
+    second: Tabuleiro v2_246
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tabuleiro v2_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 940
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbc5847047b4f5840800000000000000
+      internalID: 5214969855228796091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 899
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c48dc565034dd8490800000000000000
+      internalID: -7742298880307570612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 853
+        width: 8
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c9d3f7d942227f0800000000000000
+      internalID: -638907938269979631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_3
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 809
+        width: 11
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3174a0738e437bd00800000000000000
+      internalID: 988316815191590675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_4
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 944
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e563fdfccabbb60800000000000000
+      internalID: 7762988391506271838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_5
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 947
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2bde50e32bd98b0800000000000000
+      internalID: -5143759219930058069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_6
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 944
+        width: 29
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50af1f3397dbea060800000000000000
+      internalID: 6966714001848924677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_7
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 942
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09904d35c30b2e800800000000000000
+      internalID: 640267870190963088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_8
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 806
+        width: 27
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c9b0d7074d4a160800000000000000
+      internalID: 7035982097458896017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_9
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 900
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cfab20b5f8662530800000000000000
+      internalID: 3829863937557114822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_10
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 850
+        width: 10
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67bd2b4e165b7bd30800000000000000
+      internalID: 4447222589105036150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_11
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 808
+        width: 9
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b341654e32875d0b0800000000000000
+      internalID: -5704521257444830149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_12
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 945
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132477d7fc11efef0800000000000000
+      internalID: -72600961130479055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_13
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 942
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689fe1fec715d52d0800000000000000
+      internalID: -3288382555881014906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_14
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 941
+        width: 34
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b9fdb67ce7db11d0800000000000000
+      internalID: -3378869684807009865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_15
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 944
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 775034426d27b61d0800000000000000
+      internalID: -3356462833217632905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_16
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 853
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 942383c57492e87d0800000000000000
+      internalID: -2914346522395528631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_17
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 945
+        width: 28
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da164cc2bcae30e80800000000000000
+      internalID: -8213463137043324499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_18
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 900
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b86861a41716c50800000000000000
+      internalID: 6656726287249738551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 809
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27958673253bb3e70800000000000000
+      internalID: 9096061038103124338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_20
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 944
+        width: 28
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d33f6857913e4150800000000000000
+      internalID: 5858674691349099475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_21
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 944
+        width: 28
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73be0cfd07160e1f0800000000000000
+      internalID: -1017706378367538377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_22
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 683
+        width: 30
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8899b6d68c0183b0800000000000000
+      internalID: -5512110695657138036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_23
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 870
+        width: 29
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fe1d7a31fa871500800000000000000
+      internalID: 366914663327014649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_24
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 945
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3cef192618825a20800000000000000
+      internalID: 3049649526443863100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_25
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 945
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef1a4126fddd0790800000000000000
+      internalID: -7562144150094995479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_26
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 852
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6312a4a0652399c30800000000000000
+      internalID: 4366576658833613110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_27
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 900
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563f1300821741ad0800000000000000
+      internalID: -2732434657291144347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_28
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 808
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e62273096cc5de00800000000000000
+      internalID: 1068985237971805929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_29
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 806
+        width: 89
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f531355596f625270800000000000000
+      internalID: 8237769166607815519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_30
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 942
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f3a4e4cd2ddc3e0800000000000000
+      internalID: -2031736013226098853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_31
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 917
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c5a2c1d761ed0f0800000000000000
+      internalID: -1090409333177820002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_32
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 814
+        width: 40
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2f399b7a2f425e90800000000000000
+      internalID: -7038476223745802454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_33
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 940
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf87fc7e073929b0800000000000000
+      internalID: -5104488167282077734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_34
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 848
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc6f2ff4d93923c0800000000000000
+      internalID: -4383909175291319084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_35
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 888
+        width: 17
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3cec4d3ebc8be9a0800000000000000
+      internalID: -6202709313072600001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_36
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 800
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2042bc2160d2a860800000000000000
+      internalID: 7539817841951916075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_37
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 947
+        width: 34
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20d3faee93c777630800000000000000
+      internalID: 3924742188536118530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_38
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 774
+        width: 68
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f64eafce6d269180800000000000000
+      internalID: -9109043242356291851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_39
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 940
+        width: 31
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1c3cb06a32adb40800000000000000
+      internalID: 5465720293836440052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_40
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 816
+        width: 39
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28a253455cea3ca40800000000000000
+      internalID: 5387341741809805954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_41
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 940
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e5839ff45a171560800000000000000
+      internalID: 7284319874662499812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_42
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 888
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 028d7de09fb7f4100800000000000000
+      internalID: 94430426824169504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_43
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 848
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51d927c77890e1cf0800000000000000
+      internalID: -279775649337271019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_44
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 800
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cdfc4f8cb5355850800000000000000
+      internalID: 6365052732332375492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_45
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 753
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f6be5c2467a41b40800000000000000
+      internalID: 5410133101061781234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_46
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 757
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36b58d4941678be0800000000000000
+      internalID: -1475103385479432644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_47
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 758
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856223ccf7c124830800000000000000
+      internalID: 4053833949799130712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_48
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 757
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c33f00aae5b4e40800000000000000
+      internalID: 5641707042465070115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_49
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 755
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91b0dba5cbdcae00800000000000000
+      internalID: 1057461654562845084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_50
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 619
+        width: 30
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8759eaf2934c67460800000000000000
+      internalID: 7239189200936801656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_51
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 758
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25e487640ef10d970800000000000000
+      internalID: 8777550721860521554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_52
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 755
+        width: 34
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de39f1fd3a0757a0800000000000000
+      internalID: -6388626285232832809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_53
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 754
+        width: 34
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f73917a77f2d2020800000000000000
+      internalID: 2318561574116734968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_54
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 757
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba64c2776f0a3a360800000000000000
+      internalID: 7179759211380491947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_55
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 758
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c920bb298dc33140800000000000000
+      internalID: 4698324825304738242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_56
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 757
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cda5eca42692c8f0800000000000000
+      internalID: -521689522557833785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_57
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 757
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c606f52124dc6af10800000000000000
+      internalID: 2280735944969511020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_58
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 758
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9797634127e679bf0800000000000000
+      internalID: -317663812461889159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_59
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 758
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f7e8862e6ac3e20800000000000000
+      internalID: 3331721315694313248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_60
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 619
+        width: 83
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c14bef5f10288760800000000000000
+      internalID: 7460248101864554946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_61
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 755
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2d34045fe1ff55c0800000000000000
+      internalID: -4224391915241194195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_62
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 730
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04c0bbaf940f7e4e0800000000000000
+      internalID: -1952327712911979456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_63
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 627
+        width: 40
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dd462591904a1360800000000000000
+      internalID: 7141091153166093782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_64
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 753
+        width: 38
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27e09217b759c2030800000000000000
+      internalID: 3471313770207841906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_65
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 587
+        width: 42
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa1fe5d4cfe8b2170800000000000000
+      internalID: 8154768764565385647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_66
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 755
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2bec875e094c380800000000000000
+      internalID: -8951870844056980826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_67
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 682
+        width: 53
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7812c8665b65b90800000000000000
+      internalID: -7253410697791305823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_68
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 625
+        width: 67
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b65acc8d7151d30800000000000000
+      internalID: 4401450430738295564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_69
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 753
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a0d609ff851c61c0800000000000000
+      internalID: -4509205418802229086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_70
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 712
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff45cc4174616260800000000000000
+      internalID: 7089057726239952895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_71
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 713
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8576e184b01eabdd0800000000000000
+      internalID: -2469414007088453800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_72
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 713
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67f97b7d236d83630800000000000000
+      internalID: 3907108190599749494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_73
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 713
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01d6ba6da06a8ff20800000000000000
+      internalID: 3456695279488298256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_74
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 701
+        width: 17
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aea1c363f27d6440800000000000000
+      internalID: 4930723556716818084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_75
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 701
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5ed376cbdb250ae0800000000000000
+      internalID: -1583811471023546787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_76
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 666
+        width: 8
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5688b479bee7b82a0800000000000000
+      internalID: -6734149267481720731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_77
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 663
+        width: 10
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 329346e955bbe9e60800000000000000
+      internalID: 7971014366896339235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_78
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 666
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbf8fd782fc0fe8f0800000000000000
+      internalID: -509173997068382275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_79
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 665
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 860523ca1be41c5c0800000000000000
+      internalID: -4196986852727435160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_80
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 661
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73c0356ad6a2d550800000000000000
+      internalID: 6184188695263888250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_81
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 661
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 193dd7c1e08775230800000000000000
+      internalID: 3627500026873107345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_82
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 622
+        width: 11
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf8ab332696b6cf0800000000000000
+      internalID: -257996683148095556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_83
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 621
+        width: 9
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1d93b15024ebdf0800000000000000
+      internalID: -162619946839715403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_84
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 622
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a3a3751e85986e0800000000000000
+      internalID: -1834837648322446729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_85
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 496
+        width: 30
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcdf1cc98eb6ea180800000000000000
+      internalID: -9102219150062649905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_86
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 621
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd7619eac6bb89c0800000000000000
+      internalID: -3923841667713040930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_87
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 613
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a714321ad1f24520800000000000000
+      internalID: 2684974246776805280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_88
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 613
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d6c6bc9f61c2b230800000000000000
+      internalID: 3653194932865648344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_89
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 566
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd75ffb1caf4a6b70800000000000000
+      internalID: 8893008014819153884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_90
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 570
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb6df64c7fea38de0800000000000000
+      internalID: -1332028685595715906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_91
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 571
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 494176c22e188dda0800000000000000
+      internalID: -5919838901770972012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_92
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 570
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7f8e981f75e946b0800000000000000
+      internalID: -5311461951470137473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_93
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 568
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506e9e9a5cd79af60800000000000000
+      internalID: 8046100497186809349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_94
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 432
+        width: 30
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eb424f1b4eee4040800000000000000
+      internalID: 4633903073025215459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_95
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 571
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992ec6ac7f7d52990800000000000000
+      internalID: -7411280152515255655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_96
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 568
+        width: 34
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e914cbaa0cb700630800000000000000
+      internalID: 3891246145476510110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_97
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 567
+        width: 34
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf1b1cea7df92dbc0800000000000000
+      internalID: -3759766990202228228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_98
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 570
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cbe9707985151090800000000000000
+      internalID: -8064515877695263799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_99
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 571
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de64be43199a0030800000000000000
+      internalID: 3461747571791523541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_100
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 570
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76947576adcb5460800000000000000
+      internalID: 7231599741492303487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_101
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 570
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c23a06f3f787b5610800000000000000
+      internalID: 1611013779634561836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_102
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 571
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8314b365a22abb030800000000000000
+      internalID: 3511578637184483640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_103
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 571
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcbfda6fa6be88f30800000000000000
+      internalID: 4578167865859767245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_104
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 432
+        width: 83
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2b783e5154ece9e0800000000000000
+      internalID: -1590645530244383954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_105
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 568
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 461a74036ae0f1ca0800000000000000
+      internalID: -6044096067970555548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_106
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 543
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 123002e68720d7ef0800000000000000
+      internalID: -108928099720101087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_107
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 440
+        width: 40
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab39988e9224c57f0800000000000000
+      internalID: -622549900721548358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_108
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 566
+        width: 38
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddcaaecca92165560800000000000000
+      internalID: 7302044301900033245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_109
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 400
+        width: 42
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32718f0b59c3698c0800000000000000
+      internalID: -3992937406000523485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_110
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 568
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c78f24540132b030800000000000000
+      internalID: 3508920954337069001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_111
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 495
+        width: 53
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3902b3f4ed15d770800000000000000
+      internalID: 8634840729731074363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_112
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 438
+        width: 67
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97d16ed750712060800000000000000
+      internalID: 6926941224567953307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_113
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 566
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2088b50b711484c0800000000000000
+      internalID: -4286281725275242454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_114
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 525
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 965d553e2782cc4f0800000000000000
+      internalID: -807225759300725399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_115
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 526
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 769789466ca21dcb0800000000000000
+      internalID: -4841041092866967193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_116
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 526
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f476aef1e030273b0800000000000000
+      internalID: -5516343234375555249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_117
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 526
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0623b1bae76b15230800000000000000
+      internalID: 3625879830162780768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_118
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 514
+        width: 17
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f2af7e9a9667ec0800000000000000
+      internalID: -3569549476182216899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_119
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 514
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cd2221b96dc36a60800000000000000
+      internalID: 7666196844541783497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_120
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 479
+        width: 8
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9f3392027492eb50800000000000000
+      internalID: 6621017619578437534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_121
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 476
+        width: 10
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ba0a50016c876570800000000000000
+      internalID: 8459884773284383409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_122
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 479
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 750f61f39ac8a3360800000000000000
+      internalID: 7150182016939913303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_123
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 478
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fc38aaa08f918410800000000000000
+      internalID: 1477637527722015989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_124
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 474
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f39aacc6955e23f90800000000000000
+      internalID: -6975260700603406017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_125
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 474
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05bfede2379e78c50800000000000000
+      internalID: 6667554454262184784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_126
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 435
+        width: 11
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd8c9435a5ead3da0800000000000000
+      internalID: -5963418628601034532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_127
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 434
+        width: 9
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5b0cf99c6245a70800000000000000
+      internalID: 8814713018081392083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_128
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 435
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b983f6bb3b175cfe0800000000000000
+      internalID: -1169403511475062629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_129
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 309
+        width: 30
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a5ea337b25bf1ad0800000000000000
+      internalID: -2729263650941770332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_130
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 434
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19e3667823d649600800000000000000
+      internalID: 474123924568161937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_131
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 426
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07261007b599ce5a0800000000000000
+      internalID: -6490644344947514768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_132
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 426
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422ae9bb5f4c56db0800000000000000
+      internalID: -4799213268199628252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_133
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 379
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9140106343430220800000000000000
+      internalID: 2450876578873229724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_134
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 383
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34e82fd270d11d870800000000000000
+      internalID: 8705771471356726851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_135
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 384
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb70bee4b91e2b30800000000000000
+      internalID: 4264374162055789493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_136
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 383
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44a83154de9075580800000000000000
+      internalID: -8838584829020501436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_137
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 381
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 045f38f8917e4c990800000000000000
+      internalID: -7366508993503300288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_138
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 245
+        width: 30
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b47ac9f6610a350800000000000000
+      internalID: 6025840970047114101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_139
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 384
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a614459e297bab00800000000000000
+      internalID: 840898996414453414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_140
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 381
+        width: 34
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd77ac173deead40800000000000000
+      internalID: 5597672207827828175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_141
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 380
+        width: 34
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c774349fdf2cb110800000000000000
+      internalID: 1277949031577057220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_142
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 383
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d1198d5165debf00800000000000000
+      internalID: 1134578770301751766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_143
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 384
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ce98a0f420dd4f0800000000000000
+      internalID: -802482620099597156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_144
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 383
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ebe3e20f87b0bbd0800000000000000
+      internalID: -2616389558645560346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_145
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 383
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dead540e6a060dc00800000000000000
+      internalID: 923344193454463725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_146
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 384
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8785f015d01b54370800000000000000
+      internalID: 8306239758507399288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_147
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 384
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63b2ec603ef6eb1c0800000000000000
+      internalID: -4486025157952001226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_148
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 245
+        width: 83
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 378a8980f683097a0800000000000000
+      internalID: -6372531423192504205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_149
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 381
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f1e7b8966b576080800000000000000
+      internalID: -9194279618046598669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_150
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 356
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b6f38d55df92df0800000000000000
+      internalID: -204353762926564461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_151
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 253
+        width: 40
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 280f3ff3e1964d100800000000000000
+      internalID: 131845867743473794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_152
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 379
+        width: 38
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff3b696327f33d830800000000000000
+      internalID: 4094686245984580607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_153
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 213
+        width: 42
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d734abe29f1b405e0800000000000000
+      internalID: -1944233455328279683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_154
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 381
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c003a15f3e30e740800000000000000
+      internalID: 5179208013149569224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_155
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 308
+        width: 53
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a3bd53d524acf240800000000000000
+      internalID: 4826913383001207714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_156
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 251
+        width: 67
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5377c73e44f33e6f0800000000000000
+      internalID: -656611555559049419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_157
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 379
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 183accee824070750800000000000000
+      internalID: 6270985579988296577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_158
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 338
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dd73a0786bc721c0800000000000000
+      internalID: -4528427250870944302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_159
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 339
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa84bd00b05373fe0800000000000000
+      internalID: -1209439653550405457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_160
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 339
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f541d136c0ff5910800000000000000
+      internalID: 1828444707765700085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_161
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 339
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf0dbcc963a7cdf0800000000000000
+      internalID: -159979586946527282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_162
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 327
+        width: 17
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f462c33cce0678c80800000000000000
+      internalID: -8320575216539654577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_163
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 327
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e292b84b554dce0800000000000000
+      internalID: -1381384951778693628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_164
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 292
+        width: 8
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cbaa2b0957572de0800000000000000
+      internalID: -1358020722677863486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_165
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 289
+        width: 10
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfe511bdadb244e00800000000000000
+      internalID: 1027994833925529341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_166
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 292
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 763b28b6e14370390800000000000000
+      internalID: -7852250120039779481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_167
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 291
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d50f9454ac93230800000000000000
+      internalID: 3619146174510947632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_168
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 287
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eae7d5adeb5783fe0800000000000000
+      internalID: -1209087037381181778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_169
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 287
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 205a2a74810729d20800000000000000
+      internalID: 3283810327889880322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_170
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 248
+        width: 11
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3c9740c6783a7790800000000000000
+      internalID: -7531645344140518341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_171
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 247
+        width: 9
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b664abc977c145800800000000000000
+      internalID: 600135950403257963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_172
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 248
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f6f8446926b79b30800000000000000
+      internalID: 4294101058613475060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_173
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 121
+        width: 30
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2709bdb73c1a9210800000000000000
+      internalID: 1340414864827942701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_174
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 247
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ebf534cf31f34ed0800000000000000
+      internalID: -2430834117672829976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_175
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 239
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab679f33eb2763cd0800000000000000
+      internalID: -2578747575381690694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_176
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 239
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e0849292688ddb80800000000000000
+      internalID: -8368382575637135132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_177
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 191
+        width: 20
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0293288e1d87fb550800000000000000
+      internalID: 6178790056719956256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_178
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 195
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a50f520da654fe0800000000000000
+      internalID: -1205439883029489073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_179
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 197
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5dde1aad8040bab0800000000000000
+      internalID: -4994421009565164193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_180
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 195
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f8d396e4ccc9810800000000000000
+      internalID: 1773516990422290237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_181
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 193
+        width: 28
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa07a41d3da001fd0800000000000000
+      internalID: -2373385098758557521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_182
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 57
+        width: 30
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d22953b811b60090800000000000000
+      internalID: -8068566962741370160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_183
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 196
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5cc8015e8ff4d50800000000000000
+      internalID: 6723866431396300251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_184
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 193
+        width: 34
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95fe55b279393170800000000000000
+      internalID: 8158615364790318490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_185
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 192
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5520857c5d62ab170800000000000000
+      internalID: 8194905171568362069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_186
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 195
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8c7674d9f987dd0800000000000000
+      internalID: -2488063296265533272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_187
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 196
+        width: 29
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05fcdf6df73eca7c0800000000000000
+      internalID: -4058619025960349872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_188
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 195
+        width: 29
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b9fe9d0aa6774050800000000000000
+      internalID: 5784722719125731765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_189
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 195
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d025682770637f0800000000000000
+      internalID: -633310509137785449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_190
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 196
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5d2f0b39f85bb030800000000000000
+      internalID: 3511498161926384990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_191
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 196
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a445826cb71f6d0800000000000000
+      internalID: -2958447389195351408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_192
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 57
+        width: 83
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deaa5c58f3a363b10800000000000000
+      internalID: 1960818732268104429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_193
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 193
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd9cdbc7b20397a0800000000000000
+      internalID: -6371746059376615996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_194
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 168
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b5284dcd37bef90800000000000000
+      internalID: -6923312609856693500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_195
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 65
+        width: 40
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fddbcb3effab4c800800000000000000
+      internalID: 631835455938936287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_196
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 191
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd07119dba9e86ea0800000000000000
+      internalID: -5879192389241704228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_197
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 25
+        width: 42
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0345ae4a85d13c200800000000000000
+      internalID: 199035075095581744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_198
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 193
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f98a62ef65894170800000000000000
+      internalID: 8163202515172231673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_199
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 120
+        width: 53
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aef73a68946844a0800000000000000
+      internalID: -6608921847386341720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_200
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 41
+        width: 67
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 705faff35b374b3a0800000000000000
+      internalID: -6650563527419693817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_201
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 191
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e67b103ecd11e70800000000000000
+      internalID: 9084284790927486556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_202
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 150
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05addb5161c2f31c0800000000000000
+      internalID: -4521847027491022256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_203
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 151
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a222e73a3b65b40800000000000000
+      internalID: 5428723915618921089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_204
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 151
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bf2ef45650be9640800000000000000
+      internalID: 5088698513814859698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_205
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 151
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa6cf4c9354f07bb0800000000000000
+      internalID: -4940180151283497297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_206
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 139
+        width: 17
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809f87c59646746b0800000000000000
+      internalID: -5312166831774435064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_207
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 139
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33869bbe1f7c40b30800000000000000
+      internalID: 4252743790000433203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_208
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 104
+        width: 8
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a8d9dd62d5f0bfa0800000000000000
+      internalID: -5786855237036156765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_209
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 101
+        width: 10
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a104db81adc2e6720800000000000000
+      internalID: 2841257730146910234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_210
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 104
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa59c530abf49b4d0800000000000000
+      internalID: -3118373606638447185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_211
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 103
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 606ea181361f0c0d0800000000000000
+      internalID: -3404455910383622650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_212
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 99
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 307cec6e29d74eef0800000000000000
+      internalID: -79800823494818045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_213
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 99
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa9506a0293651c0800000000000000
+      internalID: -4515358764005221638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_214
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 60
+        width: 11
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 176dc87805250ff60800000000000000
+      internalID: 8066037438445573745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_215
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 59
+        width: 9
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1446ebaa790c2700800000000000000
+      internalID: 516798479715419166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_216
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 60
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f57cb5746ced34f10800000000000000
+      internalID: 2252889181797467999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_217
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 9
+        width: 30
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5697d04157c802070800000000000000
+      internalID: 8079612165978159461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_218
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 59
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34c1b5165ed573ea0800000000000000
+      internalID: -5893138347628749757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_219
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 51
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10143270fefb02170800000000000000
+      internalID: 8151726358878437633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_220
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 51
+        width: 12
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3a78151fa994a320800000000000000
+      internalID: 2568346664760277565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_221
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 15
+        width: 12
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e711093c8e865660800000000000000
+      internalID: 7374238172768704482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_222
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 9
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1df5964b74cf39220800000000000000
+      internalID: 2491612403765698513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_223
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 9
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40144b4b622d8d700800000000000000
+      internalID: 565432816917299460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_224
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 9
+        width: 32
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9787646334353bd0800000000000000
+      internalID: -2651155410305185889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_225
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 9
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 742f65ad5e04cbfc0800000000000000
+      internalID: -3477833456282045881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_226
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 9
+        width: 30
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5a0a8843556c3a90800000000000000
+      internalID: -7332874684892312993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_227
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 9
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e5cd86eb90b4e30800000000000000
+      internalID: 4488692167012539965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_228
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 9
+        width: 34
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88507d84ac5c57d90800000000000000
+      internalID: -7100551764883602040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_229
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 9
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b7deee8c12094a0800000000000000
+      internalID: -6588729107957318852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_230
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 9
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b8d564a380215a0800000000000000
+      internalID: -6552165461488989284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_231
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 9
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e206269926a4ce80800000000000000
+      internalID: -8159213927345552671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_232
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 10
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b016201a850878e0800000000000000
+      internalID: -1695599169170435915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_233
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 9
+        width: 29
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689e7ec1ca3a4c220800000000000000
+      internalID: 2505307252339501446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_234
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 9
+        width: 29
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e333f3ab8216f96a0800000000000000
+      internalID: -6440322114565229762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_235
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 9
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485ff9ac89c5e3460800000000000000
+      internalID: 7223312663653119364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_236
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 9
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08c512332ff19c980800000000000000
+      internalID: -8518242095094211456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_237
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 9
+        width: 30
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30bada0da5b395c70800000000000000
+      internalID: 8960258194864450307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_238
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 9
+        width: 35
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 603910065f45626a0800000000000000
+      internalID: -6474394001444072698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_239
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 9
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9a4047db3f59a4d0800000000000000
+      internalID: -3122860155985704294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_240
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 9
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a21f16e39634b5d0800000000000000
+      internalID: -3047751038974094683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_241
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 9
+        width: 37
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e49ae36091386080800000000000000
+      internalID: -9194044143055498016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_242
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 9
+        width: 29
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ccd5393a30778950800000000000000
+      internalID: 6451248386601770176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_243
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 9
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d0ff7dd6e0b29d10800000000000000
+      internalID: 2130960079304782036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_244
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 17
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 590d9d838cba7a7a0800000000000000
+      internalID: -6365930671829299051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_245
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 9
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eff190302b78e5680800000000000000
+      internalID: -8764418626191548418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabuleiro v2_246
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 9
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e067c75a7965110800000000000000
+      internalID: 1249352683655400998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tabuleiro v2_0: 5214969855228796091
+      Tabuleiro v2_1: -7742298880307570612
+      Tabuleiro v2_10: 4447222589105036150
+      Tabuleiro v2_100: 7231599741492303487
+      Tabuleiro v2_101: 1611013779634561836
+      Tabuleiro v2_102: 3511578637184483640
+      Tabuleiro v2_103: 4578167865859767245
+      Tabuleiro v2_104: -1590645530244383954
+      Tabuleiro v2_105: -6044096067970555548
+      Tabuleiro v2_106: -108928099720101087
+      Tabuleiro v2_107: -622549900721548358
+      Tabuleiro v2_108: 7302044301900033245
+      Tabuleiro v2_109: -3992937406000523485
+      Tabuleiro v2_11: -5704521257444830149
+      Tabuleiro v2_110: 3508920954337069001
+      Tabuleiro v2_111: 8634840729731074363
+      Tabuleiro v2_112: 6926941224567953307
+      Tabuleiro v2_113: -4286281725275242454
+      Tabuleiro v2_114: -807225759300725399
+      Tabuleiro v2_115: -4841041092866967193
+      Tabuleiro v2_116: -5516343234375555249
+      Tabuleiro v2_117: 3625879830162780768
+      Tabuleiro v2_118: -3569549476182216899
+      Tabuleiro v2_119: 7666196844541783497
+      Tabuleiro v2_12: -72600961130479055
+      Tabuleiro v2_120: 6621017619578437534
+      Tabuleiro v2_121: 8459884773284383409
+      Tabuleiro v2_122: 7150182016939913303
+      Tabuleiro v2_123: 1477637527722015989
+      Tabuleiro v2_124: -6975260700603406017
+      Tabuleiro v2_125: 6667554454262184784
+      Tabuleiro v2_126: -5963418628601034532
+      Tabuleiro v2_127: 8814713018081392083
+      Tabuleiro v2_128: -1169403511475062629
+      Tabuleiro v2_129: -2729263650941770332
+      Tabuleiro v2_13: -3288382555881014906
+      Tabuleiro v2_130: 474123924568161937
+      Tabuleiro v2_131: -6490644344947514768
+      Tabuleiro v2_132: -4799213268199628252
+      Tabuleiro v2_133: 2450876578873229724
+      Tabuleiro v2_134: 8705771471356726851
+      Tabuleiro v2_135: 4264374162055789493
+      Tabuleiro v2_136: -8838584829020501436
+      Tabuleiro v2_137: -7366508993503300288
+      Tabuleiro v2_138: 6025840970047114101
+      Tabuleiro v2_139: 840898996414453414
+      Tabuleiro v2_14: -3378869684807009865
+      Tabuleiro v2_140: 5597672207827828175
+      Tabuleiro v2_141: 1277949031577057220
+      Tabuleiro v2_142: 1134578770301751766
+      Tabuleiro v2_143: -802482620099597156
+      Tabuleiro v2_144: -2616389558645560346
+      Tabuleiro v2_145: 923344193454463725
+      Tabuleiro v2_146: 8306239758507399288
+      Tabuleiro v2_147: -4486025157952001226
+      Tabuleiro v2_148: -6372531423192504205
+      Tabuleiro v2_149: -9194279618046598669
+      Tabuleiro v2_15: -3356462833217632905
+      Tabuleiro v2_150: -204353762926564461
+      Tabuleiro v2_151: 131845867743473794
+      Tabuleiro v2_152: 4094686245984580607
+      Tabuleiro v2_153: -1944233455328279683
+      Tabuleiro v2_154: 5179208013149569224
+      Tabuleiro v2_155: 4826913383001207714
+      Tabuleiro v2_156: -656611555559049419
+      Tabuleiro v2_157: 6270985579988296577
+      Tabuleiro v2_158: -4528427250870944302
+      Tabuleiro v2_159: -1209439653550405457
+      Tabuleiro v2_16: -2914346522395528631
+      Tabuleiro v2_160: 1828444707765700085
+      Tabuleiro v2_161: -159979586946527282
+      Tabuleiro v2_162: -8320575216539654577
+      Tabuleiro v2_163: -1381384951778693628
+      Tabuleiro v2_164: -1358020722677863486
+      Tabuleiro v2_165: 1027994833925529341
+      Tabuleiro v2_166: -7852250120039779481
+      Tabuleiro v2_167: 3619146174510947632
+      Tabuleiro v2_168: -1209087037381181778
+      Tabuleiro v2_169: 3283810327889880322
+      Tabuleiro v2_17: -8213463137043324499
+      Tabuleiro v2_170: -7531645344140518341
+      Tabuleiro v2_171: 600135950403257963
+      Tabuleiro v2_172: 4294101058613475060
+      Tabuleiro v2_173: 1340414864827942701
+      Tabuleiro v2_174: -2430834117672829976
+      Tabuleiro v2_175: -2578747575381690694
+      Tabuleiro v2_176: -8368382575637135132
+      Tabuleiro v2_177: 6178790056719956256
+      Tabuleiro v2_178: -1205439883029489073
+      Tabuleiro v2_179: -4994421009565164193
+      Tabuleiro v2_18: 6656726287249738551
+      Tabuleiro v2_180: 1773516990422290237
+      Tabuleiro v2_181: -2373385098758557521
+      Tabuleiro v2_182: -8068566962741370160
+      Tabuleiro v2_183: 6723866431396300251
+      Tabuleiro v2_184: 8158615364790318490
+      Tabuleiro v2_185: 8194905171568362069
+      Tabuleiro v2_186: -2488063296265533272
+      Tabuleiro v2_187: -4058619025960349872
+      Tabuleiro v2_188: 5784722719125731765
+      Tabuleiro v2_189: -633310509137785449
+      Tabuleiro v2_19: 9096061038103124338
+      Tabuleiro v2_190: 3511498161926384990
+      Tabuleiro v2_191: -2958447389195351408
+      Tabuleiro v2_192: 1960818732268104429
+      Tabuleiro v2_193: -6371746059376615996
+      Tabuleiro v2_194: -6923312609856693500
+      Tabuleiro v2_195: 631835455938936287
+      Tabuleiro v2_196: -5879192389241704228
+      Tabuleiro v2_197: 199035075095581744
+      Tabuleiro v2_198: 8163202515172231673
+      Tabuleiro v2_199: -6608921847386341720
+      Tabuleiro v2_2: -638907938269979631
+      Tabuleiro v2_20: 5858674691349099475
+      Tabuleiro v2_200: -6650563527419693817
+      Tabuleiro v2_201: 9084284790927486556
+      Tabuleiro v2_202: -4521847027491022256
+      Tabuleiro v2_203: 5428723915618921089
+      Tabuleiro v2_204: 5088698513814859698
+      Tabuleiro v2_205: -4940180151283497297
+      Tabuleiro v2_206: -5312166831774435064
+      Tabuleiro v2_207: 4252743790000433203
+      Tabuleiro v2_208: -5786855237036156765
+      Tabuleiro v2_209: 2841257730146910234
+      Tabuleiro v2_21: -1017706378367538377
+      Tabuleiro v2_210: -3118373606638447185
+      Tabuleiro v2_211: -3404455910383622650
+      Tabuleiro v2_212: -79800823494818045
+      Tabuleiro v2_213: -4515358764005221638
+      Tabuleiro v2_214: 8066037438445573745
+      Tabuleiro v2_215: 516798479715419166
+      Tabuleiro v2_216: 2252889181797467999
+      Tabuleiro v2_217: 8079612165978159461
+      Tabuleiro v2_218: -5893138347628749757
+      Tabuleiro v2_219: 8151726358878437633
+      Tabuleiro v2_22: -5512110695657138036
+      Tabuleiro v2_220: 2568346664760277565
+      Tabuleiro v2_221: 7374238172768704482
+      Tabuleiro v2_222: 2491612403765698513
+      Tabuleiro v2_223: 565432816917299460
+      Tabuleiro v2_224: -2651155410305185889
+      Tabuleiro v2_225: -3477833456282045881
+      Tabuleiro v2_226: -7332874684892312993
+      Tabuleiro v2_227: 4488692167012539965
+      Tabuleiro v2_228: -7100551764883602040
+      Tabuleiro v2_229: -6588729107957318852
+      Tabuleiro v2_23: 366914663327014649
+      Tabuleiro v2_230: -6552165461488989284
+      Tabuleiro v2_231: -8159213927345552671
+      Tabuleiro v2_232: -1695599169170435915
+      Tabuleiro v2_233: 2505307252339501446
+      Tabuleiro v2_234: -6440322114565229762
+      Tabuleiro v2_235: 7223312663653119364
+      Tabuleiro v2_236: -8518242095094211456
+      Tabuleiro v2_237: 8960258194864450307
+      Tabuleiro v2_238: -6474394001444072698
+      Tabuleiro v2_239: -3122860155985704294
+      Tabuleiro v2_24: 3049649526443863100
+      Tabuleiro v2_240: -3047751038974094683
+      Tabuleiro v2_241: -9194044143055498016
+      Tabuleiro v2_242: 6451248386601770176
+      Tabuleiro v2_243: 2130960079304782036
+      Tabuleiro v2_244: -6365930671829299051
+      Tabuleiro v2_245: -8764418626191548418
+      Tabuleiro v2_246: 1249352683655400998
+      Tabuleiro v2_25: -7562144150094995479
+      Tabuleiro v2_26: 4366576658833613110
+      Tabuleiro v2_27: -2732434657291144347
+      Tabuleiro v2_28: 1068985237971805929
+      Tabuleiro v2_29: 8237769166607815519
+      Tabuleiro v2_3: 988316815191590675
+      Tabuleiro v2_30: -2031736013226098853
+      Tabuleiro v2_31: -1090409333177820002
+      Tabuleiro v2_32: -7038476223745802454
+      Tabuleiro v2_33: -5104488167282077734
+      Tabuleiro v2_34: -4383909175291319084
+      Tabuleiro v2_35: -6202709313072600001
+      Tabuleiro v2_36: 7539817841951916075
+      Tabuleiro v2_37: 3924742188536118530
+      Tabuleiro v2_38: -9109043242356291851
+      Tabuleiro v2_39: 5465720293836440052
+      Tabuleiro v2_4: 7762988391506271838
+      Tabuleiro v2_40: 5387341741809805954
+      Tabuleiro v2_41: 7284319874662499812
+      Tabuleiro v2_42: 94430426824169504
+      Tabuleiro v2_43: -279775649337271019
+      Tabuleiro v2_44: 6365052732332375492
+      Tabuleiro v2_45: 5410133101061781234
+      Tabuleiro v2_46: -1475103385479432644
+      Tabuleiro v2_47: 4053833949799130712
+      Tabuleiro v2_48: 5641707042465070115
+      Tabuleiro v2_49: 1057461654562845084
+      Tabuleiro v2_5: -5143759219930058069
+      Tabuleiro v2_50: 7239189200936801656
+      Tabuleiro v2_51: 8777550721860521554
+      Tabuleiro v2_52: -6388626285232832809
+      Tabuleiro v2_53: 2318561574116734968
+      Tabuleiro v2_54: 7179759211380491947
+      Tabuleiro v2_55: 4698324825304738242
+      Tabuleiro v2_56: -521689522557833785
+      Tabuleiro v2_57: 2280735944969511020
+      Tabuleiro v2_58: -317663812461889159
+      Tabuleiro v2_59: 3331721315694313248
+      Tabuleiro v2_6: 6966714001848924677
+      Tabuleiro v2_60: 7460248101864554946
+      Tabuleiro v2_61: -4224391915241194195
+      Tabuleiro v2_62: -1952327712911979456
+      Tabuleiro v2_63: 7141091153166093782
+      Tabuleiro v2_64: 3471313770207841906
+      Tabuleiro v2_65: 8154768764565385647
+      Tabuleiro v2_66: -8951870844056980826
+      Tabuleiro v2_67: -7253410697791305823
+      Tabuleiro v2_68: 4401450430738295564
+      Tabuleiro v2_69: -4509205418802229086
+      Tabuleiro v2_7: 640267870190963088
+      Tabuleiro v2_70: 7089057726239952895
+      Tabuleiro v2_71: -2469414007088453800
+      Tabuleiro v2_72: 3907108190599749494
+      Tabuleiro v2_73: 3456695279488298256
+      Tabuleiro v2_74: 4930723556716818084
+      Tabuleiro v2_75: -1583811471023546787
+      Tabuleiro v2_76: -6734149267481720731
+      Tabuleiro v2_77: 7971014366896339235
+      Tabuleiro v2_78: -509173997068382275
+      Tabuleiro v2_79: -4196986852727435160
+      Tabuleiro v2_8: 7035982097458896017
+      Tabuleiro v2_80: 6184188695263888250
+      Tabuleiro v2_81: 3627500026873107345
+      Tabuleiro v2_82: -257996683148095556
+      Tabuleiro v2_83: -162619946839715403
+      Tabuleiro v2_84: -1834837648322446729
+      Tabuleiro v2_85: -9102219150062649905
+      Tabuleiro v2_86: -3923841667713040930
+      Tabuleiro v2_87: 2684974246776805280
+      Tabuleiro v2_88: 3653194932865648344
+      Tabuleiro v2_89: 8893008014819153884
+      Tabuleiro v2_9: 3829863937557114822
+      Tabuleiro v2_90: -1332028685595715906
+      Tabuleiro v2_91: -5919838901770972012
+      Tabuleiro v2_92: -5311461951470137473
+      Tabuleiro v2_93: 8046100497186809349
+      Tabuleiro v2_94: 4633903073025215459
+      Tabuleiro v2_95: -7411280152515255655
+      Tabuleiro v2_96: 3891246145476510110
+      Tabuleiro v2_97: -3759766990202228228
+      Tabuleiro v2_98: -8064515877695263799
+      Tabuleiro v2_99: 3461747571791523541
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
