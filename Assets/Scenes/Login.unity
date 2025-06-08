@@ -552,7 +552,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backGround: {fileID: 788330064531918527, guid: bbd21c228bda33f479a3371225f8802e, type: 3}
-  id: 1
+  backgroundSprites:
+  - {fileID: 7806701594346314301, guid: 721ddd151bbedf947a3172cace18ce62, type: 3}
+  - {fileID: -5942839095371229345, guid: 85fcdd4db0b8aa0419b6d2981f7af6a2, type: 3}
+  - {fileID: -5483194990996205040, guid: 41c646b24b6d58b4fb01b4792e3569ed, type: 3}
+  - {fileID: 907681956843619064, guid: 0488796430782b449a1c04f0530f9167, type: 3}
 --- !u!1 &276995238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,7 +1601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usernameInput: {fileID: 1713979540}
   passwordInput: {fileID: 198298732}
-  errorMessage: {fileID: 0}
   errorPanel: {fileID: 2039067432}
   telaLogin: {fileID: 1718568273}
   sceneLoader: {fileID: 1042774565}
@@ -2753,7 +2756,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usernameInput: {fileID: 1713979540}
   passwordInput: {fileID: 198298732}
-  errorMessage: {fileID: 0}
   errorPanel: {fileID: 2039067432}
   telaLogin: {fileID: 1718568273}
   sceneLoader: {fileID: 0}
