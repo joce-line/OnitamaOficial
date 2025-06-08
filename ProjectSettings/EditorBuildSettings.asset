@@ -30,8 +30,8 @@ EditorBuildSettings:
     path: Assets/Scenes/FimDoJogo.unity
     guid: db3ecc7b5f6dbdb4fbf6da5e2bade693
   - enabled: 1
-    path: Assets/Scenes/Ranking.unity
-    guid: e9763289f182272458bb9a7e302d15a8
+    path: Assets/Scenes/Creditos.unity
+    guid: 8a3da8ad5530e534482ddae98e65b63c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
