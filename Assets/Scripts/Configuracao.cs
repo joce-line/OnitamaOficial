@@ -11,6 +11,7 @@ public class Configuracao : MonoBehaviour
 {
     public TMP_Dropdown dropdownTemas;
     public Image miniaturaPreview; // <- Miniatura no Inspector
+    public GameObject panelConfig, panelDadosUsu;
 
     private List<int> backgroundIds = new List<int>();
     private List<string> backgroundNomes = new List<string>();
@@ -111,6 +112,19 @@ public class Configuracao : MonoBehaviour
     public void VoltarButton()
     {
         SceneManager.LoadScene("MenuPrincipal");
+    }
+
+    //botões de seleção
+    public void ConfigButton()
+    {
+        panelConfig.SetActive(true);
+        panelDadosUsu.SetActive(false);
+    }
+
+    public void DadoUsuButton()
+    {
+        panelConfig.SetActive(false);
+        panelDadosUsu.SetActive(true);
     }
 
     public void ConfirmarButton()
