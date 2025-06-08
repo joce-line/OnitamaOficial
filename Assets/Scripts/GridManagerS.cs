@@ -99,6 +99,14 @@ public class GridManagerS : MonoBehaviour
         return null;
     }
 
+    public void ClearNodeHighlights()
+    {
+        foreach (GridNodeS node in allNodes)
+        {
+            node.TurnOffHighlight();
+        }
+    }
+
     //busca um tile pelo índice da grade
     public static GridNodeS GetNodeS(int x, int y)
     {

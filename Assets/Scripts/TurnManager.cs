@@ -57,6 +57,7 @@ public class TurnManager : MonoBehaviourPunCallbacks
                 maxIndicatorTimer = indicatorTimer;
                 photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
                 photonView.RPC("RPC_TimeoutPlayerChange", RpcTarget.MasterClient);
+                photonView.RPC("RPC_ClearNodeHighlights", RpcTarget.All);
             }
 
         }
@@ -93,6 +94,12 @@ public class TurnManager : MonoBehaviourPunCallbacks
         data.Put("activePlayer", activePlayer);
         EventManager.TriggerEvent("TimeoutPlayerChange", data);
         isTimeoutProcessing = false;
+    }
+
+    [PunRPC]
+    void RPC_ClearNodeHighlights()
+    {
+        GridManagerS.GetInstance().ClearNodeHighlights();
     }
     private void OnGameOver(string eventName, ActionParams data)
     {

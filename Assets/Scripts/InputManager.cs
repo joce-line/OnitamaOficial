@@ -153,6 +153,9 @@ public class InputManager : MonoBehaviourPun
 
     private void SetupMoveList(GridNodeS node)
     {
+        if (activePlayer != PhotonNetwork.LocalPlayer.ActorNumber)
+            return;
+
         ResetMoveList();
         if (lastSelectedCard == null)
         {
@@ -190,6 +193,13 @@ public class InputManager : MonoBehaviourPun
             lastSelectedCard.photonView.RPC("TurnOffHighlight", RpcTarget.All);
             lastSelectedCard = null;
         }
+        if (lastSelectedNode != null)
+        {
+            lastSelectedNode.TurnOffHighlight();
+            lastSelectedNode = null;
+        }
+        inSelectionMode = false;
+        ResetMoveList();
 
         activePlayer = data.Get<int>("activePlayer");
         if (activePlayer == PhotonNetwork.LocalPlayer.ActorNumber)
