@@ -252,22 +252,23 @@ public class InputManager : MonoBehaviourPun
 
         lastSelectedCard.photonView.RPC("TurnOffHighlight", RpcTarget.All);
 
-        photonView.RPC("RPC_EndPlayerMovement", RpcTarget.MasterClient, activePlayer, lastSelectedCard.photonView.ViewID, lastSelectedNode != null ? lastSelectedNode.GetHashCode() : 0);
+        photonView.RPC("RPC_EndPlayerMovement", RpcTarget.MasterClient, activePlayer, lastSelectedCard.photonView.ViewID, lastSelectedNode != null ? new int[] { lastSelectedNode.x, lastSelectedNode.y } : new int[] { -1, -1 });
     }
 
     [PunRPC]
-    private void RPC_EndPlayerMovement(int activePlayer, int cardViewID, int nodeHash)
+    private void RPC_EndPlayerMovement(int activePlayer, int cardViewID, int[] nodeCoords)
     {
         if (!PhotonNetwork.IsMasterClient)
             return;
 
         PhotonView cardView = PhotonView.Find(cardViewID);
         OnitamaCard selectedCard = cardView != null ? cardView.GetComponent<OnitamaCard>() : null;
+        GridNodeS selectedNode = nodeCoords[0] != -1 ? GridManagerS.GetNodeS(nodeCoords[0], nodeCoords[1]) : null;
 
         ActionParams data = new ActionParams();
         data.Put("activePlayer", activePlayer);
         data.Put("lastSelectedCard", selectedCard);
-        data.Put("lastSelectedNode", lastSelectedNode);
+        data.Put("lastSelectedNode", selectedNode);
         EventManager.TriggerEvent("EndPlayerMovement", data);
     }
 }

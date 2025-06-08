@@ -192,21 +192,34 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
         //Verifica se o rei adversario chegou no campo do outro
-        if (node == p1GoalNode)
+        //if (node == p1GoalNode)
+        //{
+        //    if (p1GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
+        //        p1GoalNode.occupyingUnit.ptype == UnitS.player.p1)
+        //    {
+        //        return true;
+        //    }
+        //}
+        //if (node == p2GoalNode)
+        //{
+        //    if (p2GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
+        //        p2GoalNode.occupyingUnit.ptype == UnitS.player.p2)
+        //    {
+        //        return true;
+        //    }
+        //}
+
+        if (node != null && node.x == p1GoalNode.x && node.y == p1GoalNode.y)
         {
-            if (p1GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
-                p1GoalNode.occupyingUnit.ptype == UnitS.player.p1)
-            {
+            if (node.occupyingUnit != null && node.occupyingUnit.usType == UnitS.unitType.king &&
+                node.occupyingUnit.ptype == UnitS.player.p1)
                 return true;
-            }
         }
-        if (node == p2GoalNode)
+        if (node != null && node.x == p2GoalNode.x && node.y == p2GoalNode.y)
         {
-            if (p2GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
-                p2GoalNode.occupyingUnit.ptype == UnitS.player.p2)
-            {
+            if (node.occupyingUnit != null && node.occupyingUnit.usType == UnitS.unitType.king &&
+                node.occupyingUnit.ptype == UnitS.player.p2)
                 return true;
-            }
         }
 
         return false;
