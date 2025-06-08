@@ -263,12 +263,11 @@ public class InputManager : MonoBehaviourPun
 
         PhotonView cardView = PhotonView.Find(cardViewID);
         OnitamaCard selectedCard = cardView != null ? cardView.GetComponent<OnitamaCard>() : null;
-        GridNodeS selectedNode = null;
 
         ActionParams data = new ActionParams();
         data.Put("activePlayer", activePlayer);
         data.Put("lastSelectedCard", selectedCard);
-        data.Put("lastSelectedNode", selectedNode);
+        data.Put("lastSelectedNode", lastSelectedNode);
         EventManager.TriggerEvent("EndPlayerMovement", data);
     }
 }

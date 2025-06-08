@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         InitPlayers();
         InitGoalNodes();
         EventManager.StartListening("EndPlayerMovement", OnEndPlayerMovement);
+        EventManager.StartListening("TimeoutPlayerChange", OnTimeoutPlayerChange);
         RunGame();
     }
 
@@ -157,6 +158,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            Debug.Log($"[GameManager] OnEndPlayerMovement: receivedPlayer={receivedPlayer}, currentActivePlayer={activePlayer}");
             activePlayer = (receivedPlayer == 1) ? 2 : 1;
 
             PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
@@ -164,6 +166,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void OnTimeoutPlayerChange(string eventName, ActionParams data)
+    {
+        int receivedPlayer = data.Get<int>("activePlayer");
+        activePlayer = (receivedPlayer == 1) ? 2 : 1;
+        Debug.Log($"[GameManager] OnTimeoutPlayerChange: receivedPlayer={receivedPlayer}, newActivePlayer={activePlayer}");
+        PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
+    }
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
         if (propertiesThatChanged.ContainsKey("ActivePlayer"))

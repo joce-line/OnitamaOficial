@@ -8,6 +8,7 @@ public class TurnManager : MonoBehaviourPunCallbacks
     private float indicatorTimer = 10f;
     private float maxIndicatorTimer = 10f;
     private bool isGameOver = false;
+    private bool isTimeoutProcessing = false;
     public int nextPlayer;
     private float syncTimer = 0f;
     private float syncInterval = 0.5f;
@@ -18,6 +19,7 @@ public class TurnManager : MonoBehaviourPunCallbacks
     {
         EventManager.StartListening("GameOver", OnGameOver);
         EventManager.StartListening("EndPlayerMovement", OnEndPlayerMovement);
+        EventManager.StartListening("ActivePlayer", OnActivePlayerChange);
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -49,13 +51,14 @@ public class TurnManager : MonoBehaviourPunCallbacks
                 syncTimer = 0f;
             }
 
-            if (maxIndicatorTimer <= 0f)
+            if (maxIndicatorTimer <= 0f && !isTimeoutProcessing)
             {
+                isTimeoutProcessing = true;
                 maxIndicatorTimer = indicatorTimer;
-                activePlayer = (activePlayer == 1) ? 2 : 1;
-                TriggerActivePlayerEvent(activePlayer);
                 photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
+                photonView.RPC("RPC_TimeoutPlayerChange", RpcTarget.MasterClient);
             }
+
         }
 
     }
@@ -80,6 +83,17 @@ public class TurnManager : MonoBehaviourPunCallbacks
         radialIndicatorUI.fillAmount = maxIndicatorTimer / indicatorTimer;
         radialIndicatorUI.enabled = true;
     }
+
+    [PunRPC]
+    void RPC_TimeoutPlayerChange()
+    {
+        if (!PhotonNetwork.IsMasterClient)
+            return;
+        ActionParams data = new ActionParams();
+        data.Put("activePlayer", activePlayer);
+        EventManager.TriggerEvent("TimeoutPlayerChange", data);
+        isTimeoutProcessing = false;
+    }
     private void OnGameOver(string eventName, ActionParams data)
     {
         string gameOver = data.Get<string>("GameOver");
@@ -89,10 +103,26 @@ public class TurnManager : MonoBehaviourPunCallbacks
     }
     private void OnEndPlayerMovement(string eventName, ActionParams data)
     {
-        int receivedPlayer = data.Get<int>("activePlayer");
+        //int receivedPlayer = data.Get<int>("activePlayer");
+        //maxIndicatorTimer = indicatorTimer;
+        //photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
         maxIndicatorTimer = indicatorTimer;
         photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
+        photonView.RPC("RPC_TimeoutPlayerChange", RpcTarget.MasterClient);
 
+    }
+
+    private void OnActivePlayerChange(string eventName, ActionParams data)
+    {
+        activePlayer = data.Get<int>("activePlayer");
+    }
+
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+    {
+        if (propertiesThatChanged.ContainsKey("ActivePlayer"))
+        {
+            activePlayer = (int)propertiesThatChanged["ActivePlayer"];
+        }
     }
     public void RestartTimer()
     {
