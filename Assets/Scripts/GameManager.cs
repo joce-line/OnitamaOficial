@@ -6,7 +6,7 @@ using Assets.scripts.InfoPlayer;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPunCallbacks
 {
     public List<UnitS> player1Units = new List<UnitS>();
     public List<UnitS> player2Units = new List<UnitS>();
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
     IEnumerator setStartingActivePlayer()
     {
         yield return new WaitForSeconds(.5f);
-        PhotonView.Get(this).RPC("RPC_SetActivePlayer", RpcTarget.All, activePlayer);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
     }
     public void CreateUnit(int playerId, int x, int y, UnitS.unitType utype)
     {
@@ -159,22 +159,20 @@ public class GameManager : MonoBehaviour
         {
             activePlayer = (receivedPlayer == 1) ? 2 : 1;
 
-
-            ActionParams temp = new ActionParams();
-            temp.Put("activePlayer", activePlayer);
-            PhotonView.Get(this).RPC("RPC_SetActivePlayer", RpcTarget.All, activePlayer);
+            PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
 
         }
     }
 
-    [PunRPC]
-    public void RPC_SetActivePlayer(int playerId)
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-        activePlayer = playerId;
-
-        ActionParams data = new ActionParams();
-        data.Put("activePlayer", playerId);
-        EventManager.TriggerEvent("ActivePlayer", data);
+        if (propertiesThatChanged.ContainsKey("ActivePlayer"))
+        {
+            activePlayer = (int)propertiesThatChanged["ActivePlayer"];
+            ActionParams data = new ActionParams();
+            data.Put("activePlayer", activePlayer);
+            EventManager.TriggerEvent("ActivePlayer", data);
+        }
     }
     public bool CheckForGameEnd(GridNodeS node)
     {

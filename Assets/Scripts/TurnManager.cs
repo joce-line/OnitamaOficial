@@ -10,7 +10,7 @@ public class TurnManager : MonoBehaviourPunCallbacks
     private bool isGameOver = false;
     public int nextPlayer;
     private float syncTimer = 0f;
-    private float syncInterval = 0.1f;
+    private float syncInterval = 0.5f;
 
     [SerializeField] private Image radialIndicatorUI = null;
 
@@ -87,19 +87,11 @@ public class TurnManager : MonoBehaviourPunCallbacks
         isGameOver = true;
         radialIndicatorUI.enabled = false;
     }
-
-    private void onActivePlayerChanged(string eventName, ActionParams data)
-    {
-        activePlayer = data.Get<int>("activePlayer");
-    }
-
     private void OnEndPlayerMovement(string eventName, ActionParams data)
     {
         int receivedPlayer = data.Get<int>("activePlayer");
         maxIndicatorTimer = indicatorTimer;
         photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
-        activePlayer = (activePlayer == 1) ? 2 : 1;
-        TriggerActivePlayerEvent(activePlayer);
 
     }
     public void RestartTimer()
@@ -107,7 +99,6 @@ public class TurnManager : MonoBehaviourPunCallbacks
         maxIndicatorTimer = indicatorTimer;
         isGameOver = false;
         radialIndicatorUI.enabled = true;
-        //photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer); Talvez mudar quando colocar no botao.
         if (PhotonNetwork.IsMasterClient)
         {
             photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);

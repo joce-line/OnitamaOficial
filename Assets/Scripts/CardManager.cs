@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
+using Photon.Pun;
 using UnityEngine;
 
-public class CardManager : MonoBehaviour
+public class CardManager : MonoBehaviourPunCallbacks
 {
     public GameObject cardPrefab;
     public List<CardData> cardSOList = new();
@@ -35,6 +37,12 @@ public class CardManager : MonoBehaviour
                 instance = this;
             }
         }
+
+        // Inicializar propriedades sincronizadas
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "UpcomingCardViewID", -1 } });
+        }
     }
 
     // Start is called before the first frame update
@@ -48,17 +56,13 @@ public class CardManager : MonoBehaviour
         p2SlotList.Add(p2slot3);
 
 
-        CreateCards();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            CreateCards();
+        }
         EventManager.StartListening("EndPlayerMovement", OnEndPlayerMovement);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // TODO: posição das cartas que vão aparecer, apos design verificar
     private Vector3 p1slot1 = new(-7.01f, -2, -5);
     private Vector3 p1slot2 = new(-3.86f, -2, -5);
     private Vector3 p1slot3 = new(7.28f, 0.31f, -5);
@@ -68,32 +72,55 @@ public class CardManager : MonoBehaviour
     private List<Vector3> p1SlotList = new();
     private List<Vector3> p2SlotList = new();
 
+    [PunRPC]
+    public void CreateCardsRPC(int[] cardIndices, PhotonMessageInfo info)
+    {
+        if (!PhotonNetwork.IsMasterClient)
+            return;
+
+        if (cardSOList == null || cardSOList.Count == 0)
+        {
+            Debug.LogError("cardSOList está vazia ou não foi inicializada!");
+            return;
+        }
+
+        p1Cards.Clear();
+        p2Cards.Clear();
+        CreateCard(p1slot1, cardIndices[0], 1);
+        CreateCard(p1slot2, cardIndices[1], 1);
+        CreateCard(p1slot3, cardIndices[2], 1, true);
+        CreateCard(p2slot1, cardIndices[3], 2);
+        CreateCard(p2slot2, cardIndices[4], 2);
+
+    }
+
     public static void CreateCards()
     {
-        List<int> rngCardPool = RngUtils.GetNonRepeatingNumberFromRange(0, 16, 5);
-        instance.CreateCard(instance.p1slot1, rngCardPool[0], 1);
-        instance.CreateCard(instance.p1slot2, rngCardPool[1], 1);
-        instance.CreateCard(instance.p1slot3, rngCardPool[2], 1, true);
+        if (!PhotonNetwork.IsMasterClient)
+            return;
 
-        instance.CreateCard(instance.p2slot1, rngCardPool[3], 2);
-        instance.CreateCard(instance.p2slot2, rngCardPool[4], 2);
-        //instance.CreateCard(new Vector3(11,.5f,8),rngCardPool[5],2);
+        List<int> rngCardPool = RngUtils.GetNonRepeatingNumberFromRange(0, 16, 5);
+        instance.photonView.RPC("CreateCardsRPC", RpcTarget.AllBuffered, rngCardPool.ToArray());
     }
 
     public void CreateCard(Vector3 pos, int type, int playerId, bool upcoming = false)
     {
-        GameObject temp = Instantiate(cardPrefab, pos, Quaternion.identity);
+        if (type < 0 || type >= cardSOList.Count)
+        {
+            Debug.LogError($"Índice de carta inválido: {type}");
+            return;
+        }
+
+        GameObject temp = PhotonNetwork.Instantiate(cardPrefab.name, pos, Quaternion.identity);
         OnitamaCard temp2 = temp.GetComponentInChildren<OnitamaCard>();
-        temp2.cardinfo = cardSOList[type];
-        temp2.playerId = playerId;
-        temp2.LoadCardData(cardSOList[type]);
-        temp2.TurnOffHighlight();
-        temp2.TurnOffUpcoming();
+
+        temp2.photonView.RPC("SetupCard", RpcTarget.AllBuffered, type, playerId);
 
         if (upcoming)
         {
             upcomingCard = temp2;
-            upcomingCard.TurnOnUpcoming();
+            temp2.photonView.RPC("TurnOnUpcoming", RpcTarget.AllBuffered);
+            PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "UpcomingCardViewID", temp2.photonView.ViewID } });
         }
 
         if (playerId == 1)
@@ -101,61 +128,97 @@ public class CardManager : MonoBehaviour
             p1Cards.Add(temp2);
         }
         else
-        {            
-            Vector3 scale = temp2.cardHolder.transform.localScale;
-            //scale.y *= -1; //invertida para o p2
-            temp2.cardHolder.transform.localScale = scale;
+        {
             p2Cards.Add(temp2);
         }
     }
 
     public static OnitamaCard SelectRandomPlayerCard(int playerId)
     {
-        //tem apenas 2 cartas para um jogador escolher
-        int randCard = Random.Range(0, 2);
+        List<OnitamaCard> cards = playerId == 1 ? instance.p1Cards : instance.p2Cards;
 
-        if (playerId == 1)
+        cards = cards.Where(card => card != instance.upcomingCard).ToList();
+        
+        if (cards.Count == 0)
         {
-            return instance.p1Cards[randCard];
+            Debug.LogError($"Nenhuma carta disponível para o jogador {playerId}");
+            return null;
         }
-        else
-        {
-            return instance.p2Cards[randCard];
-        }
+        int randCard = Random.Range(0, cards.Count);
+        return cards[randCard];
+
     }
 
     public void OnEndPlayerMovement(string eventName, ActionParams data)
     {
+
         int receivedPlayer = data.Get<int>("activePlayer");
         OnitamaCard receivedCard = data.Get<OnitamaCard>("lastSelectedCard");
         upcomingCard.TurnOffUpcoming();
+
+        int[] p1CardViewIDs = p1Cards.Select(card => card.photonView.ViewID).ToArray();
+        int[] p2CardViewIDs = p2Cards.Select(card => card.photonView.ViewID).ToArray();
+        photonView.RPC("SyncEndPlayerMovement", RpcTarget.AllBuffered, receivedPlayer, receivedCard.photonView.ViewID, p1CardViewIDs, p2CardViewIDs);
+    }
+
+    [PunRPC]
+    public void SyncEndPlayerMovement(int receivedPlayer, int receivedCardViewID, int[] p1CardViewIDs, int[] p2CardViewIDs)
+    {
+        OnitamaCard receivedCard = PhotonView.Find(receivedCardViewID)?.GetComponent<OnitamaCard>();
+        
+        receivedCard.photonView.RPC("TurnOffHighlight", RpcTarget.All);
+
+        if (upcomingCard != null)
+        {
+            upcomingCard.photonView.RPC("TurnOffUpcoming", RpcTarget.All);
+        }
+
+        p1Cards.Clear();
+        foreach (int viewID in p1CardViewIDs)
+        {
+            OnitamaCard card = PhotonView.Find(viewID)?.GetComponent<OnitamaCard>();
+            if (card != null)
+            {
+                p1Cards.Add(card);
+            }
+        }
+
+        p2Cards.Clear();
+        foreach (int viewID in p2CardViewIDs)
+        {
+            OnitamaCard card = PhotonView.Find(viewID)?.GetComponent<OnitamaCard>();
+            if (card != null)
+            {
+                p2Cards.Add(card);
+            }
+        }
+
         if (receivedPlayer == 1)
         {
             if (upcomingCard != null && upcomingCard.playerId == 2)
             {
-
                 p2Cards.Remove(upcomingCard);
                 p1Cards.Add(upcomingCard);
-                MoveCardToPosition(p1slot3, upcomingCard);
-                upcomingCard.TurnOffUpcoming();
+                upcomingCard.photonView.RPC("SetupCard", RpcTarget.AllBuffered, cardSOList.IndexOf(upcomingCard.cardinfo), 1);
+                MoveCardToPosition(p1SlotList[p1Cards.Count - 1], upcomingCard);
             }
 
             for (int i = 0; i < p1Cards.Count; i++)
             {
                 if (p1Cards[i] == receivedCard)
                 {
-                    p1Cards[i].playerId = 2;
-                    p2Cards.Add(p1Cards[i]);
-                    //RotateCard(p1Cards[i]); //Rotação para mostrar ao outro jogador
-                    MoveCardToPosition(p2slot3, p1Cards[i]);
-                    p1Cards[i].TurnOnUpcoming();
-                    upcomingCard = p1Cards[i];
                     p1Cards.RemoveAt(i);
+                    p2Cards.Add(receivedCard);
+                    receivedCard.photonView.RPC("SetupCard", RpcTarget.AllBuffered, cardSOList.IndexOf(receivedCard.cardinfo), 2);
+                    MoveCardToPosition(p2slot3, receivedCard);
+                    receivedCard.photonView.RPC("TurnOnUpcoming", RpcTarget.All);
+                    upcomingCard = receivedCard;
+                    PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "UpcomingCardViewID", upcomingCard.photonView.ViewID } });
                     break;
                 }
             }
 
-            for (int i = 0; i < p1Cards.Count; i++)
+            for (int i = 0; i < p1Cards.Count && i < p1SlotList.Count; i++)
             {
                 MoveCardToPosition(p1SlotList[i], p1Cards[i]);
             }
@@ -166,39 +229,44 @@ public class CardManager : MonoBehaviour
             {
                 p1Cards.Remove(upcomingCard);
                 p2Cards.Add(upcomingCard);
-                MoveCardToPosition(p2slot3, upcomingCard);
-                upcomingCard.TurnOffUpcoming();
+                upcomingCard.photonView.RPC("SetupCard", RpcTarget.AllBuffered, cardSOList.IndexOf(upcomingCard.cardinfo), 2);
+                MoveCardToPosition(p2SlotList[p2Cards.Count - 1], upcomingCard);
             }
 
             for (int i = 0; i < p2Cards.Count; i++)
             {
                 if (p2Cards[i] == receivedCard)
                 {
-                    p2Cards[i].playerId = 1;
-                    p1Cards.Add(p2Cards[i]);
-                    //RotateCard(p2Cards[i]);
-                    MoveCardToPosition(p1slot3, p2Cards[i]);
-                    p2Cards[i].TurnOnUpcoming();
-                    upcomingCard = p2Cards[i];
                     p2Cards.RemoveAt(i);
+                    p1Cards.Add(receivedCard);
+                    receivedCard.photonView.RPC("SetupCard", RpcTarget.AllBuffered, cardSOList.IndexOf(receivedCard.cardinfo), 1);
+                    MoveCardToPosition(p1slot3, receivedCard);
+                    receivedCard.photonView.RPC("TurnOnUpcoming", RpcTarget.All);
+                    upcomingCard = receivedCard;
+                    PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "UpcomingCardViewID", upcomingCard.photonView.ViewID } });
                     break;
                 }
             }
-            for (int i = 0; i < p2Cards.Count; i++)
+
+            for (int i = 0; i < p2Cards.Count && i < p2SlotList.Count; i++)
             {
                 MoveCardToPosition(p2SlotList[i], p2Cards[i]);
             }
-
         }
+
     }
-        
     private void MoveCardToPosition(Vector3 pos, OnitamaCard card)
     {
-        StartCoroutine(MoveUtils.SmoothLerp(1f, card.cardHolder.transform.position, pos, card.cardHolder, true));
+        card.photonView.RPC("MoveToPosition", RpcTarget.AllBuffered, pos);
 
     }
 
-    // TODO: Movimentação das rotação de cartas, verificar se vai usar apos design pronto
+    [PunRPC]
+    private void MoveToPosition(Vector3 pos)
+    {
+        StartCoroutine(MoveUtils.SmoothLerp(1f, cardPrefab.transform.position, pos, cardPrefab, true));
+    }
+
     public void RotateCard(OnitamaCard card)
     {
         Quaternion targetRotation = card.cardHolder.transform.rotation * Quaternion.Euler(0, 0, 180);
