@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    public GameObject telaCarregamento; 
-    public Slider barraCarregamento;    
+    public GameObject telaCarregamento;
     public TextMeshProUGUI textoCarregamento;
     public void CarregarCena(string nomeCena, GameObject telaAntiga)
     {
@@ -35,13 +34,11 @@ public class SceneLoader : MonoBehaviour
                 progressoVisual += Time.deltaTime * 0.5f;
             }
 
-            barraCarregamento.value = progressoVisual;
             textoCarregamento.text = Mathf.RoundToInt(progressoVisual * 100f) + "%";
 
             if (progressoVisual >= 0.9f)
             {
-                barraCarregamento.value = 1f;
-                textoCarregamento.text = "Carregamento quase completo...";
+                textoCarregamento.text = "Carregando...";
 
                 carregamento.allowSceneActivation = true;
             }
