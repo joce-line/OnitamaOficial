@@ -11,6 +11,10 @@ public class VitoriaDerrota : MonoBehaviour, IOnEventCallback
     public GameObject painelDerrota;
     public static VitoriaDerrota instance;
 
+    //teste de musica de fundo
+    public GameObject musicBackGround;
+    public MusicMananger musicMananger;
+
     public static VitoriaDerrota GetInstance()
     {
         if (instance == null)
@@ -53,10 +57,19 @@ public class VitoriaDerrota : MonoBehaviour, IOnEventCallback
             if (PhotonNetwork.LocalPlayer.ActorNumber == vencedor)
             {
                 painelVitoria.SetActive(true);
+                //musica de fundo
+            musicBackGround = GameObject.FindGameObjectWithTag("MusicMananger");
+            musicMananger = musicBackGround.GetComponent<MusicMananger>();
+            musicMananger.playMusicWin();
+
             }
             else if (PhotonNetwork.LocalPlayer.ActorNumber == perdedor)
             {
                 painelDerrota.SetActive(true);
+                //musica de fundo
+            musicBackGround = GameObject.FindGameObjectWithTag("MusicMananger");
+            musicMananger = musicBackGround.GetComponent<MusicMananger>();
+            musicMananger.playMusicLose();
             }
 
             FindAnyObjectByType<InputManager>().enabled = false;

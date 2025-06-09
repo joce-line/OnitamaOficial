@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int activePlayer = 0;
     public TurnManager turnManager;
 
+    //teste de musica de fundo
+    public GameObject musicBackGround;
+    public MusicMananger musicMananger;
+
     public static GameManager instance;
     public static GameManager GetInstance()
     {
@@ -57,6 +61,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         EventManager.StartListening("EndPlayerMovement", OnEndPlayerMovement);
         EventManager.StartListening("TimeoutPlayerChange", OnTimeoutPlayerChange);
         RunGame();
+        //musica de fundo
+        musicBackGround = GameObject.FindGameObjectWithTag("MusicMananger");
+        musicMananger = musicBackGround.GetComponent<MusicMananger>();
+        musicMananger.playMusicBattle();
     }
 
     public void InitPlayers()
@@ -343,12 +351,18 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         instance.p1KingCaptured = false;
         instance.p2KingCaptured = false;
+        
+        //music teste
+        musicBackGround = GameObject.FindGameObjectWithTag("MusicMananger");
+        musicMananger = musicBackGround.GetComponent<MusicMananger>();
+        musicMananger.playMusicBattle();
+
         instance.RunGame();
     }
 
     public void Sair()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MenuPrincipal");
     }
 
 }
