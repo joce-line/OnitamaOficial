@@ -16,114 +16,118 @@ public class MusicMananger : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
-            instance = (MusicMananger)FindObjectOfType(typeof(MusicMananger));
-            if(instance == null)
-            {
-                instance = this;
-            }
+            instance = this;            
+            DontDestroyOnLoad(gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
         currentScene = SceneManager.GetActiveScene();
         instance.playMusicGeral();
     }
 
     public void playMusicGeral()
     {
-        if(MusicBattle.isPlaying)
+        if (MusicBattle.isPlaying)
         {
             MusicBattle.Stop();
         }
-        
-        if(MusicWin.isPlaying)
+
+        if (MusicWin.isPlaying)
         {
             MusicWin.Stop();
         }
 
-        if(MusicLose.isPlaying)
+        if (MusicLose.isPlaying)
         {
             MusicLose.Stop();
         }
-        
-        if(!MusicBackground.isPlaying)
+
+        if (!MusicBackground.isPlaying)
         {
             MusicBackground.Play();
-        }        
+        }
     }
 
     public void playMusicBattle()
     {
-        if(!MusicBattle.isPlaying)
+        if (!MusicBattle.isPlaying)
         {
             MusicBattle.Play();
         }
-        
-        if(MusicWin.isPlaying)
+
+        if (MusicWin.isPlaying)
         {
             MusicWin.Stop();
         }
 
-        if(MusicLose.isPlaying)
+        if (MusicLose.isPlaying)
         {
             MusicLose.Stop();
         }
-        
-        if(MusicBackground.isPlaying)
+
+        if (MusicBackground.isPlaying)
         {
             MusicBackground.Stop();
-        }        
+        }
     }
 
     public void playMusicWin()
     {
-        if(MusicBattle.isPlaying)
+        if (MusicBattle.isPlaying)
         {
             MusicBattle.Stop();
         }
-        
-        if(!MusicWin.isPlaying)
+
+        if (!MusicWin.isPlaying)
         {
             MusicWin.Play();
         }
 
-        if(MusicLose.isPlaying)
+        if (MusicLose.isPlaying)
         {
             MusicLose.Stop();
         }
-        
-        if(MusicBackground.isPlaying)
+
+        if (MusicBackground.isPlaying)
         {
             MusicBackground.Stop();
-        }        
+        }
     }
 
     public void playMusicLose()
     {
-        if(MusicBattle.isPlaying)
+        if (MusicBattle.isPlaying)
         {
             MusicBattle.Stop();
         }
-        
-        if(MusicWin.isPlaying)
+
+        if (MusicWin.isPlaying)
         {
             MusicWin.Stop();
         }
 
-        if(!MusicLose.isPlaying)
+        if (!MusicLose.isPlaying)
         {
             MusicLose.Play();
         }
-        
-        if(MusicBackground.isPlaying)
+
+        if (MusicBackground.isPlaying)
         {
             MusicBackground.Stop();
-        }        
+        }
     }
 
     public void musicStop()
     {
         MusicBattle.Stop();
-        MusicBackground.Stop();       
+        MusicBackground.Stop();
     }
 }
