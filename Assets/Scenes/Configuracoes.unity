@@ -4222,8 +4222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropdownTemas: {fileID: 2072144972}
   miniaturaPreview: {fileID: 1629712031}
-  panelConfig: {fileID: 0}
-  panelDadosUsu: {fileID: 0}
+  panelConfig: {fileID: 1830231692}
+  panelDadosUsu: {fileID: 746622658}
 --- !u!4 &1438727137
 Transform:
   m_ObjectHideFlags: 0

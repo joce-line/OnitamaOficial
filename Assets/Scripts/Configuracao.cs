@@ -166,6 +166,6 @@ public class Configuracao : MonoBehaviour
             Debug.LogWarning("Caminho do background vazio, usando defaultBG.");
         }
 
-        BackgroundController.Instance?.AtualizarBackground(selectedBackgroundId, caminho);
+        BackgroundController.Instance.AtualizarBackground(selectedBackgroundId, caminho);
     }
 }

@@ -2,6 +2,7 @@ using Assets.scripts.InfoPlayer;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Networking;
 
 public class BackgroundController : MonoBehaviour
 {
@@ -90,23 +91,22 @@ public class BackgroundController : MonoBehaviour
             yield break;
         }
 
-        using (UnityEngine.Networking.UnityWebRequest request = UnityEngine.Networking.UnityWebRequestTexture.GetTexture(url))
-        {
-            yield return request.SendWebRequest();
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
+        yield return request.SendWebRequest();
 
-            if (request.result == UnityEngine.Networking.UnityWebRequest.Result.Success)
-            {
-                Texture2D texture = ((UnityEngine.Networking.DownloadHandlerTexture)request.downloadHandler).texture;
-                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
-                instantiatedBackground.GetComponent<SpriteRenderer>().sprite = sprite;
-                Debug.Log("Background carregado com sucesso!");
-            }
-            else
-            {
-                Debug.LogWarning("Erro ao carregar background remoto. Usando defaultBG.");
-                Sprite defaultSprite = Resources.Load<Sprite>("Backgrounds/defaultBG");
-                instantiatedBackground.GetComponent<SpriteRenderer>().sprite = defaultSprite;
-            }
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
+            instantiatedBackground.GetComponent<SpriteRenderer>().sprite = sprite;
+            Debug.Log("Background carregado com sucesso!");
         }
+        else
+        {
+            Debug.LogWarning("Erro ao carregar background remoto. Usando defaultBG.");
+            Sprite defaultSprite = Resources.Load<Sprite>("Backgrounds/defaultBG");
+            instantiatedBackground.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+        }
+
     }
 }
