@@ -1,8 +1,11 @@
 using Assets.scripts.InfoPlayer;
+using ExitGames.Client.Photon;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VitoriaDerrota : MonoBehaviour
+public class VitoriaDerrota : MonoBehaviour, IOnEventCallback
 {
     public GameObject painelVitoria;
     public GameObject painelDerrota;
@@ -29,22 +32,34 @@ public class VitoriaDerrota : MonoBehaviour
         }
     }
 
-    public void FimDeJogo()
+    void OnEnable()
     {
-        // Logica pega id do estatico para saber vencedor/perdedor
-        //TODO: mudar apos implementação multiplayer
-        int vencedor = DadosJogo.vencedor;
-        int perdedor = DadosJogo.perdedor;
+        PhotonNetwork.AddCallbackTarget(this);
+    }
 
-        if (vencedor == 1)
+    void OnDisable()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
+    }
+
+    public void OnEvent(EventData photonEvent)
+    {
+        if (photonEvent.Code == 1)
         {
-            painelVitoria.SetActive(true);
-            painelDerrota.SetActive(false);
-        }
-        else if (vencedor == 2)
-        {
-            painelVitoria.SetActive(false);
-            painelDerrota.SetActive(true);
+            object[] data = (object[])photonEvent.CustomData;
+            int vencedor = (int)data[0];
+            int perdedor = (int)data[1];
+
+            if (PhotonNetwork.LocalPlayer.ActorNumber == vencedor)
+            {
+                painelVitoria.SetActive(true);
+            }
+            else if (PhotonNetwork.LocalPlayer.ActorNumber == perdedor)
+            {
+                painelDerrota.SetActive(true);
+            }
+
+            FindAnyObjectByType<InputManager>().enabled = false;
         }
     }
 }

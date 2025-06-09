@@ -5,6 +5,7 @@ using TMPro;
 using Assets.scripts.InfoPlayer;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -143,22 +144,26 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         if (CheckForGameEnd(receivedNode))
         {
-            DadosJogo.vencedor = receivedPlayer;
-            DadosJogo.perdedor = (receivedPlayer == 1) ? 2 : 1;
+            int vencedor = receivedPlayer;
+            int perdedor = (receivedPlayer == 1) ? 2 : 1;
+
+            object[] content = new object[] { vencedor, perdedor };
+
+            RaiseEventOptions options = new RaiseEventOptions
+            {
+                Receivers = ReceiverGroup.All
+            };
+
+            PhotonNetwork.RaiseEvent(1, content, options, ExitGames.Client.Photon.SendOptions.SendReliable);
 
 
             ActionParams temp = new ActionParams();
             temp.Put("activePlayer", activePlayer);
             EventManager.TriggerEvent("GameOver", temp);
 
-
-            VitoriaDerrota.instance.FimDeJogo();
-            FindAnyObjectByType<InputManager>().enabled = false;
-
         }
         else
         {
-            Debug.Log($"[GameManager] OnEndPlayerMovement: receivedPlayer={receivedPlayer}, currentActivePlayer={activePlayer}");
             activePlayer = (receivedPlayer == 1) ? 2 : 1;
 
             PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
