@@ -80,8 +80,9 @@ public class LoginManager : MonoBehaviour
             {
                 Debug.Log("Login bem-sucedido!");
                 PlayerInfo.nomePlayer = username;
-                PlayerInfo.idPlayer = Convert.ToInt32(results[0]["idUsuario"]);
-                PlayerInfo.id_Background = Convert.ToInt32(results[0]["id_Background"]);
+                PlayerInfo.idPlayer = results[0]["idUsuario"] == DBNull.Value ? 0 : Convert.ToInt32(results[0]["idUsuario"]);
+                PlayerInfo.id_Background = results[0]["id_Background"] == DBNull.Value ? 0 : Convert.ToInt32(results[0]["id_Background"]);
+
 
                 // AQUI: busca o caminho do background e salva
                 PlayerInfo.caminho_Background = DatabaseManager.Instance.GetCaminhoDoBackground(PlayerInfo.id_Background);
