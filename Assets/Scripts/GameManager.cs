@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void CreateUnit(int playerId, int x, int y, UnitS.unitType utype)
     {
         string prefabName = (utype == UnitS.unitType.pawn) ? "Prefabs/PlayerPawn" : "Prefabs/PlayerKing";
-        GameObject newGo = PhotonNetwork.Instantiate(prefabName, Vector3.zero, Quaternion.identity);
+        GameObject newGo = PhotonNetwork.Instantiate(prefabName, new Vector3(0,0,-1), Quaternion.identity);
 
         string spritePath = (playerId == 1)
             ? (utype == UnitS.unitType.pawn ? "Skins/PretoPeao" : "Skins/PretoRei")

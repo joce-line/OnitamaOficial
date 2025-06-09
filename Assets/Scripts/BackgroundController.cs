@@ -38,15 +38,22 @@ public class BackgroundController : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "Game")
+        if (scene.name == "Game")
+        {
+            if (instantiatedBackground != null)
+            {
+                Destroy(instantiatedBackground);
+                instantiatedBackground = null;
+            }
+        }
+        else
         {
             if (instantiatedBackground == null)
             {
-                instantiatedBackground = Instantiate(backGround, Vector3.zero, Quaternion.identity);
+                instantiatedBackground = Instantiate(backGround, new Vector3(0, 0, 1), Quaternion.identity);
                 instantiatedBackground.name = "Background";
                 DontDestroyOnLoad(instantiatedBackground);
             }
-
             AplicarBackground(); // <- só chama depois da instância criada
         }
     }
@@ -54,7 +61,6 @@ public class BackgroundController : MonoBehaviour
     private void AplicarBackground()
     {
         string caminho = PlayerInfo.caminho_Background;
-        Debug.Log("Caminho de background: " + caminho);
 
         if (string.IsNullOrEmpty(caminho))
         {
@@ -83,7 +89,7 @@ public class BackgroundController : MonoBehaviour
             yield break;
         }
 
-        if (string.IsNullOrEmpty(url) || !url.StartsWith("http"))
+        if (string.IsNullOrEmpty(url))
         {
             //Debug.LogWarning("Caminho inválido ou vazio, usando defaultBG.");
             Sprite defaultSprite = Resources.Load<Sprite>("Backgrounds/defaultBG");
