@@ -6,7 +6,7 @@ TagManager:
   tags:
   - GridNode
   - OnitamaCard
-  - MusicMananger
+  - MusicManager
   layers:
   - Default
   - TransparentFX

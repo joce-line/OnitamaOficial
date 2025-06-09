@@ -11,8 +11,6 @@ public class BackgroundController : MonoBehaviour
     public GameObject backGround;
 
     private static GameObject instantiatedBackground = null;
-    private string caminhoAtual = "";
-    private Sprite spriteAtual = null;
 
     private void Awake()
     {

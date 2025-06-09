@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-public class MusicMananger : MonoBehaviour
+public class MusicManager : MonoBehaviour
 {
-    public static MusicMananger instance;
+    public static MusicManager instance;
 
     public AudioSource MusicBackground;
     public AudioSource MusicBattle;

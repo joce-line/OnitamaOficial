@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ScriptTelaTitulo : MonoBehaviour
+public class TelaTitulo : MonoBehaviour
 {
-	public void Update()
-	{
-		if (Input.GetMouseButtonDown(0)) SceneManager.LoadScene("Login");
-	}
+    public void Continuar()
+    {
+        SceneManager.LoadScene("Login");
+    }
 }
 
