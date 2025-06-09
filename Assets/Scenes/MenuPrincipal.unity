@@ -203,8 +203,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2116109572}
-        m_TargetAssemblyTypeName: ScriptTelaMenu, Assembly-CSharp
-        m_MethodName: confgButton
+        m_TargetAssemblyTypeName: TelaMenu, Assembly-CSharp
+        m_MethodName: ConfgButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -336,8 +336,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2116109572}
-        m_TargetAssemblyTypeName: ScriptTelaMenu, Assembly-CSharp
-        m_MethodName: sairButton
+        m_TargetAssemblyTypeName: TelaMenu, Assembly-CSharp
+        m_MethodName: SairButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -946,8 +946,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2116109572}
-        m_TargetAssemblyTypeName: ScriptTelaMenu, Assembly-CSharp
-        m_MethodName: lojaButton
+        m_TargetAssemblyTypeName: TelaMenu, Assembly-CSharp
+        m_MethodName: LojaButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1548,8 +1548,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2116109572}
-        m_TargetAssemblyTypeName: ScriptTelaMenu, Assembly-CSharp
-        m_MethodName: gameStartButton
+        m_TargetAssemblyTypeName: TelaMenu, Assembly-CSharp
+        m_MethodName: GameStartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1681,8 +1681,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2116109572}
-        m_TargetAssemblyTypeName: ScriptTelaMenu, Assembly-CSharp
-        m_MethodName: creditoButton
+        m_TargetAssemblyTypeName: TelaMenu, Assembly-CSharp
+        m_MethodName: CreditoButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
