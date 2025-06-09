@@ -4,8 +4,10 @@ using UnityEngine;
 using TMPro;
 using Assets.scripts.InfoPlayer;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPunCallbacks
 {
     public List<UnitS> player1Units = new List<UnitS>();
     public List<UnitS> player2Units = new List<UnitS>();
@@ -53,9 +55,11 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+
         InitPlayers();
         InitGoalNodes();
         EventManager.StartListening("EndPlayerMovement", OnEndPlayerMovement);
+        EventManager.StartListening("TimeoutPlayerChange", OnTimeoutPlayerChange);
         RunGame();
         //musica de fundo
         musicBackGround = GameObject.FindGameObjectWithTag("MusicMananger");
@@ -65,27 +69,35 @@ public class GameManager : MonoBehaviour
 
     public void InitPlayers()
     {
-        for (int i = 0; i < 5; i++)
+
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
-            if (i == 2)
+            for (int i = 0; i < 5; i++)
             {
-                CreateUnit(1, i, 0, UnitS.unitType.king);
-            }
-            else
-            {
-                CreateUnit(1, i, 0, UnitS.unitType.pawn);
+                if (i == 2)
+                {
+                    CreateUnit(1, i, 0, UnitS.unitType.king);
+                }
+                else
+                {
+                    CreateUnit(1, i, 0, UnitS.unitType.pawn);
+                }
             }
         }
-        for (int i = 0; i < 5; i++)
+        else
         {
-            if (i == 2)
+            for (int i = 0; i < 5; i++)
             {
-                CreateUnit(2, i, 4, UnitS.unitType.king);
+                if (i == 2)
+                {
+                    CreateUnit(2, i, 4, UnitS.unitType.king);
+                }
+                else
+                {
+                    CreateUnit(2, i, 4, UnitS.unitType.pawn);
+                }
             }
-            else
-            {
-                CreateUnit(2, i, 4, UnitS.unitType.pawn);
-            }
+
         }
     }
 
@@ -105,58 +117,33 @@ public class GameManager : MonoBehaviour
     IEnumerator setStartingActivePlayer()
     {
         yield return new WaitForSeconds(.5f);
-        ActionParams data = new ActionParams();
-        data.Put("activePlayer", activePlayer);
-        EventManager.TriggerEvent("ActivePlayer", data);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
     }
-
     public void CreateUnit(int playerId, int x, int y, UnitS.unitType utype)
     {
-        UnitS temp;
-        GameObject newGo;
-        GridNodeS node;
+        string prefabName = (utype == UnitS.unitType.pawn) ? "Prefabs/PlayerPawn" : "Prefabs/PlayerKing";
+        GameObject newGo = PhotonNetwork.Instantiate(prefabName, Vector3.zero, Quaternion.identity);
 
-        if (utype == UnitS.unitType.pawn)
-        {
-            newGo = Instantiate(playerPawnPrefab, Vector3.zero, Quaternion.identity);
-        }
-        else
-        {
-            newGo = Instantiate(playerKingPrefab, Vector3.zero, Quaternion.identity);
-        }
+        string spritePath = (playerId == 1)
+            ? (utype == UnitS.unitType.pawn ? "Skins/PretoPeao" : "Skins/PretoRei")
+            : (utype == UnitS.unitType.pawn ? "Skins/BrancoPeao" : "Skins/BrancoRei");
 
-        temp = newGo.transform.GetComponent<UnitS>();
-        node = GridManagerS.GetNodeS(x, y);
-        node.occupyingUnit = temp;
-        temp.node = node;
+        int unitId = newGo.GetComponent<PhotonView>().ViewID;
 
-        temp.unitObj.transform.position = node.GetPosition() + new Vector3(0, 0.1f, -1);
+        newGo.GetComponent<PhotonView>().RPC(
+            "RPC_SetData",
+            RpcTarget.AllBuffered,
+            unitId,
+            x,
+            y,
+            spritePath
+        );
 
-        //TODO: renderizando as sprites padrao, modificar ao puxar do BD
-        SpriteRenderer spriteRenderer = newGo.GetComponent<SpriteRenderer>();
-        spriteRenderer.transform.localScale = new Vector3(0.6f, 0.6f, 1);
-
-        if (playerId == 1)
-        {
-            spriteRenderer.sprite = Resources.Load<Sprite>("Skins/PretoPeao");
-            if (utype == UnitS.unitType.king)
-            {
-                spriteRenderer.sprite = Resources.Load<Sprite>("Skins/PretoRei");
-            }
-            temp.ptype = UnitS.player.p1;
-            player1Units.Add(temp);
-        }
-        else
-        {
-            spriteRenderer.sprite = Resources.Load<Sprite>("Skins/BrancoPeao");
-            if (utype == UnitS.unitType.king)
-            {
-                spriteRenderer.sprite = Resources.Load<Sprite>("Skins/BrancoRei");
-            }
-            temp.ptype = UnitS.player.p2;
-            player2Units.Add(temp);
-        }
+        UnitS temp = newGo.GetComponent<UnitS>();
+        if (playerId == 1) player1Units.Add(temp);
+        else player2Units.Add(temp);
     }
+
 
     public void OnEndPlayerMovement(string eventName, ActionParams data)
     {
@@ -165,31 +152,50 @@ public class GameManager : MonoBehaviour
 
         if (CheckForGameEnd(receivedNode))
         {
-            DadosJogo.vencedor = receivedPlayer;  
-            DadosJogo.perdedor = (receivedPlayer == 1) ? 2 : 1;
+            int vencedor = receivedPlayer;
+            int perdedor = (receivedPlayer == 1) ? 2 : 1;
+
+            object[] content = new object[] { vencedor, perdedor };
+
+            RaiseEventOptions options = new RaiseEventOptions
+            {
+                Receivers = ReceiverGroup.All
+            };
+
+            PhotonNetwork.RaiseEvent(1, content, options, ExitGames.Client.Photon.SendOptions.SendReliable);
 
 
             ActionParams temp = new ActionParams();
             temp.Put("activePlayer", activePlayer);
             EventManager.TriggerEvent("GameOver", temp);
 
-
-            VitoriaDerrota.instance.FimDeJogo();
-            FindAnyObjectByType<InputManager>().enabled = false;
-
         }
         else
         {
             activePlayer = (receivedPlayer == 1) ? 2 : 1;
 
-
-            ActionParams temp = new ActionParams();
-            temp.Put("activePlayer", activePlayer);
-            EventManager.TriggerEvent("ActivePlayer", temp);
+            PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
 
         }
     }
 
+    public void OnTimeoutPlayerChange(string eventName, ActionParams data)
+    {
+        int receivedPlayer = data.Get<int>("activePlayer");
+        activePlayer = (receivedPlayer == 1) ? 2 : 1;
+        Debug.Log($"[GameManager] OnTimeoutPlayerChange: receivedPlayer={receivedPlayer}, newActivePlayer={activePlayer}");
+        PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
+    }
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+    {
+        if (propertiesThatChanged.ContainsKey("ActivePlayer"))
+        {
+            activePlayer = (int)propertiesThatChanged["ActivePlayer"];
+            ActionParams data = new ActionParams();
+            data.Put("activePlayer", activePlayer);
+            EventManager.TriggerEvent("ActivePlayer", data);
+        }
+    }
     public bool CheckForGameEnd(GridNodeS node)
     {
         //verifica se os reis foram capturados
@@ -199,21 +205,34 @@ public class GameManager : MonoBehaviour
         }
 
         //Verifica se o rei adversario chegou no campo do outro
-        if (node == p1GoalNode)
+        //if (node == p1GoalNode)
+        //{
+        //    if (p1GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
+        //        p1GoalNode.occupyingUnit.ptype == UnitS.player.p1)
+        //    {
+        //        return true;
+        //    }
+        //}
+        //if (node == p2GoalNode)
+        //{
+        //    if (p2GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
+        //        p2GoalNode.occupyingUnit.ptype == UnitS.player.p2)
+        //    {
+        //        return true;
+        //    }
+        //}
+
+        if (node != null && node.x == p1GoalNode.x && node.y == p1GoalNode.y)
         {
-            if (p1GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
-                p1GoalNode.occupyingUnit.ptype == UnitS.player.p1)
-            {
+            if (node.occupyingUnit != null && node.occupyingUnit.usType == UnitS.unitType.king &&
+                node.occupyingUnit.ptype == UnitS.player.p1)
                 return true;
-            }
         }
-        if (node == p2GoalNode)
+        if (node != null && node.x == p2GoalNode.x && node.y == p2GoalNode.y)
         {
-            if (p2GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
-                p2GoalNode.occupyingUnit.ptype == UnitS.player.p2)
-            {
+            if (node.occupyingUnit != null && node.occupyingUnit.usType == UnitS.unitType.king &&
+                node.occupyingUnit.ptype == UnitS.player.p2)
                 return true;
-            }
         }
 
         return false;
@@ -238,7 +257,7 @@ public class GameManager : MonoBehaviour
 
             RemoveUnitFromPlayerList(temp);
             node.occupyingUnit = null;
-            temp.Destroy();
+            temp.photonView.RPC("DestroyRPC", RpcTarget.AllBuffered);
         }
     }
 
@@ -276,11 +295,6 @@ public class GameManager : MonoBehaviour
 
         foreach (CardMove move in moves)
         {
-            /*GridNodeS temp = GridManagerS.GetNodeS(move.x + x, move.y * mult + y);
-            if (temp != null)
-            {
-                rList.Add(temp);
-            }*/
             int newX = move.x + x;
             int newY = move.y * mult + y;
 
@@ -289,9 +303,13 @@ public class GameManager : MonoBehaviour
                 newY >= 0 && newY < GridManagerS.instance.dimensionY)
             {
                 GridNodeS temp = GridManagerS.GetNodeS(newX, newY);
-                if (temp != null) // Mantém a robustez
+                if (temp != null)
                 {
-                    rList.Add(temp);
+                    UnitS originUnit = GridManagerS.GetNodeS(x, y).occupyingUnit;
+                    if (temp.occupyingUnit == null || temp.occupyingUnit.ptype != originUnit.ptype)
+                    {
+                        rList.Add(temp);
+                    }
                 }
             }
         }
@@ -308,11 +326,13 @@ public class GameManager : MonoBehaviour
     {
         foreach (UnitS unit in player1Units)
         {
-            unit.Destroy();
+            //unit.Destroy();
+            unit.photonView.RPC("DestroyRPC", RpcTarget.AllBuffered);
         }
         foreach (UnitS unit in player2Units)
         {
-            unit.Destroy();
+            //unit.Destroy();
+            unit.photonView.RPC("DestroyRPC", RpcTarget.AllBuffered);
         }
 
         player1Units.Clear();

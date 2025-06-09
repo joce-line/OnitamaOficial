@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 5541635286374055832}
   - component: {fileID: 5807138657999606123}
   - component: {fileID: 886400526174264445}
+  - component: {fileID: 7056885375230323007}
   m_Layer: 0
   m_Name: DefaultCard
   m_TagString: Untagged
@@ -907,6 +908,28 @@ MonoBehaviour:
   highlightSprite: {fileID: 7780074633089427998}
   overlayShadeSprite: {fileID: 4793679365898447304}
   upcomingText: {fileID: 2603015646287685734}
+--- !u!114 &7056885375230323007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319771747562622057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7212091477921125818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6517861775698818237}
   - component: {fileID: 6766908923350815046}
+  - component: {fileID: -3757570798869779456}
   m_Layer: 0
   m_Name: CardHolder
   m_TagString: OnitamaCard
@@ -1118,3 +1142,25 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &-3757570798869779456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8780877255596720371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

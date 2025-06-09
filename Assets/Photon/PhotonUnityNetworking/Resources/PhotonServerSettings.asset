@@ -39,6 +39,36 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - RPC_MoveToPosition
+  - RPC_SetData
+  - RPC_CaptureAndMove
+  - DestroyRPC
+  - RPC_MoveToNode
+  - RPC_TriggerActivePlayer
+  - RPC_SyncTimer
+  - RPC_SetActivePlayer
+  - RPC_CreateCards
+  - SetupCard
+  - RPC_ResetTimer
+  - RPC_OnPlayerMoved
+  - RPC_NotifyEndPlayerMovement
+  - RPC_SyncTurnAndTimer
+  - RPC_HandleEndPlayerMovement
+  - RPC_SwapCard
+  - RPC_CreateCard
+  - SetPlayerId
+  - CreateCardsRPC
+  - MoveToPosition
+  - SyncEndPlayerMovement
+  - TurnOffHighlight
+  - TurnOffUpcoming
+  - TurnOnHighlight
+  - TurnOnUpcoming
+  - SelectCard
+  - SyncSelectedCard
+  - RPC_EndPlayerMovement
+  - RPC_TimeoutPlayerChange
+  - RPC_ClearNodeHighlights
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
