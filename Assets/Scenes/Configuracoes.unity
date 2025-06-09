@@ -2082,8 +2082,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1438727136}
-        m_TargetAssemblyTypeName: "ScriptTelaConfigura\xE7\xE3o, Assembly-CSharp"
-        m_MethodName: voltarButton
+        m_TargetAssemblyTypeName: Configuracao, Assembly-CSharp
+        m_MethodName: VoltarButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
