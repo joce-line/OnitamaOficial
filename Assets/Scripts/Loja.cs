@@ -12,7 +12,7 @@ public class Loja : MonoBehaviour
     public GameObject modalConfirmacao;
     public GameObject modalConfirmacaoCompra;
     //paineis de compras na loja
-    public GameObject LojaItem, LojaBackground, LojaPoderes, LojaCoin;
+    public GameObject LojaItem, LojaCoin;
 
     private int idItemSelecionado;
 
@@ -163,32 +163,12 @@ public class Loja : MonoBehaviour
             CreateItems();
             itemsCreated = true;
         }
-        LojaBackground.SetActive(false);
-        LojaPoderes.SetActive(false);
-        LojaCoin.SetActive(false);
-    }
-
-    public void AtvLojaBackGround()
-    {
-        LojaItem.SetActive(false);
-        LojaBackground.SetActive(true);
-        LojaPoderes.SetActive(false);
-        LojaCoin.SetActive(false);
-    }
-
-    public void AtvLojaPoderes()
-    {
-        LojaItem.SetActive(false);
-        LojaBackground.SetActive(false);
-        LojaPoderes.SetActive(true);
         LojaCoin.SetActive(false);
     }
 
     public void AtvLojaCoins()
     {
         LojaItem.SetActive(false);
-        LojaBackground.SetActive(false);
-        LojaPoderes.SetActive(false);
         LojaCoin.SetActive(true);
     }
 
