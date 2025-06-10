@@ -56,6 +56,8 @@ public class VitoriaDerrota : MonoBehaviour, IOnEventCallback
                 //musica de fundo
                 MusicManager.instance.playMusicWin();
 
+                DatabaseManager.Instance.AtualizarVitoria(PlayerInfo.idPlayer);
+
             }
             else if (PhotonNetwork.LocalPlayer.ActorNumber == perdedor)
             {

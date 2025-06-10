@@ -2,6 +2,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEditor.MemoryProfiler;
 
 public class DatabaseManager : MonoBehaviour
 {
@@ -153,5 +154,16 @@ public class DatabaseManager : MonoBehaviour
 
         object resultado = ExecuteScalar(query, parametros);
         return resultado != null ? resultado.ToString() : string.Empty;
+    }
+
+    public bool AtualizarVitoria(int idPlayer)
+    {
+        string query = "UPDATE usuarios SET vitorias = vitorias + 1 WHERE idUsuario = @id";
+        var parametros = new Dictionary<string, object>
+    {
+        { "@id", idPlayer }
+    };
+
+        return ExecuteNonQuery(query, parametros);
     }
 }
