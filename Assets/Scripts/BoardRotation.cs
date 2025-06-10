@@ -1,16 +1,12 @@
 using UnityEngine;
+using Photon.Pun;
 
-public class BoardRotation : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+public class BoardRotation : MonoBehaviourPunCallbacks
+{    void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        {
+            transform.Rotate(0, 0, 180);
+        }
     }
 }
