@@ -30,6 +30,10 @@ public class TelaMenu : MonoBehaviour
 	{
 		SceneManager.LoadScene("Creditos");
 	}
+	public void RankingButton()
+	{
+		SceneManager.LoadScene("Ranking");
+	}
 
 	public void SairButton()
 	{
