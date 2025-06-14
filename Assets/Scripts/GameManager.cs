@@ -355,6 +355,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void Sair()
     {
         SceneManager.LoadScene("MenuPrincipal");
+        MusicManager.instance.playMusicGeral();
     }
 
 }

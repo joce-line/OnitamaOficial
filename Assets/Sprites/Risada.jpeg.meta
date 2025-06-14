@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff90f34f95461e34aa155f3b8e7e6708
+guid: 1c91a1676dd689846b2454449da6e1bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5072408098984431591
-    second: Fundo01_0
+      213: -335331110916057273
+    second: Risada_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fundo01_0
+      name: Risada_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1536
-        height: 1024
+        width: 450
+        height: 450
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 910f73075bf2b99b0800000000000000
-      internalID: -5072408098984431591
+      spriteID: 74716bb912aa85bf0800000000000000
+      internalID: -335331110916057273
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Fundo01_0: -5072408098984431591
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
