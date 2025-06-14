@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
 
-public class Ranking : MonoBehaviour
+public class RankingManager : MonoBehaviour
 {
     public TextMeshProUGUI ListaRanking;
     public void sairRanking()
