@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
+using Assets.scripts.InfoPlayer;
 
 public class CreateAndJoin : MonoBehaviourPunCallbacks
 {
@@ -13,6 +14,16 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        PhotonNetwork.AutomaticallySyncScene = true;
+        if (!string.IsNullOrEmpty(PlayerInfo.nomePlayer))
+        {
+            PhotonNetwork.NickName = PlayerInfo.nomePlayer;
+        }
+        else
+        {
+            PhotonNetwork.NickName = $"Jogador_{Random.Range(1000, 9999)}";
+            Debug.LogWarning("nomePlayer não definido, usando nome aleatório.");
+        }
     }
 
     public void CreateRoom()
@@ -27,8 +38,8 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log($"Player {PhotonNetwork.LocalPlayer.ActorNumber} entrou n asala");
-        PhotonNetwork.LoadLevel("Game");
+        Debug.Log($"Player {PhotonNetwork.LocalPlayer.ActorNumber} entrou na sala");
+        PhotonNetwork.LoadLevel("Lobby");
     }
 
     public void JoinRoomList(string RoomName)
