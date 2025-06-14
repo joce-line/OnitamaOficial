@@ -4,13 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class TelaMenu : MonoBehaviour
 {
-
-	void Start()
-	{
-		//musica de fundo        
-		MusicManager.instance.playMusicGeral();
-	}
-
 	public void GameStartButton()
 	{
 		SceneManager.LoadScene("LoadingLobby");
@@ -29,6 +22,10 @@ public class TelaMenu : MonoBehaviour
 	public void CreditoButton()
 	{
 		SceneManager.LoadScene("Creditos");
+	}
+	public void RankingButton()
+	{
+		SceneManager.LoadScene("Ranking");
 	}
 
 	public void SairButton()
