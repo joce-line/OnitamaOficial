@@ -859,7 +859,37 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      footprints_0: 1378389352493218004
+      footprints_1: 541196606292704296
+      footprints_10: 4481182663531860408
+      footprints_11: 3455762824976975023
+      footprints_12: 4759788394799100618
+      footprints_13: 2636473936702888159
+      footprints_14: -5459957424029555483
+      footprints_15: 462594025283034255
+      footprints_16: -3120017808985791553
+      footprints_17: -5356858909016718080
+      footprints_18: 289800410776949631
+      footprints_19: -8122165558910270602
+      footprints_2: -3841083677713757504
+      footprints_20: 653708429766624935
+      footprints_21: 697342147637465826
+      footprints_22: 7526823618782952992
+      footprints_23: 7975820464819012132
+      footprints_24: 7905976688931541635
+      footprints_25: -6675886098468022046
+      footprints_26: 4369529781639634637
+      footprints_27: 2350861271084582748
+      footprints_28: 855970819543576364
+      footprints_29: 1476042422845720429
+      footprints_3: -2066545719640643791
+      footprints_4: 2942112764797107632
+      footprints_5: 7380393196777039950
+      footprints_6: 4415233082279348141
+      footprints_7: -7100389166018732351
+      footprints_8: 4422301792056774150
+      footprints_9: 1320526731778029622
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
