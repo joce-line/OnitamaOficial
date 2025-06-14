@@ -2,7 +2,6 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using UnityEditor.MemoryProfiler;
 
 public class DatabaseManager : MonoBehaviour
 {
