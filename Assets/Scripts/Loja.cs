@@ -4,20 +4,35 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public class PacoteMoeda
+{
+    public int quantidade;
+    public float preco;
+    public Sprite imagem;
+}
+
 public class Loja : MonoBehaviour
 {
-    [Header("Referencias na cena")]
-    public Transform contentParent;
+    [Header("Referências na Cena")]
+    public Transform contentParent; // Para skins
     public GameObject skinPrefab;
     public GameObject modalConfirmacao;
     public GameObject modalConfirmacaoCompra;
-    //paineis de compras na loja
-    public GameObject LojaItem, LojaCoin;
+    public GameObject modalConfirmacaoMoeda;
+
+    public GameObject LojaItem;
+    public GameObject LojaCoin;
+
+    [Header("Moedas")]
+    public Transform contentMoedasParent; // Scroll View Moedas > Content
+    public GameObject moedaPrefab;
+    public List<PacoteMoeda> pacotesMoedas;
 
     private int idItemSelecionado;
+    private int quantidadeMoedaSelecionada;
 
     private static bool itemsCreated = false;
-
     public static Loja instance;
 
     public static Loja GetInstance()
@@ -39,6 +54,7 @@ public class Loja : MonoBehaviour
                 instance = this;
             }
         }
+
         AtvLojaItem();
     }
 
@@ -50,6 +66,8 @@ public class Loja : MonoBehaviour
             return;
         }
     }
+
+    // ------------------- SKINS -------------------
 
     public static void CreateItems()
     {
@@ -66,17 +84,13 @@ public class Loja : MonoBehaviour
             string caminhoPawn = linha["caminho_Pawn"].ToString();
             string caminhoKing = linha["caminho_King"].ToString();
 
-            // Verifica se o usu�rio j� comprou esse item
             string queryCheck = $"SELECT COUNT(*) FROM skins_usuario WHERE id_usuario = {idUsuario} AND id_conjunto = {id}";
             int count = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryCheck));
             bool jaComprado = count > 0;
 
             instance.CreateItem(id, nome, preco, caminhoPawn, caminhoKing, jaComprado);
-
-            //Debug.Log($"ID: {id}, Nome: {nome}, Pre�o: {preco}, J� Comprado: {jaComprado}");
         }
     }
-
 
     public void CreateItem(int id, string nome, int preco, string caminhoPawn, string caminhoKing, bool jaComprado)
     {
@@ -89,7 +103,7 @@ public class Loja : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Prefab n�o cont�m o script SkinItem.");
+            Debug.LogError("Prefab de skin não contém o script SkinItem.");
         }
     }
 
@@ -148,33 +162,81 @@ public class Loja : MonoBehaviour
         }
     }
 
+    // ------------------- MOEDAS -------------------
+
+    public void CriarPacotesMoedas()
+    {
+        foreach (Transform child in contentMoedasParent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (PacoteMoeda pacote in pacotesMoedas)
+        {
+            GameObject temp = Instantiate(moedaPrefab, contentMoedasParent);
+            MoedaPacoteItem script = temp.GetComponent<MoedaPacoteItem>();
+
+            if (script != null)
+            {
+                script.ConfigurarMoeda(pacote.quantidade, $"{pacote.quantidade} moedas", pacote.preco, pacote.imagem);
+            }
+            else
+            {
+                Debug.LogWarning("Prefab moeda está sem o script MoedaPacoteItem.");
+            }
+        }
+    }
+
+    public void ConfirmarCompraMoeda(int quantidade)
+    {
+        quantidadeMoedaSelecionada = quantidade;
+        modalConfirmacaoMoeda.SetActive(true);
+    }
+
+    public void OnConfirmarCompraMoeda()
+    {
+        ComprarPacoteMoeda(quantidadeMoedaSelecionada);
+        modalConfirmacaoMoeda.SetActive(false);
+    }
+
+    public void ComprarPacoteMoeda(int quantidade)
+    {
+        int idUsuario = PlayerInfo.idPlayer;
+        string updateQuery = $"UPDATE usuarios SET moedas = moedas + {quantidade} WHERE idUsuario = {idUsuario}";
+        DatabaseManager.Instance.ExecuteNonQuery(updateQuery);
+
+        Debug.Log($"Comprado pacote de {quantidade} moedas.");
+    }
+
+    // ------------------- UI Navegação -------------------
+
     public void VoltarButton()
     {
         SceneManager.LoadScene("MenuPrincipal");
     }
 
-
-    //função de lojas
     public void AtvLojaItem()
     {
         LojaItem.SetActive(true);
+        LojaCoin.SetActive(false);
+
         if (!itemsCreated)
         {
             CreateItems();
             itemsCreated = true;
         }
-        LojaCoin.SetActive(false);
     }
 
     public void AtvLojaCoins()
     {
         LojaItem.SetActive(false);
         LojaCoin.SetActive(true);
+
+        CriarPacotesMoedas();
     }
 
     void OnDestroy()
     {
         itemsCreated = false;
     }
-
 }
