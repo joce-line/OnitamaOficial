@@ -58,7 +58,7 @@ public class LoginManager : MonoBehaviour
             }
 
             // Verificar senha
-            string selectSenhaQuery = "SELECT idUsuario, senha, id_Background FROM usuarios WHERE nickname = @nome";
+            string selectSenhaQuery = "SELECT idUsuario, senha, id_Background, moedas, email FROM usuarios WHERE nickname = @nome";
             var senhaParams = new Dictionary<string, object> { { "@nome", username } };
             List<Dictionary<string, object>> results = DatabaseManager.Instance.ExecuteReader(selectSenhaQuery, senhaParams);
 
@@ -82,6 +82,8 @@ public class LoginManager : MonoBehaviour
                 PlayerInfo.nomePlayer = username;
                 PlayerInfo.idPlayer = Convert.ToInt32(results[0]["idUsuario"]);
                 PlayerInfo.id_Background = Convert.ToInt32(results[0]["id_Background"]);
+                PlayerInfo.moeda = float.Parse(results[0]["moedas"].ToString());
+                PlayerInfo.email = results[0]["email"].ToString();
 
                 // AQUI: busca o caminho do background e salva
                 PlayerInfo.caminho_Background = DatabaseManager.Instance.GetCaminhoDoBackground(PlayerInfo.id_Background);
