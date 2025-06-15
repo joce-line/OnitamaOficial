@@ -149,6 +149,11 @@ public class Loja : MonoBehaviour
             string insertQuery = $"INSERT INTO skins_usuario (id_Usuario, id_Conjunto) VALUES ({idUsuario}, {idItem})";
             DatabaseManager.Instance.ExecuteNonQuery(insertQuery);
 
+            // Atualiza PlayerInfo.moeda e UI
+            string queryAtualizaMoeda = $"SELECT moedas FROM usuarios WHERE idUsuario = {idUsuario}";
+            PlayerInfo.moeda = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryAtualizaMoeda));
+            FindObjectOfType<InformacoesMoedas>().AtualizaMoedas();
+
             foreach (Transform child in contentParent)
             {
                 Destroy(child.gameObject);
@@ -202,8 +207,14 @@ public class Loja : MonoBehaviour
     public void ComprarPacoteMoeda(int quantidade)
     {
         int idUsuario = PlayerInfo.idPlayer;
+
         string updateQuery = $"UPDATE usuarios SET moedas = moedas + {quantidade} WHERE idUsuario = {idUsuario}";
         DatabaseManager.Instance.ExecuteNonQuery(updateQuery);
+
+        // Atualiza PlayerInfo.moeda e UI
+        string queryAtualizaMoeda = $"SELECT moedas FROM usuarios WHERE idUsuario = {idUsuario}";
+        PlayerInfo.moeda = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryAtualizaMoeda));
+        FindObjectOfType<InformacoesMoedas>().AtualizaMoedas();
 
         Debug.Log($"Comprado pacote de {quantidade} moedas.");
     }
