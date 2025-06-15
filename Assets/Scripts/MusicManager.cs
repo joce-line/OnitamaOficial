@@ -8,9 +8,11 @@ public class MusicManager : MonoBehaviour
     public static MusicManager instance;
 
     public AudioSource MusicBackground;
-    public AudioSource MusicBattle;
-    public AudioSource MusicWin;
-    public AudioSource MusicLose;
+
+    public AudioClip MusicGeral;
+    public AudioClip MusicBattle;
+    public AudioClip MusicWin;
+    public AudioClip MusicLose;
 
     private Scene currentScene;
 
@@ -18,116 +20,56 @@ public class MusicManager : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this;            
-            DontDestroyOnLoad(gameObject);
+            instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
     {
-        currentScene = SceneManager.GetActiveScene();
-        instance.playMusicGeral();
+       if(!PlayerPrefs.HasKey("musicVolume"))
+       {
+           PlayerPrefs.SetFloat("musicVolume", 0.05f);
+           MusicBackground.volume = PlayerPrefs.GetFloat("musicVolume");
+       }
+       else
+       {
+           MusicBackground.volume = PlayerPrefs.GetFloat("musicVolume");
+       }
+       instance.playMusicGeral();
+       
+       if(!PlayerPrefs.HasKey("soundVolume"))
+       {
+           PlayerPrefs.SetFloat("soundVolume", 0.05f);
+       }
     }
 
     public void playMusicGeral()
-    {
-        if (MusicBattle.isPlaying)
-        {
-            MusicBattle.Stop();
-        }
-
-        if (MusicWin.isPlaying)
-        {
-            MusicWin.Stop();
-        }
-
-        if (MusicLose.isPlaying)
-        {
-            MusicLose.Stop();
-        }
-
-        if (!MusicBackground.isPlaying)
-        {
-            MusicBackground.Play();
-        }
+    {        
+        MusicBackground.resource = MusicGeral;
+        MusicBackground.Play();        
     }
 
     public void playMusicBattle()
     {
-        if (!MusicBattle.isPlaying)
-        {
-            MusicBattle.Play();
-        }
-
-        if (MusicWin.isPlaying)
-        {
-            MusicWin.Stop();
-        }
-
-        if (MusicLose.isPlaying)
-        {
-            MusicLose.Stop();
-        }
-
-        if (MusicBackground.isPlaying)
-        {
-            MusicBackground.Stop();
-        }
+        MusicBackground.resource = MusicBattle;
+        MusicBackground.Play();
     }
 
     public void playMusicWin()
     {
-        if (MusicBattle.isPlaying)
-        {
-            MusicBattle.Stop();
-        }
-
-        if (!MusicWin.isPlaying)
-        {
-            MusicWin.Play();
-        }
-
-        if (MusicLose.isPlaying)
-        {
-            MusicLose.Stop();
-        }
-
-        if (MusicBackground.isPlaying)
-        {
-            MusicBackground.Stop();
-        }
+        MusicBackground.resource = MusicWin;
+        MusicBackground.Play();
     }
 
     public void playMusicLose()
     {
-        if (MusicBattle.isPlaying)
-        {
-            MusicBattle.Stop();
-        }
-
-        if (MusicWin.isPlaying)
-        {
-            MusicWin.Stop();
-        }
-
-        if (!MusicLose.isPlaying)
-        {
-            MusicLose.Play();
-        }
-
-        if (MusicBackground.isPlaying)
-        {
-            MusicBackground.Stop();
-        }
+        MusicBackground.resource = MusicLose;
+        MusicBackground.Play();
     }
 
     public void musicStop()
     {
-        MusicBattle.Stop();
         MusicBackground.Stop();
     }
 }

@@ -4,9 +4,11 @@
     {
         public static string nomePlayer;
         public static int idPlayer;
-        public static int id_Background; // Alterado para int
+        public static float moeda;
+        public static int id_Background;
         public static string caminho_Background;
         public static int SelectedSkinId { get; set; } = -1;
+        public static string email;
     }
 
     public static class DadosJogo

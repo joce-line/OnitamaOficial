@@ -248,7 +248,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         int receivedPlayer = data.Get<int>("activePlayer");
         activePlayer = (receivedPlayer == 1) ? 2 : 1;
-        Debug.Log($"[GameManager] OnTimeoutPlayerChange: receivedPlayer={receivedPlayer}, newActivePlayer={activePlayer}");
         PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
     }
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
@@ -408,6 +407,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void Sair()
     {
         SceneManager.LoadScene("MenuPrincipal");
+        MusicManager.instance.playMusicGeral();
     }
 
 }

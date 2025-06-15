@@ -18,7 +18,7 @@ public class MoedaPacoteItem : MonoBehaviour
         iconePacote.sprite = icone;
 
         botaoComprar.onClick.RemoveAllListeners();
-        botaoComprar.onClick.AddListener(() => Loja.GetInstance().ConfirmarCompra(moedas));
+        botaoComprar.onClick.AddListener(() => Loja.GetInstance().ConfirmarCompraMoeda(moedas));
     }
 
 }
