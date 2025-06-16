@@ -298,6 +298,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void Voltar()
     {
         PhotonNetwork.LeaveRoom();
+        if (CreateAndJoin.instance != null)
+        {
+            Destroy(CreateAndJoin.instance.gameObject);
+        }
         SceneManager.LoadScene("LobbyTest");
     }
 }

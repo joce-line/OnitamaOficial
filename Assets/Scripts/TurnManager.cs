@@ -141,4 +141,21 @@ public class TurnManager : MonoBehaviourPunCallbacks
             photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
         }
     }
+
+    public void StopTimer()
+    {
+        isGameOver = true;
+        radialIndicatorUI.enabled = false;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("RPC_StopTimer", RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    void RPC_StopTimer()
+    {
+        isGameOver = true;
+        radialIndicatorUI.enabled = false;
+    }
 }

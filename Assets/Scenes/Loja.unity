@@ -471,7 +471,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2021026769}
         m_TargetAssemblyTypeName: Loja, Assembly-CSharp
         m_MethodName: OnConfirmarCompra
         m_Mode: 1
@@ -2593,7 +2593,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2021026769}
         m_TargetAssemblyTypeName: Loja, Assembly-CSharp
         m_MethodName: OnMoedasInsuficientes
         m_Mode: 1

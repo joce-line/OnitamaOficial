@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -17,15 +18,13 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public bool pturn = true;
     public int turnNum = -1;
+    public GameObject painelReconectar;
     private bool p1KingCaptured = false;
     private bool p2KingCaptured = false;
     private GridNodeS p1GoalNode;
     private GridNodeS p2GoalNode;
-    private GameObject goal1Tmp;
     private Dictionary<int, SkinData> playerSkins = new Dictionary<int, SkinData>();
     private const byte RESET_LOBBY_EVENT = 2;
-
-    public GameObject GoalText;
 
     public int activePlayer = 0;
     public TurnManager turnManager;
@@ -213,7 +212,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void CreateUnit(int playerId, int x, int y, UnitS.unitType utype)
     {
         string prefabName = (utype == UnitS.unitType.pawn) ? "Prefabs/PlayerPawn" : "Prefabs/PlayerKing";
-        GameObject newGo = PhotonNetwork.Instantiate(prefabName, new Vector3(0,0,-1), Quaternion.identity);
+        GameObject newGo = PhotonNetwork.Instantiate(prefabName, new Vector3(0, 0, -1), Quaternion.identity);
 
         int actorNumber = playerId == 1 ? PhotonNetwork.PlayerList[0].ActorNumber : PhotonNetwork.PlayerList[1].ActorNumber;
         SkinData skin = playerSkins.ContainsKey(actorNumber) ? playerSkins[actorNumber] : GetDefaultSkin();
@@ -304,6 +303,33 @@ public class GameManager : MonoBehaviourPunCallbacks
             data.Put("activePlayer", activePlayer);
             EventManager.TriggerEvent("ActivePlayer", data);
         }
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        if (PhotonNetwork.PlayerList.Length == 1)
+        {
+            var inputManager = FindAnyObjectByType<InputManager>();
+            if (inputManager != null) inputManager.enabled = false;
+            var turnManager = FindFirstObjectByType<TurnManager>();
+            if (turnManager != null) turnManager.StopTimer();
+
+            painelReconectar.SetActive(true);
+
+            if (!PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.SetMasterClient(PhotonNetwork.LocalPlayer);
+            }
+
+            StartCoroutine(RedirectToLobbyAfterDelay(5f));
+        }
+    }
+
+    private IEnumerator RedirectToLobbyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        VoltarLobby();
+        painelReconectar.SetActive(false);
     }
 
 
@@ -482,5 +508,5 @@ public class GameManager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("Lobby");
         MusicManager.instance.playMusicGeral();
     }
-    
+
 }
