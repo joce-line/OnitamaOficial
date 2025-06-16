@@ -333,7 +333,7 @@ MonoBehaviour:
   MusicGeral: {fileID: 8300000, guid: 59aa643e3c92d4846ad06b3283dd6b40, type: 3}
   MusicBattle: {fileID: 8300000, guid: 352987b53a2307b4cbd2761758a00021, type: 3}
   MusicWin: {fileID: 8300000, guid: 6ff95b3ebdf41e641bc9e2b5660cdf9e, type: 3}
-  MusicLose: {fileID: 8300000, guid: 69ee1505fa6ea7d4ea2c45602ca4b389, type: 3}
+  MusicLose: {fileID: 8300000, guid: ceefa9dccf2a6fa49b8db92ef52ee3f6, type: 3}
 --- !u!4 &395941499
 Transform:
   m_ObjectHideFlags: 0
