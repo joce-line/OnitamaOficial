@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class SonsDeProvocacao : MonoBehaviour
+public class SonsDeProvocacao : MonoBehaviourPun
 {
 
     public AudioSource tauntSom;
@@ -13,24 +14,53 @@ public class SonsDeProvocacao : MonoBehaviour
     public AudioClip raivaSom;
 
     public float clipVolume = .5f;
-
-    public void playOkSom()
+    //RPCs para cada som de provocação
+    [PunRPC]
+    public void RpcplayOkSom()
     {
-        tauntSom.PlayOneShot(okSom,PlayerPrefs.GetFloat("soundVolume"));
+        float volume = PlayerPrefs.GetFloat("soundVolume", clipVolume);
+        tauntSom.PlayOneShot(okSom,volume);
     }
 
-    public void playRisoSom()
+    [PunRPC]
+    public void RpcplayRisoSom()
     {
-         tauntSom.PlayOneShot(risoSom,PlayerPrefs.GetFloat("soundVolume"));
+        float volume = PlayerPrefs.GetFloat("soundVolume", clipVolume);
+        tauntSom.PlayOneShot(risoSom,volume);
     }
 
-    public void playChoroSom()
+    [PunRPC]
+    public void RpcplayChoroSom()
     {
-         tauntSom.PlayOneShot(choroSom,PlayerPrefs.GetFloat("soundVolume"));
+        float volume = PlayerPrefs.GetFloat("soundVolume", clipVolume);
+        tauntSom.PlayOneShot(choroSom,volume);
     }
 
-    public void playRaivaSom()
+    [PunRPC]
+    public void RpcplayRaivaSom()
     {
-         tauntSom.PlayOneShot(raivaSom,PlayerPrefs.GetFloat("soundVolume"));
+        float volume = PlayerPrefs.GetFloat("soundVolume", clipVolume);
+        tauntSom.PlayOneShot(raivaSom,volume);
+    }
+
+    //Métodos públicos para acionar os RPCs
+    public void PlayOkSom()
+    {
+        photonView.RPC("RpcplayOkSom", RpcTarget.All);
+    }
+
+    public void PlayRisoSom()
+    {
+        photonView.RPC("RpcplayRisoSom", RpcTarget.All);
+    }
+
+    public void PlayChoroSom()
+    {
+        photonView.RPC("RpcplayChoroSom", RpcTarget.All);
+    }
+
+    public void PlayRaivaSom()
+    {
+        photonView.RPC("RpcplayRaivaSom", RpcTarget.All);
     }
 }
