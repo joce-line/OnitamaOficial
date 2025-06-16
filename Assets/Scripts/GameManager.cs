@@ -6,6 +6,7 @@ using Assets.scripts.InfoPlayer;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GridNodeS p1GoalNode;
     private GridNodeS p2GoalNode;
     private GameObject goal1Tmp;
+    private Dictionary<int, SkinData> playerSkins = new Dictionary<int, SkinData>();
+    private const byte RESET_LOBBY_EVENT = 2;
 
     public GameObject GoalText;
 
@@ -37,6 +40,18 @@ public class GameManager : MonoBehaviourPunCallbacks
         return instance;
     }
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        PhotonNetwork.RemoveCallbackTarget(this);
+    }
+
     public void Awake()
     {
         if (instance == null)
@@ -51,7 +66,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void Start()
     {
-
+        Debug.Log($"[GameManager] Start: LocalPlayer={PhotonNetwork.LocalPlayer.ActorNumber}, Room={PhotonNetwork.CurrentRoom.Name}");
+        LoadPlayerSkins();
         InitPlayers();
         InitGoalNodes();
         EventManager.StartListening("EndPlayerMovement", OnEndPlayerMovement);
@@ -59,6 +75,71 @@ public class GameManager : MonoBehaviourPunCallbacks
         RunGame();
         //musica de fundo        
         MusicManager.instance.playMusicBattle();
+    }
+
+    private void LoadPlayerSkins()
+    {
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            if (player.CustomProperties.ContainsKey("finalSkinId"))
+            {
+                int skinId = (int)player.CustomProperties["finalSkinId"];
+                SkinData skin = FetchSkinFromDatabase(skinId);
+                if (skin != null)
+                {
+                    playerSkins[player.ActorNumber] = skin;
+                    Debug.Log($"[GameManager] Skin carregada: ActorNumber={player.ActorNumber}, skinId={skinId}, nome={skin.nome}");
+                }
+                else
+                {
+                    playerSkins[player.ActorNumber] = GetDefaultSkin();
+                    Debug.LogWarning($"[GameManager] Skin não encontrada para ActorNumber={player.ActorNumber}, usando padrão.");
+                }
+            }
+            else
+            {
+                playerSkins[player.ActorNumber] = GetDefaultSkin();
+                Debug.LogWarning($"[GameManager] finalSkinId não definido para ActorNumber={player.ActorNumber}, usando padrão.");
+            }
+        }
+    }
+
+    private SkinData FetchSkinFromDatabase(int skinId)
+    {
+        string query = $"SELECT id_Conjunto, nome_Conjunto, caminho_Pawn, caminho_King FROM conjuntos_skins WHERE id_Conjunto = {skinId}";
+        List<Dictionary<string, object>> results = DatabaseManager.Instance.ExecuteReader(query);
+
+        if (results.Count > 0)
+        {
+            var row = results[0];
+            try
+            {
+                return new SkinData
+                {
+                    id = (int)row["id_Conjunto"],
+                    nome = row["nome_Conjunto"]?.ToString() ?? "",
+                    caminhoPawn = row["caminho_Pawn"]?.ToString() ?? "",
+                    caminhoKing = row["caminho_King"]?.ToString() ?? ""
+                };
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"[GameManager] Erro ao processar skin: {e.Message}");
+                return null;
+            }
+        }
+        return null;
+    }
+
+    private SkinData GetDefaultSkin()
+    {
+        return new SkinData
+        {
+            id = 1,
+            nome = "Default",
+            caminhoPawn = "https://firebasestorage.googleapis.com/v0/b/ihc-manut.appspot.com/o/skins%2Fpawn_1747457311263_BrancoPeao.png?alt=media&token=8a5bade5-11e6-45be-80ac-b4963b5ebd67",
+            caminhoKing = "https://firebasestorage.googleapis.com/v0/b/ihc-manut.appspot.com/o/skins%2Fking_1747457312118_BrancoRei.png?alt=media&token=f1045dd7-3361-4eb4-9973-8ec14944ac7e"
+        };
     }
 
     public void InitPlayers()
@@ -113,14 +194,34 @@ public class GameManager : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(.5f);
         PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
     }
+
+    public IEnumerator WaitForLeaveRoomAndDisconnect()
+    {
+        while (PhotonNetwork.InRoom)
+        {
+            yield return null;
+        }
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+        {
+            yield return null;
+        }
+        SceneManager.LoadScene("MenuPrincipal");
+        MusicManager.instance.playMusicGeral();
+    }
+
     public void CreateUnit(int playerId, int x, int y, UnitS.unitType utype)
     {
         string prefabName = (utype == UnitS.unitType.pawn) ? "Prefabs/PlayerPawn" : "Prefabs/PlayerKing";
         GameObject newGo = PhotonNetwork.Instantiate(prefabName, new Vector3(0,0,-1), Quaternion.identity);
 
-        string spritePath = (playerId == 1)
-            ? (utype == UnitS.unitType.pawn ? "Skins/PretoPeao" : "Skins/PretoRei")
-            : (utype == UnitS.unitType.pawn ? "Skins/BrancoPeao" : "Skins/BrancoRei");
+        int actorNumber = playerId == 1 ? PhotonNetwork.PlayerList[0].ActorNumber : PhotonNetwork.PlayerList[1].ActorNumber;
+        SkinData skin = playerSkins.ContainsKey(actorNumber) ? playerSkins[actorNumber] : GetDefaultSkin();
+        string spriteUrl = (utype == UnitS.unitType.pawn) ? skin.caminhoPawn : skin.caminhoKing;
+
+        //string spritePath = (playerId == 1)
+        //    ? (utype == UnitS.unitType.pawn ? "Skins/PretoPeao" : "Skins/PretoRei")
+        //    : (utype == UnitS.unitType.pawn ? "Skins/BrancoPeao" : "Skins/BrancoRei");
 
         int unitId = newGo.GetComponent<PhotonView>().ViewID;
 
@@ -130,7 +231,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             unitId,
             x,
             y,
-            spritePath
+            spriteUrl
         );
 
         UnitS temp = newGo.GetComponent<UnitS>();
@@ -179,6 +280,21 @@ public class GameManager : MonoBehaviourPunCallbacks
         activePlayer = (receivedPlayer == 1) ? 2 : 1;
         PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
     }
+
+    public void OnEvent(EventData photonEvent)
+    {
+        if (photonEvent.Code == RESET_LOBBY_EVENT)
+        {
+            ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+        {
+            { "isReady", false },
+            { "selectedSkinId", -1 },
+            { "finalSkinId", -1 }
+        };
+            PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+        }
+    }
+
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
         if (propertiesThatChanged.ContainsKey("ActivePlayer"))
@@ -189,6 +305,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             EventManager.TriggerEvent("ActivePlayer", data);
         }
     }
+
+
     public bool CheckForGameEnd(GridNodeS node)
     {
         //verifica se os reis foram capturados
@@ -196,24 +314,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             return true;
         }
-
-        //Verifica se o rei adversario chegou no campo do outro
-        //if (node == p1GoalNode)
-        //{
-        //    if (p1GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
-        //        p1GoalNode.occupyingUnit.ptype == UnitS.player.p1)
-        //    {
-        //        return true;
-        //    }
-        //}
-        //if (node == p2GoalNode)
-        //{
-        //    if (p2GoalNode.occupyingUnit.usType == UnitS.unitType.king &&
-        //        p2GoalNode.occupyingUnit.ptype == UnitS.player.p2)
-        //    {
-        //        return true;
-        //    }
-        //}
 
         if (node != null && node.x == p1GoalNode.x && node.y == p1GoalNode.y)
         {
@@ -353,8 +453,34 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void Sair()
     {
-        SceneManager.LoadScene("MenuPrincipal");
-        MusicManager.instance.playMusicGeral();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = true;
+            PhotonNetwork.CurrentRoom.IsVisible = true;
+        }
+        PhotonNetwork.LeaveRoom();
+        StartCoroutine(WaitForLeaveRoomAndDisconnect());
     }
 
+    public void VoltarLobby()
+    {
+        ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+    {
+        { "isReady", false },
+        { "selectedSkinId", -1 },
+        { "finalSkinId", -1 }
+    };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+        RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+        PhotonNetwork.RaiseEvent(RESET_LOBBY_EVENT, null, options, ExitGames.Client.Photon.SendOptions.SendReliable);
+
+        CleanUpPlayerUnits();
+        p1KingCaptured = false;
+        p2KingCaptured = false;
+
+        SceneManager.LoadScene("Lobby");
+        MusicManager.instance.playMusicGeral();
+    }
+    
 }
