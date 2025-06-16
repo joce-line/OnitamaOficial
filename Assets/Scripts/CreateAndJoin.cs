@@ -12,11 +12,20 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
     public TMP_InputField input_Create;
     public TMP_InputField input_Join;
 
-
+    public static CreateAndJoin instance;
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
         DontDestroyOnLoad(gameObject);
+
         PhotonNetwork.AutomaticallySyncScene = true;
+
         if (!string.IsNullOrEmpty(PlayerInfo.nomePlayer))
         {
             PhotonNetwork.NickName = PlayerInfo.nomePlayer;
@@ -95,7 +104,34 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
 
     public void Voltar()
     {
-        PhotonNetwork.LeaveRoom();
-        StartCoroutine(GameManager.instance.WaitForLeaveRoomAndDisconnect());
+        StartCoroutine(DisconnectAndReturnToMenu());
+    }
+
+    private IEnumerator DisconnectAndReturnToMenu()
+    {
+
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+
+            while (PhotonNetwork.InRoom)
+            {
+                yield return null;
+            }
+        }
+
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.Disconnect();
+
+            while (PhotonNetwork.IsConnected)
+            {
+                yield return null;
+            }
+        }
+
+        Destroy(gameObject);
+
+        SceneManager.LoadScene("MenuPrincipal");
     }
 }
