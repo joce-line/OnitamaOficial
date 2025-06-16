@@ -109,11 +109,9 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
 
     private IEnumerator DisconnectAndReturnToMenu()
     {
-        Debug.Log("ENTRANDO no disconnectAndReturn");
 
         if (PhotonNetwork.InRoom)
         {
-            Debug.Log("ENTRANDO no InRoom");
             PhotonNetwork.LeaveRoom();
 
             while (PhotonNetwork.InRoom)
@@ -124,7 +122,6 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsConnected)
         {
-            Debug.Log("ENTRANDO no IsConnected");
             PhotonNetwork.Disconnect();
 
             while (PhotonNetwork.IsConnected)
@@ -133,8 +130,7 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
             }
         }
 
-        Debug.Log("Destruindo CreateAndJoin");
-        Destroy(gameObject); // <--- Aqui destruímos o objeto corretamente
+        Destroy(gameObject);
 
         SceneManager.LoadScene("MenuPrincipal");
     }
