@@ -9,6 +9,7 @@
         public static string caminho_Background;
         public static int SelectedSkinId { get; set; } = -1;
         public static string email;
+        public static string role;
     }
 
     public static class DadosJogo
