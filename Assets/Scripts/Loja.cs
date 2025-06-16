@@ -115,6 +115,7 @@ public class Loja : MonoBehaviour
 
     public void OnConfirmarCompra()
     {
+        Debug.Log("on confirmar compra");
         ComprarItem(idItemSelecionado);
         modalConfirmacao.SetActive(false);
     }
@@ -122,6 +123,11 @@ public class Loja : MonoBehaviour
     public void OnCancelarCompra()
     {
         modalConfirmacao.SetActive(false);
+    }
+
+    public void OnCancelarCompraMoedas()
+    {
+        modalConfirmacaoMoeda.SetActive(false);
     }
 
     public void OnMoedasInsuficientes()
