@@ -152,6 +152,7 @@ MonoBehaviour:
   unitId: 0
   usType: 1
   ptype: 0
+  spriteRenderer: {fileID: 0}
 --- !u!114 &-7242157568233319122
 MonoBehaviour:
   m_ObjectHideFlags: 0

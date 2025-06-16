@@ -152,7 +152,7 @@ public class Loja : MonoBehaviour
             // Atualiza PlayerInfo.moeda e UI
             string queryAtualizaMoeda = $"SELECT moedas FROM usuarios WHERE idUsuario = {idUsuario}";
             PlayerInfo.moeda = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryAtualizaMoeda));
-            FindObjectOfType<InformacoesMoedas>().AtualizaMoedas();
+            FindFirstObjectByType<InformacoesMoedas>().AtualizaMoedas();
 
             foreach (Transform child in contentParent)
             {
@@ -214,7 +214,7 @@ public class Loja : MonoBehaviour
         // Atualiza PlayerInfo.moeda e UI
         string queryAtualizaMoeda = $"SELECT moedas FROM usuarios WHERE idUsuario = {idUsuario}";
         PlayerInfo.moeda = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryAtualizaMoeda));
-        FindObjectOfType<InformacoesMoedas>().AtualizaMoedas();
+        FindFirstObjectByType<InformacoesMoedas>().AtualizaMoedas();
 
         Debug.Log($"Comprado pacote de {quantidade} moedas.");
     }

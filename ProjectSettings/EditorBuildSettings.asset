@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LobbyTest.unity
     guid: be75d9b70b95ce241a2743eeac1dd5bd
   - enabled: 1
+    path: Assets/Scenes/Ranking.unity
+    guid: e9763289f182272458bb9a7e302d15a8
+  - enabled: 1
     path: Assets/Scenes/Configuracoes.unity
     guid: 626de29d21a9bf14993f02c74326d032
   - enabled: 1
