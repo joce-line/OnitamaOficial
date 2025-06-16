@@ -69,6 +69,7 @@ MonoBehaviour:
   - RPC_EndPlayerMovement
   - RPC_TimeoutPlayerChange
   - RPC_ClearNodeHighlights
+  - StartCountdownRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

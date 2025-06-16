@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class TurnManager : MonoBehaviourPunCallbacks
 {
     public int activePlayer = 0;
-    private float indicatorTimer = 10f;
-    private float maxIndicatorTimer = 10f;
+    private float indicatorTimer = 50f;
+    private float maxIndicatorTimer = 50f;
     private bool isGameOver = false;
     private bool isTimeoutProcessing = false;
     public int nextPlayer;

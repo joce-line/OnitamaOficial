@@ -6,6 +6,7 @@ using Assets.scripts.InfoPlayer;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GridNodeS p2GoalNode;
     private GameObject goal1Tmp;
     private Dictionary<int, SkinData> playerSkins = new Dictionary<int, SkinData>();
+    private const byte RESET_LOBBY_EVENT = 2;
 
     public GameObject GoalText;
 
@@ -36,6 +38,18 @@ public class GameManager : MonoBehaviourPunCallbacks
             instance = (GameManager)FindFirstObjectByType(typeof(GameManager));
         }
         return instance;
+    }
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 
     public void Awake()
@@ -180,6 +194,22 @@ public class GameManager : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(.5f);
         PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
     }
+
+    public IEnumerator WaitForLeaveRoomAndDisconnect()
+    {
+        while (PhotonNetwork.InRoom)
+        {
+            yield return null;
+        }
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+        {
+            yield return null;
+        }
+        SceneManager.LoadScene("MenuPrincipal");
+        MusicManager.instance.playMusicGeral();
+    }
+
     public void CreateUnit(int playerId, int x, int y, UnitS.unitType utype)
     {
         string prefabName = (utype == UnitS.unitType.pawn) ? "Prefabs/PlayerPawn" : "Prefabs/PlayerKing";
@@ -250,6 +280,21 @@ public class GameManager : MonoBehaviourPunCallbacks
         activePlayer = (receivedPlayer == 1) ? 2 : 1;
         PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "ActivePlayer", activePlayer } });
     }
+
+    public void OnEvent(EventData photonEvent)
+    {
+        if (photonEvent.Code == RESET_LOBBY_EVENT)
+        {
+            ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+        {
+            { "isReady", false },
+            { "selectedSkinId", -1 },
+            { "finalSkinId", -1 }
+        };
+            PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+        }
+    }
+
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
         if (propertiesThatChanged.ContainsKey("ActivePlayer"))
@@ -260,6 +305,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             EventManager.TriggerEvent("ActivePlayer", data);
         }
     }
+
+
     public bool CheckForGameEnd(GridNodeS node)
     {
         //verifica se os reis foram capturados
@@ -406,8 +453,34 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void Sair()
     {
-        SceneManager.LoadScene("MenuPrincipal");
-        MusicManager.instance.playMusicGeral();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = true;
+            PhotonNetwork.CurrentRoom.IsVisible = true;
+        }
+        PhotonNetwork.LeaveRoom();
+        StartCoroutine(WaitForLeaveRoomAndDisconnect());
     }
 
+    public void VoltarLobby()
+    {
+        ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+    {
+        { "isReady", false },
+        { "selectedSkinId", -1 },
+        { "finalSkinId", -1 }
+    };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+        RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+        PhotonNetwork.RaiseEvent(RESET_LOBBY_EVENT, null, options, ExitGames.Client.Photon.SendOptions.SendReliable);
+
+        CleanUpPlayerUnits();
+        p1KingCaptured = false;
+        p2KingCaptured = false;
+
+        SceneManager.LoadScene("Lobby");
+        MusicManager.instance.playMusicGeral();
+    }
+    
 }

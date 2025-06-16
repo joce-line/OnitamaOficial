@@ -8,6 +8,7 @@ using System.Collections;
 using System.Linq;
 using Assets.scripts.InfoPlayer;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -37,10 +38,26 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     void Awake()
     {
         instance = this;
+        if (GetComponent<PhotonView>() == null)
+        {
+            gameObject.AddComponent<PhotonView>();
+        }
     }
 
     void Start()
     {
+        isReady = false;
+        selectedSkinId = -1;
+        playerSkinChoices.Clear();
+
+        ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+    {
+        { "isReady", false },
+        { "selectedSkinId", -1 },
+        { "finalSkinId", -1 }
+    };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
         if (readyButton != null)
         {
             readyButton.interactable = false;
@@ -82,9 +99,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if (changedProps.ContainsKey("isReady"))
         {
             UpdatePlayerStatus(targetPlayer);
-            if (PhotonNetwork.IsMasterClient && AllPlayersReady())
+            if (PhotonNetwork.IsMasterClient && AllPlayersReady() && FindFirstObjectByType<CreateAndJoin>().IsRoomFull())
             {
-                StartCoroutine(StartCountdown());
+                photonView.RPC("StartCountdownRPC", RpcTarget.All);
             }
         }
         if (changedProps.ContainsKey("selectedSkinId"))
@@ -92,6 +109,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             int skinId = (int)changedProps["selectedSkinId"];
             playerSkinChoices[targetPlayer.ActorNumber] = skinId;
             UpdateSkinAvailability();
+        }
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = true;
+            PhotonNetwork.CurrentRoom.IsVisible = true;
         }
     }
 
@@ -195,7 +221,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            return; 
+            return;
         }
 
         foreach (var item in skinItems)
@@ -236,10 +262,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         return PhotonNetwork.PlayerList.All(player => player.CustomProperties.ContainsKey("isReady") && (bool)player.CustomProperties["isReady"]);
     }
 
+    [PunRPC]
+    private void StartCountdownRPC()
+    {
+        StartCoroutine(StartCountdown());
+    }
+
     private IEnumerator StartCountdown()
     {
         countdownText.gameObject.SetActive(true);
-        for (int i = 5; i > 0; i--)
+        for (int i = 3; i > 0; i--)
         {
             countdownText.text = $"Iniciando em {i}...";
             yield return new WaitForSeconds(1f);
@@ -261,5 +293,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             item.ConfigurarItem(itemId, item.nomeItem.text, item.CaminhoPawn, item.CaminhoKing, isSelectedByOther && !isSelectedByMe);
             item.SetSelected(isSelectedByMe);
         }
+    }
+
+    public void Voltar()
+    {
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene("LobbyTest");
     }
 }

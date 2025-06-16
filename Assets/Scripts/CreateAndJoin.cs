@@ -4,6 +4,8 @@ using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 using Assets.scripts.InfoPlayer;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CreateAndJoin : MonoBehaviourPunCallbacks
 {
@@ -28,12 +30,28 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(input_Create.text, new RoomOptions() { MaxPlayers = 2, IsVisible = true, IsOpen = true });
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            StartCoroutine(WaitForConnectionAndCreateRoom(input_Create.text));
+        }
+        else
+        {
+            PhotonNetwork.CreateRoom(input_Create.text, new RoomOptions() { MaxPlayers = 2, IsVisible = true, IsOpen = true });
+        }
     }
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(input_Join.text);
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            StartCoroutine(WaitForConnectionAndJoinRoom(input_Join.text));
+        }
+        else
+        {
+            PhotonNetwork.JoinRoom(input_Join.text);
+        }
     }
 
     public override void OnJoinedRoom()
@@ -47,6 +65,24 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(RoomName);
     }
 
+    private IEnumerator WaitForConnectionAndCreateRoom(string roomName)
+    {
+        while (!PhotonNetwork.IsConnectedAndReady)
+        {
+            yield return null;
+        }
+        PhotonNetwork.CreateRoom(roomName, new RoomOptions() { MaxPlayers = 2, IsVisible = true, IsOpen = true });
+    }
+
+    private IEnumerator WaitForConnectionAndJoinRoom(string roomName)
+    {
+        while (!PhotonNetwork.IsConnectedAndReady)
+        {
+            yield return null;
+        }
+        PhotonNetwork.JoinRoom(roomName);
+    }
+
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log($"Player {newPlayer.ActorNumber} entrou na salinha");
@@ -54,8 +90,12 @@ public class CreateAndJoin : MonoBehaviourPunCallbacks
 
     public bool IsRoomFull()
     {
-        Debug.Log("IsRoomFull Player Count = " + PhotonNetwork.CurrentRoom.PlayerCount);
-        Debug.Log("IsRoomFull Max players = " + PhotonNetwork.CurrentRoom.MaxPlayers);
         return PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers;
+    }
+
+    public void Voltar()
+    {
+        PhotonNetwork.LeaveRoom();
+        StartCoroutine(GameManager.instance.WaitForLeaveRoomAndDisconnect());
     }
 }
