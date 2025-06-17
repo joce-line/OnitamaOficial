@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class TurnManager : MonoBehaviourPunCallbacks
 {
     public int activePlayer = 0;
-    private float indicatorTimer = 10f;
-    private float maxIndicatorTimer = 10f;
+    private float indicatorTimer = 50f;
+    private float maxIndicatorTimer = 50f;
     private bool isGameOver = false;
     private bool isTimeoutProcessing = false;
     public int nextPlayer;
@@ -140,5 +140,22 @@ public class TurnManager : MonoBehaviourPunCallbacks
         {
             photonView.RPC("RPC_SyncTimer", RpcTarget.All, maxIndicatorTimer);
         }
+    }
+
+    public void StopTimer()
+    {
+        isGameOver = true;
+        radialIndicatorUI.enabled = false;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("RPC_StopTimer", RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    void RPC_StopTimer()
+    {
+        isGameOver = true;
+        radialIndicatorUI.enabled = false;
     }
 }

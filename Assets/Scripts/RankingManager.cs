@@ -5,7 +5,10 @@ using System.Collections.Generic;
 
 public class RankingManager : MonoBehaviour
 {
-    public TextMeshProUGUI ListaRanking;
+    public TextMeshProUGUI ListaRankingPosicao;
+    public TextMeshProUGUI ListaRankingNome;
+    public TextMeshProUGUI ListaRankingVitoria;
+
     public void sairRanking()
     {
         SceneManager.LoadScene("MenuPrincipal");
@@ -24,11 +27,13 @@ public class RankingManager : MonoBehaviour
 
             if (resultados == null || resultados.Count == 0)
             {
-                ListaRanking.text = "Nenhum dado de ranking encontrado.";
+                ListaRankingNome.text = "Nenhum dado de ranking encontrado.";
                 return;
             }
 
-            string rankingFinal = "";
+            string rankingFinalPosicao = "";
+            string rankingFinalNome = "";
+            string rankingFinalVitoria = "";
 
             int posicao = 1;
             foreach (var jogador in resultados)
@@ -40,16 +45,20 @@ public class RankingManager : MonoBehaviour
                 string nome = jogador["nickname"].ToString();
                 int vitorias = int.Parse(jogador["vitorias"].ToString());
 
-                rankingFinal += $"{posicao}º - {vitorias} vitória(s) - {nome}\n";
+                rankingFinalPosicao += $"{posicao,3}º\n";
+                rankingFinalNome += $"{nome,-15}\n";
+                rankingFinalVitoria += $"{vitorias}\n";
                 posicao++;
             }
 
-            ListaRanking.text = rankingFinal;
+            ListaRankingPosicao.text = rankingFinalPosicao;
+            ListaRankingNome.text = rankingFinalNome;
+            ListaRankingVitoria.text = rankingFinalVitoria;
         }
         catch (System.Exception e)
         {
             Debug.LogError($"Erro ao buscar ranking: {e.Message}");
-            ListaRanking.text = "Erro ao carregar ranking.";
+            ListaRankingNome.text = "Erro ao carregar ranking.";
         }
     }
 }

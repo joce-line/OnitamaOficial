@@ -115,6 +115,7 @@ public class Loja : MonoBehaviour
 
     public void OnConfirmarCompra()
     {
+        Debug.Log("on confirmar compra");
         ComprarItem(idItemSelecionado);
         modalConfirmacao.SetActive(false);
     }
@@ -122,6 +123,11 @@ public class Loja : MonoBehaviour
     public void OnCancelarCompra()
     {
         modalConfirmacao.SetActive(false);
+    }
+
+    public void OnCancelarCompraMoedas()
+    {
+        modalConfirmacaoMoeda.SetActive(false);
     }
 
     public void OnMoedasInsuficientes()
@@ -148,6 +154,11 @@ public class Loja : MonoBehaviour
 
             string insertQuery = $"INSERT INTO skins_usuario (id_Usuario, id_Conjunto) VALUES ({idUsuario}, {idItem})";
             DatabaseManager.Instance.ExecuteNonQuery(insertQuery);
+
+            // Atualiza PlayerInfo.moeda e UI
+            string queryAtualizaMoeda = $"SELECT moedas FROM usuarios WHERE idUsuario = {idUsuario}";
+            PlayerInfo.moeda = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryAtualizaMoeda));
+            FindFirstObjectByType<InformacoesMoedas>().AtualizaMoedas();
 
             foreach (Transform child in contentParent)
             {
@@ -202,8 +213,14 @@ public class Loja : MonoBehaviour
     public void ComprarPacoteMoeda(int quantidade)
     {
         int idUsuario = PlayerInfo.idPlayer;
+
         string updateQuery = $"UPDATE usuarios SET moedas = moedas + {quantidade} WHERE idUsuario = {idUsuario}";
         DatabaseManager.Instance.ExecuteNonQuery(updateQuery);
+
+        // Atualiza PlayerInfo.moeda e UI
+        string queryAtualizaMoeda = $"SELECT moedas FROM usuarios WHERE idUsuario = {idUsuario}";
+        PlayerInfo.moeda = Convert.ToInt32(DatabaseManager.Instance.ExecuteScalar(queryAtualizaMoeda));
+        FindFirstObjectByType<InformacoesMoedas>().AtualizaMoedas();
 
         Debug.Log($"Comprado pacote de {quantidade} moedas.");
     }
