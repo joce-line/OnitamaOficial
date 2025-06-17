@@ -477,29 +477,92 @@ public class GameManager : MonoBehaviourPunCallbacks
         instance.RunGame();
     }
 
+    //public void Sair()
+    //{
+    //    if (PhotonNetwork.IsMasterClient)
+    //    {
+    //        PhotonNetwork.CurrentRoom.IsOpen = true;
+    //        PhotonNetwork.CurrentRoom.IsVisible = true;
+    //    }
+
+    //    CreateAndJoin.instance.Voltar();
+    //}
+
     public void Sair()
     {
-        if (PhotonNetwork.IsMasterClient)
+        StartCoroutine(LeaveGameAndReturnToMenu());
+    }
+
+    private IEnumerator LeaveGameAndReturnToMenu()
+    {
+
+        if (PhotonNetwork.InRoom)
         {
-            PhotonNetwork.CurrentRoom.IsOpen = true;
-            PhotonNetwork.CurrentRoom.IsVisible = true;
+            PhotonNetwork.LeaveRoom();
+
+            while (PhotonNetwork.InRoom)
+            {
+                yield return null;
+            }
         }
 
-        CreateAndJoin.instance.Voltar();
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.Disconnect();
+
+            while (PhotonNetwork.IsConnected)
+            {
+                yield return null;
+            }
+        }
+
+        SceneManager.LoadScene("MenuPrincipal");
+        MusicManager.instance.playMusicGeral();
     }
+
+
+    //public void VoltarLobby()
+    //{
+    //    ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+    //{
+    //    { "isReady", false },
+    //    { "selectedSkinId", -1 },
+    //    { "finalSkinId", -1 }
+    //};
+    //    PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+    //    RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+    //    PhotonNetwork.RaiseEvent(RESET_LOBBY_EVENT, null, options, ExitGames.Client.Photon.SendOptions.SendReliable);
+
+    //    CleanUpPlayerUnits();
+    //    p1KingCaptured = false;
+    //    p2KingCaptured = false;
+
+    //    SceneManager.LoadScene("Lobby");
+    //    MusicManager.instance.playMusicGeral();
+    //}
 
     public void VoltarLobby()
     {
-        ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
-    {
-        { "isReady", false },
-        { "selectedSkinId", -1 },
-        { "finalSkinId", -1 }
-    };
-        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+        StartCoroutine(LeaveRoomAndGoToLobby());
+    }
 
-        RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-        PhotonNetwork.RaiseEvent(RESET_LOBBY_EVENT, null, options, ExitGames.Client.Photon.SendOptions.SendReliable);
+    private IEnumerator LeaveRoomAndGoToLobby()
+    {
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
+            {
+                { "isReady", false },
+                { "selectedSkinId", -1 },
+                { "finalSkinId", -1 }
+            });
+            PhotonNetwork.LeaveRoom();
+            while (PhotonNetwork.InRoom)
+            {
+                yield return null;
+            }
+        }
 
         CleanUpPlayerUnits();
         p1KingCaptured = false;
