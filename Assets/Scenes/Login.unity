@@ -4346,9 +4346,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RecuperarSenha, Assembly-CSharp
-        m_MethodName: AlternarParaRecuperarSenha
+      - m_Target: {fileID: 1042774563}
+        m_TargetAssemblyTypeName: LoginManager, Assembly-CSharp
+        m_MethodName: OpenRegisterScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5435,7 +5435,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1042774566}
         m_TargetAssemblyTypeName: RecuperarSenha, Assembly-CSharp
         m_MethodName: AlternarParaRecuperarSenha
         m_Mode: 1
