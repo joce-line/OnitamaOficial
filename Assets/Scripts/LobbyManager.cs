@@ -209,6 +209,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void ConfirmarEscolha(int skinId, bool select)
     {
+        if (select && !CreateAndJoin.instance.IsRoomFull())
+        {
+            Debug.Log("[LobbyManager] Seleção de skin bloqueada: sala não está cheia");
+            foreach (var item in skinItems)
+            {
+                item.SetSelected(item.ItemId == selectedSkinId);
+            }
+            return;
+        }
+
         if (select)
         {
             selectedSkinId = skinId;

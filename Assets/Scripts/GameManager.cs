@@ -328,10 +328,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    //private IEnumerator RedirectToLobbyAfterDelay(float delay)
+    //{
+    //    yield return new WaitForSeconds(delay);
+    //    VoltarLobby();
+    //    painelReconectar.SetActive(false);
+    //}
+
     private IEnumerator RedirectToLobbyAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        VoltarLobby();
+        Sair();
         painelReconectar.SetActive(false);
     }
 
@@ -544,6 +551,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
         CleanUpPlayerUnits();
+        CardManager.instance.CleanUpCards();
 
         p1KingCaptured = false;
         p2KingCaptured = false;
