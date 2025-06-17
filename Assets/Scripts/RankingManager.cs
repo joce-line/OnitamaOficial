@@ -46,8 +46,8 @@ public class RankingManager : MonoBehaviour
                 int vitorias = int.Parse(jogador["vitorias"].ToString());
 
                 rankingFinalPosicao += $"{posicao,3}º\n";
-                rankingFinalNome += $"- {nome,-15}\n";
-                rankingFinalVitoria += $"- {vitorias} vitória(s)\n";
+                rankingFinalNome += $"{nome,-15}\n";
+                rankingFinalVitoria += $"{vitorias}\n";
                 posicao++;
             }
 
