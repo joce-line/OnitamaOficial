@@ -211,6 +211,7 @@ public class CardManager : MonoBehaviourPunCallbacks
                     p2Cards.Add(receivedCard);
                     receivedCard.photonView.RPC("SetupCard", RpcTarget.AllBuffered, cardSOList.IndexOf(receivedCard.cardinfo), 2);
                     MoveCardToPosition(p2slot3, receivedCard);
+                    receivedCard.photonView.RPC("ResetCardRotation", RpcTarget.AllBuffered);
                     receivedCard.photonView.RPC("TurnOnUpcoming", RpcTarget.All);
                     upcomingCard = receivedCard;
                     PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "UpcomingCardViewID", upcomingCard.photonView.ViewID } });
@@ -222,6 +223,14 @@ public class CardManager : MonoBehaviourPunCallbacks
             {
                 MoveCardToPosition(p1SlotList[i], p1Cards[i]);
             }
+
+            for (int i = 0; i < p2Cards.Count; i++)
+            {
+                if (!p2Cards[i].photonView.IsMine)
+                {
+                    p2Cards[i].photonView.RPC("RotateCardForP2", RpcTarget.AllBuffered);
+                }
+            }
         }
         else
         {
@@ -231,6 +240,7 @@ public class CardManager : MonoBehaviourPunCallbacks
                 p2Cards.Add(upcomingCard);
                 upcomingCard.photonView.RPC("SetupCard", RpcTarget.AllBuffered, cardSOList.IndexOf(upcomingCard.cardinfo), 2);
                 MoveCardToPosition(p2SlotList[p2Cards.Count - 1], upcomingCard);
+                upcomingCard.photonView.RPC("RotateCardForP2", RpcTarget.AllBuffered);
             }
 
             for (int i = 0; i < p2Cards.Count; i++)
@@ -241,6 +251,7 @@ public class CardManager : MonoBehaviourPunCallbacks
                     p1Cards.Add(receivedCard);
                     receivedCard.photonView.RPC("SetupCard", RpcTarget.AllBuffered, cardSOList.IndexOf(receivedCard.cardinfo), 1);
                     MoveCardToPosition(p1slot3, receivedCard);
+                    receivedCard.photonView.RPC("ResetCardRotation", RpcTarget.AllBuffered);
                     receivedCard.photonView.RPC("TurnOnUpcoming", RpcTarget.All);
                     upcomingCard = receivedCard;
                     PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "UpcomingCardViewID", upcomingCard.photonView.ViewID } });
@@ -251,6 +262,10 @@ public class CardManager : MonoBehaviourPunCallbacks
             for (int i = 0; i < p2Cards.Count && i < p2SlotList.Count; i++)
             {
                 MoveCardToPosition(p2SlotList[i], p2Cards[i]);
+                if (!p2Cards[i].photonView.IsMine)
+                {
+                    p2Cards[i].photonView.RPC("RotateCardForP2", RpcTarget.AllBuffered);
+                }
             }
         }
 

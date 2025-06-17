@@ -41,9 +41,10 @@ public class OnitamaCard : MonoBehaviourPun
 
         if (playerId == 2)
         {
-            Vector3 scale = cardHolder.transform.localScale;
-            //scale.y *= -1; // Inverter para P2
-            cardHolder.transform.localScale = scale;
+            //Vector3 scale = cardHolder.transform.localScale;
+            ////scale.y *= -1; // Inverter para P2
+            //cardHolder.transform.localScale = scale;
+            photonView.RPC("RotateCardForP2", RpcTarget.AllBuffered);
         }
 
     }
@@ -63,7 +64,6 @@ public class OnitamaCard : MonoBehaviourPun
     [PunRPC]
     public void TurnOnHighlight()
     {
-        //highlightSprite.enabled = true;
         if (highlightSprite != null && playerId == PhotonNetwork.LocalPlayer.ActorNumber)
         {
             highlightSprite.enabled = true;
@@ -73,7 +73,6 @@ public class OnitamaCard : MonoBehaviourPun
     [PunRPC]
     public void TurnOffHighlight()
     {
-        //highlightSprite.enabled = false;
         if (highlightSprite != null)
             highlightSprite.enabled = false;
     }
@@ -82,23 +81,22 @@ public class OnitamaCard : MonoBehaviourPun
     [PunRPC]
     public void TurnOnUpcoming()
     {
-        //overlayShadeSprite.enabled = true;
-        //upcomingText.enabled = true;
-        //cardCollider.enabled = false;
         if (overlayShadeSprite != null)
             overlayShadeSprite.enabled = true;
         if (upcomingText != null)
             upcomingText.enabled = true;
         if (cardCollider != null)
             cardCollider.enabled = false;
+
+        if (playerId == 2)
+        {
+            photonView.RPC("ResetCardRotation", RpcTarget.AllBuffered);
+        }
     }
 
     [PunRPC]
     public void TurnOffUpcoming()
     {
-        //overlayShadeSprite.enabled = false;
-        //upcomingText.enabled = false;
-        //cardCollider.enabled = true;
         if (overlayShadeSprite != null)
             overlayShadeSprite.enabled = false;
         if (upcomingText != null)
@@ -107,10 +105,25 @@ public class OnitamaCard : MonoBehaviourPun
             cardCollider.enabled = true;
     }
 
+    [PunRPC]
+    public void RotateCardForP2()
+    {
+        if (!overlayShadeSprite.enabled)
+        {
+            Quaternion targetRotation = Quaternion.Euler(0, 0, 180);
+            StartCoroutine(MoveUtils.SmoothRotate(1f, targetRotation, cardHolder));
+        }
+    }
+
+    [PunRPC]
+    public void ResetCardRotation()
+    {
+        Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
+        StartCoroutine(MoveUtils.SmoothRotate(1f, targetRotation, cardHolder));
+    }
+
     public void Destroy()
     {
-        //Destroy(this.cardHolder);
-        //Destroy(this);
         PhotonNetwork.Destroy(cardHolder);
     }
 }

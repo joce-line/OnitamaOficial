@@ -424,7 +424,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         foreach (CardMove move in moves)
         {
-            int newX = move.x + x;
+            int newX = move.x * mult + x;
             int newY = move.y * mult + y;
 
             // Verifica se a nova posição está dentro do tabuleiro 5x5
