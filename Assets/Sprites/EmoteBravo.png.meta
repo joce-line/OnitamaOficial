@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EmoteBravo_0: 1604589331145577405
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
