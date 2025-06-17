@@ -21,6 +21,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Button readyButton;
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI roomNameText;
+    public GameObject disconnectImage;
 
     private List<StatusPlayerItem> playerItems = new List<StatusPlayerItem>();
     private List<SkinChoiceItem> skinItems = new List<SkinChoiceItem>();
@@ -87,11 +88,25 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         UpdatePlayerList();
     }
 
+    //public override void OnPlayerLeftRoom(Player otherPlayer)
+    //{
+    //    UpdatePlayerList();
+    //    playerSkinChoices.Remove(otherPlayer.ActorNumber);
+    //    UpdateSkinAvailability();
+    //}
+
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         UpdatePlayerList();
         playerSkinChoices.Remove(otherPlayer.ActorNumber);
         UpdateSkinAvailability();
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            photonView.RPC("ShowDisconnectImageAndReturn", RpcTarget.All);
+        }
     }
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
@@ -278,6 +293,47 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         StartCoroutine(StartCountdown());
     }
 
+    [PunRPC]
+    private void ShowDisconnectImageAndReturn()
+    {
+        if (disconnectImage != null)
+        {
+            disconnectImage.SetActive(true);
+        }
+
+        StartCoroutine(ReturnToLobbyTest());
+    }
+
+    private IEnumerator ReturnToLobbyTest()
+    {
+        yield return new WaitForSeconds(2f); 
+
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+            while (PhotonNetwork.InRoom)
+            {
+                yield return null;
+            }
+        }
+
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.Disconnect();
+            while (PhotonNetwork.IsConnected)
+            {
+                yield return null;
+            }
+        }
+
+        if (CreateAndJoin.instance != null)
+        {
+            Destroy(CreateAndJoin.instance.gameObject);
+        }
+
+        SceneManager.LoadScene("LobbyTest");
+    }
+
     private IEnumerator StartCountdown()
     {
         countdownText.gameObject.SetActive(true);
@@ -305,13 +361,28 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
     }
 
+    //public void Voltar()
+    //{
+    //    PhotonNetwork.LeaveRoom();
+    //    if (CreateAndJoin.instance != null)
+    //    {
+    //        Destroy(CreateAndJoin.instance.gameObject);
+    //    }
+    //    SceneManager.LoadScene("LobbyTest");
+    //}
+
     public void Voltar()
     {
-        PhotonNetwork.LeaveRoom();
-        if (CreateAndJoin.instance != null)
+        if (PhotonNetwork.IsMasterClient)
         {
-            Destroy(CreateAndJoin.instance.gameObject);
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            photonView.RPC("ShowDisconnectImageAndReturn", RpcTarget.All);
         }
-        SceneManager.LoadScene("LobbyTest");
+        else
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+
     }
 }
