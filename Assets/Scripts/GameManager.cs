@@ -484,8 +484,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             PhotonNetwork.CurrentRoom.IsOpen = true;
             PhotonNetwork.CurrentRoom.IsVisible = true;
         }
-        PhotonNetwork.LeaveRoom();
-        StartCoroutine(WaitForLeaveRoomAndDisconnect());
+
+        CreateAndJoin.instance.Voltar();
     }
 
     public void VoltarLobby()
