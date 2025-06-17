@@ -69,6 +69,14 @@ MonoBehaviour:
   - RPC_EndPlayerMovement
   - RPC_TimeoutPlayerChange
   - RPC_ClearNodeHighlights
+  - RpcplayChoroSom
+  - RpcplayOkSom
+  - RpcplayRaivaSom
+  - RpcplayRisoSom
+  - PlayChoroSom
+  - PlayOkSom
+  - PlayRaivaSom
+  - PlayRisoSom
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
