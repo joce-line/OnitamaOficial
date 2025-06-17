@@ -1950,7 +1950,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 144135478}
         m_TargetAssemblyTypeName: SonsDeProvocacao, Assembly-CSharp
-        m_MethodName: playRaivaSom
+        m_MethodName: PlayRaivaSom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2218,7 +2218,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 144135478}
         m_TargetAssemblyTypeName: SonsDeProvocacao, Assembly-CSharp
-        m_MethodName: playOkSom
+        m_MethodName: PlayOkSom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3888,7 +3888,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 144135478}
         m_TargetAssemblyTypeName: SonsDeProvocacao, Assembly-CSharp
-        m_MethodName: playRisoSom
+        m_MethodName: PlayRisoSom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4378,7 +4378,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 144135478}
         m_TargetAssemblyTypeName: SonsDeProvocacao, Assembly-CSharp
-        m_MethodName: playChoroSom
+        m_MethodName: PlayChoroSom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
