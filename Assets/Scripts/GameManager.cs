@@ -8,6 +8,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -65,7 +66,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void Start()
     {
-        Debug.Log($"[GameManager] Start: LocalPlayer={PhotonNetwork.LocalPlayer.ActorNumber}, Room={PhotonNetwork.CurrentRoom.Name}");
         LoadPlayerSkins();
         InitPlayers();
         InitGoalNodes();
@@ -307,21 +307,24 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        if (PhotonNetwork.PlayerList.Length == 1)
+        if (!VitoriaDerrota.instance.painelDerrota.activeInHierarchy && !VitoriaDerrota.instance.painelVitoria.activeInHierarchy)
         {
-            var inputManager = FindAnyObjectByType<InputManager>();
-            if (inputManager != null) inputManager.enabled = false;
-            var turnManager = FindFirstObjectByType<TurnManager>();
-            if (turnManager != null) turnManager.StopTimer();
-
-            painelReconectar.SetActive(true);
-
-            if (!PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.PlayerList.Length == 1)
             {
-                PhotonNetwork.SetMasterClient(PhotonNetwork.LocalPlayer);
-            }
+                var inputManager = FindAnyObjectByType<InputManager>();
+                if (inputManager != null) inputManager.enabled = false;
+                var turnManager = FindFirstObjectByType<TurnManager>();
+                if (turnManager != null) turnManager.StopTimer();
 
-            StartCoroutine(RedirectToLobbyAfterDelay(5f));
+                painelReconectar.SetActive(true);
+
+                if (!PhotonNetwork.IsMasterClient)
+                {
+                    PhotonNetwork.SetMasterClient(PhotonNetwork.LocalPlayer);
+                }
+
+                StartCoroutine(RedirectToLobbyAfterDelay(5f));
+            }
         }
     }
 
@@ -516,55 +519,32 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
         }
 
+        if (CreateAndJoin.instance != null)
+        {
+            Destroy(CreateAndJoin.instance.gameObject);
+        }
+
         SceneManager.LoadScene("MenuPrincipal");
         MusicManager.instance.playMusicGeral();
     }
 
-
-    //public void VoltarLobby()
-    //{
-    //    ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
-    //{
-    //    { "isReady", false },
-    //    { "selectedSkinId", -1 },
-    //    { "finalSkinId", -1 }
-    //};
-    //    PhotonNetwork.LocalPlayer.SetCustomProperties(props);
-
-    //    RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-    //    PhotonNetwork.RaiseEvent(RESET_LOBBY_EVENT, null, options, ExitGames.Client.Photon.SendOptions.SendReliable);
-
-    //    CleanUpPlayerUnits();
-    //    p1KingCaptured = false;
-    //    p2KingCaptured = false;
-
-    //    SceneManager.LoadScene("Lobby");
-    //    MusicManager.instance.playMusicGeral();
-    //}
-
     public void VoltarLobby()
     {
-        StartCoroutine(LeaveRoomAndGoToLobby());
-    }
-
-    private IEnumerator LeaveRoomAndGoToLobby()
+        ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
     {
-        if (PhotonNetwork.InRoom)
+        { "isReady", false },
+        { "selectedSkinId", -1 },
+        { "finalSkinId", -1 }
+    };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+        if (!PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
-            {
-                { "isReady", false },
-                { "selectedSkinId", -1 },
-                { "finalSkinId", -1 }
-            });
-            PhotonNetwork.LeaveRoom();
-            while (PhotonNetwork.InRoom)
-            {
-                yield return null;
-            }
+            PhotonNetwork.SetMasterClient(PhotonNetwork.LocalPlayer);
         }
 
         CleanUpPlayerUnits();
+
         p1KingCaptured = false;
         p2KingCaptured = false;
 
